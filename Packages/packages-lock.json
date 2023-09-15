@@ -256,6 +256,90 @@
       },
       "url": "https://packages.unity.com"
     },
+    "rasofiagames.nestedsocollection": {
+      "version": "1.4.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.raactions": {
+      "version": "2.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "rasofiagames.racollection": "1.1.2"
+      },
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.rabehaviourso": {
+      "version": "1.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.racollection": {
+      "version": "1.4.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.radataholder": {
+      "version": "1.4.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.raflagstracker": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.rafsm": {
+      "version": "1.4.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.ramodelsso": {
+      "version": "1.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "rasofiagames.nestedsocollection": "1.4.0"
+      },
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.raprogression": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.rascenesso": {
+      "version": "1.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "rasofiagames.nestedsocollection": "1.4.0",
+        "rasofiagames.ramodelsso": "1.1.0"
+      },
+      "url": "http://34.83.210.29:4873"
+    },
+    "rasofiagames.unitycommand": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://34.83.210.29:4873"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

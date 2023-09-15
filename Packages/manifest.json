@@ -10,6 +10,17 @@
     "com.unity.timeline": "1.7.4",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.8.0",
+    "rasofiagames.nestedsocollection": "1.4.0",
+    "rasofiagames.raactions": "2.0.0",
+    "rasofiagames.rabehaviourso": "1.0.1",
+    "rasofiagames.racollection": "1.4.1",
+    "rasofiagames.radataholder": "1.4.0",
+    "rasofiagames.raflagstracker": "1.0.0",
+    "rasofiagames.rafsm": "1.4.2",
+    "rasofiagames.ramodelsso": "1.1.1",
+    "rasofiagames.raprogression": "1.0.0",
+    "rasofiagames.rascenesso": "1.0.3",
+    "rasofiagames.unitycommand": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -41,5 +52,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "Rasofia Games",
+      "url": "http://34.83.210.29:4873",
+      "scopes": [
+        "rasofiagames"
+      ]
+    }
+  ]
 }
