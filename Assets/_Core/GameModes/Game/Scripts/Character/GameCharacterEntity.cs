@@ -1,9 +1,9 @@
 ﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using UnityEngine;
 using RaActions;
-using static GameModes.Game.Tools;
 using RaCollection;
 using System.Collections.Generic;
+using UnityEngine;
+using static GameModes.Game.Tools;
 
 namespace GameModes.Game
 {
@@ -37,6 +37,14 @@ namespace GameModes.Game
 		public Vector2 CurrentDirVector
 		{
 			get; private set;
+		}
+
+		protected void OnValidate()
+		{
+			if(CharacterView == null)
+			{
+				CharacterView = GetComponentInChildren<Character>();
+			}
 		}
 
 		protected void Awake()

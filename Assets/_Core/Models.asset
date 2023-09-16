@@ -41,4 +41,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00ca87807e52dd49af1036dcf5af567, type: 3}
   m_Name: GameSceneModel
   m_EditorClassIdentifier: 
-  _defaultCharacterPrefab: {fileID: 7045897288228535024, guid: 26d2224d28ed1864592895fd541abe91, type: 3}
+  _defaultCharacterPrefab: {fileID: 821707089124145097, guid: 856e691d6cc22b54a84a7dea3609799b, type: 3}
