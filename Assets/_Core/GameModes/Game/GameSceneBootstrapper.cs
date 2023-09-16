@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace GameModes.Game
 {
-
 	// IDEA:
 	/*
 	 * Cinematic intro:
@@ -32,6 +31,12 @@ namespace GameModes.Game
 			get; private set;
 		}
 
+		[field: SerializeField]
+		public Transform CameraFollowObject
+		{
+			get; private set;
+		}
+
 		public GameCharacterEntity PlayerCharacter
 		{
 			get; private set;
@@ -51,6 +56,8 @@ namespace GameModes.Game
 			if(CharacterFactoryController.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.position).Execute(CharacterActionsSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
+				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);
+				CameraFollowObject.transform.localPosition = Vector3.zero;
 			}
 
 			_gameFSM.SwitchState(0);
