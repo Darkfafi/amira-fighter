@@ -6,7 +6,7 @@ namespace GameModes.Game
 	public class CharacterInputController : MonoBehaviour
 	{
 		[SerializeField]
-		private GameCharacter _gameCharacter = null;
+		private GameCharacterEntity _gameCharacter = null;
 
 		private (KeyCode, Direction)[] _keycodeToDirectionMap = new (KeyCode, Direction)[]
 		{

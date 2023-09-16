@@ -5,9 +5,9 @@ namespace GameModes.Game
 	public class GameSceneModel : RaModelSOBase
 	{
 		[SerializeField]
-		private GameCharacter _defaultCharacterPrefab = null;
+		private GameCharacterEntity _defaultCharacterPrefab = null;
 
-		public GameCharacter PlayerCharacterPrefab
+		public GameCharacterEntity PlayerCharacterPrefab
 		{
 			get; private set;
 		}

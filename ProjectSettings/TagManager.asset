@@ -12,7 +12,7 @@ TagManager:
   - LoadingScreen
   - Water
   - UI
-  - 
+  - BoundingBox
   - 
   - 
   - 
@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3716871625
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
