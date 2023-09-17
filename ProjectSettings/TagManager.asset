@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - LoadingScreen
+  - Enemy
+  - Blocker
   layers:
   - Default
   - TransparentFX
@@ -12,10 +14,10 @@ TagManager:
   - LoadingScreen
   - Water
   - UI
-  - BoundingBox
+  - Play Area
   - Confiner
-  - 
-  - 
+  - Enemy - Play Area
+  - Player - Play Area
   - 
   - 
   - 

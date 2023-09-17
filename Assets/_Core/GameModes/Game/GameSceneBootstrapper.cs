@@ -53,7 +53,7 @@ namespace GameModes.Game
 		{
 			base.OnSetDataResolved();
 
-			if(CharacterFactoryController.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.position).Execute(CharacterActionsSystem.Processor, out var result))
+			if(CharacterFactoryController.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.GetSpawnPosition()).Execute(CharacterActionsSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
 				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);

@@ -18,7 +18,18 @@ namespace GameModes.Game
 		private Rigidbody2D _rigidBody2D = null;
 
 		[SerializeField]
-		private float _speed = 1f;
+		private Vector2 _speedRange = Vector2.one;
+
+		[SerializeField]
+		private int _hp = 5;
+
+		[SerializeField]
+		private float _attackRadius = 1f;
+
+		[SerializeField]
+		private float _runSpeedThreshold = 4f;
+
+		public float AttackRadius => _attackRadius;
 
 		[field: SerializeField]
 		public Character CharacterView
@@ -39,6 +50,17 @@ namespace GameModes.Game
 			get; private set;
 		}
 
+		[field: SerializeField]
+		public float Speed
+		{
+			get; private set;
+		}
+
+		public Health Health
+		{
+			get; private set;
+		}
+
 		protected void OnValidate()
 		{
 			if(CharacterView == null)
@@ -49,15 +71,24 @@ namespace GameModes.Game
 
 		protected void Awake()
 		{
-			SetDirectionFlag(Direction.None, true).Execute(CharacterActionsSystem.Processor);
+			Health = new Health(_hp);
+			Speed = Random.Range(_speedRange.x, _speedRange.y);
+			SetDirectionFlag(Direction.None, SetDirectionFlagAction.WriteType.Override).Execute(CharacterActionsSystem.Processor);
 		}
 
 		protected void FixedUpdate()
 		{
 			if(CurrentDirections != Direction.None)
 			{
-				_rigidBody2D.MovePosition(_rigidBody2D.position + CurrentDirVector * _speed * Time.fixedDeltaTime);
+				_rigidBody2D.MovePosition(_rigidBody2D.position + CurrentDirVector * Speed * Time.fixedDeltaTime);
 			}
+		}
+
+		protected void OnDrawGizmos()
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(transform.position, _attackRadius);
+			Gizmos.color = Color.white;
 		}
 
 		public bool AddTag(string tag)
@@ -87,6 +118,21 @@ namespace GameModes.Game
 		{
 			return new MainAttackAction((parameters) =>
 			{
+				Vector3 centerOfCrowd = Vector3.zero;
+				RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _attackRadius, Vector2.zero);
+				for(int i = 0; i < hits.Length; i++)
+				{
+					RaycastHit2D hit = hits[i];
+					if(hit.collider.TryGetComponent(out GameCharacterEntity entity))
+					{
+						centerOfCrowd += entity.transform.position;
+						if (entity.tag != tag)
+						{
+							entity.Health.Damage(1);
+						}
+					}
+				}
+
 				CharacterView.Slash();
 				return new MainAttackAction.ActionResult()
 				{
@@ -124,18 +170,22 @@ namespace GameModes.Game
 
 		#region Movement
 
-		public SetDirectionFlagAction SetDirectionFlag(Direction direction, bool enabled)
+		public SetDirectionFlagAction SetDirectionFlag(Direction direction, SetDirectionFlagAction.WriteType writeType)
 		{
 			return new SetDirectionFlagAction((parameters) =>
 			{
 				// Logics
-				if (enabled)
+				switch(writeType)
 				{
-					parameters.Character.CurrentDirections |= parameters.Direction;
-				}
-				else
-				{
-					parameters.Character.CurrentDirections &= ~parameters.Direction;
+					case SetDirectionFlagAction.WriteType.Add:
+						parameters.Character.CurrentDirections |= parameters.Direction;
+						break;
+					case SetDirectionFlagAction.WriteType.Remove:
+						parameters.Character.CurrentDirections &= ~parameters.Direction;
+						break;
+					case SetDirectionFlagAction.WriteType.Override:
+						parameters.Character.CurrentDirections = parameters.Direction;
+						break;
 				}
 
 				parameters.Character.CurrentDirVector = parameters.Character.CurrentDirections.ToVector(normalized: true);
@@ -143,7 +193,9 @@ namespace GameModes.Game
 				// Visuals
 				if (parameters.Character.CurrentDirections != Direction.None)
 				{
-					parameters.Character.CharacterView.SetState(CharacterState.Run);
+					CharacterState movementState = parameters.Character.Speed >= _runSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
+
+					parameters.Character.CharacterView.SetState(movementState);
 					parameters.Character.CharacterView.transform.localScale = new Vector3(Mathf.Sign(parameters.Character.CurrentDirVector.x), 1f, 1f);
 				}
 				else
@@ -159,7 +211,7 @@ namespace GameModes.Game
 			{
 				Character = this,
 				Direction = direction,
-				Enabled = enabled,
+				WriteType = writeType,
 			});
 		}
 
@@ -174,7 +226,7 @@ namespace GameModes.Game
 			{
 				public GameCharacterEntity Character;
 				public Direction Direction;
-				public bool Enabled;
+				public WriteType WriteType;
 			}
 
 			public struct ActionResult : IRaActionResult
@@ -184,6 +236,13 @@ namespace GameModes.Game
 					get; set;
 				}
 
+			}
+
+			public enum WriteType
+			{
+				Override = 0,
+				Add = 1,
+				Remove = 2
 			}
 		}
 

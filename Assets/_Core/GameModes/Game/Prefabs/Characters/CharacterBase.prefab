@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7035369729795643171}
   m_Layer: 6
   m_Name: Navigation Collider
-  m_TagString: Untagged
+  m_TagString: Blocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.3}
@@ -230,10 +230,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tags: []
   _rigidBody2D: {fileID: 8609164269614340071}
-  _speed: 3.5
+  _speedRange: {x: 3, y: 3}
+  _hp: 5
+  _attackRadius: 1.7
+  _runSpeedThreshold: 2.95
   <CharacterView>k__BackingField: {fileID: 0}
   <CurrentDirections>k__BackingField: 0
   <CurrentDirVector>k__BackingField: {x: 0, y: 0}
+  <Speed>k__BackingField: 0
 --- !u!50 &8609164269614340071
 Rigidbody2D:
   serializedVersion: 4
@@ -247,8 +251,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 100
+  m_AngularDrag: 100
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:

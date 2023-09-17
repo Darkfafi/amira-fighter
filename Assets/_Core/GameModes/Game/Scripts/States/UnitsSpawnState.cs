@@ -3,10 +3,9 @@ using RaFSM;
 using System;
 using UnityEngine;
 
-
 namespace GameModes.Game
 {
-	public class UnitsSpawnState : GameFSMState
+	public class UnitsSpawnState : GameFSMStateBase
 	{
 		[SerializeField]
 		private WeightedCharacter[] _charactersPool = null;
@@ -27,7 +26,8 @@ namespace GameModes.Game
 			
 			for (int i = 0; i < _amountToSpawn; i++)
 			{
-				if(Dependency.CharacterFactoryController.SpawnCharacter(_charactersPool.GetRandomItem().Character, Vector3.zero).Execute(CharacterActionsSystem.Processor, out var result))
+				Vector3 spawnPoint = Dependency.Level.GetEnemySpawnPoint(0).GetSpawnPosition();
+				if(Dependency.CharacterFactoryController.SpawnCharacter(_charactersPool.GetRandomItem().Character, spawnPoint).Execute(CharacterActionsSystem.Processor, out var result))
 				{
 					_spawnedCharacters.Add(result.CreatedCharacter);
 				}

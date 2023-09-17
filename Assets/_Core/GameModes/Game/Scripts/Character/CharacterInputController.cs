@@ -24,12 +24,12 @@ namespace GameModes.Game
 
 				if(Input.GetKeyDown(key))
 				{
-					_gameCharacter.SetDirectionFlag(dir, true).Execute(CharacterActionsSystem.Processor);
+					_gameCharacter.SetDirectionFlag(dir, GameCharacterEntity.SetDirectionFlagAction.WriteType.Add).Execute(CharacterActionsSystem.Processor);
 				}
 
 				if(Input.GetKeyUp(key))
 				{
-					_gameCharacter.SetDirectionFlag(dir, false).Execute(CharacterActionsSystem.Processor);
+					_gameCharacter.SetDirectionFlag(dir, GameCharacterEntity.SetDirectionFlagAction.WriteType.Remove).Execute(CharacterActionsSystem.Processor);
 				}
 			}
 
