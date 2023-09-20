@@ -38,9 +38,10 @@ namespace GameModes.Game
 
 			IsChasing = false;
 
-			if (CharacterActionsSystem.IsAvailable)
+			if (CharacterCoreSystem.IsAvailable)
 			{
-				Dependency.Character.SetDirectionFlag(Tools.Direction.None, GameCharacterEntity.SetDirectionFlagAction.WriteType.Override).Execute(CharacterActionsSystem.Processor);
+				CharacterCoreSystem.Instance.SetDirectionFlag(Dependency.Character, Tools.Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
+					.Execute(CharacterActionsSystem.Processor);
 			}
 		}
 
@@ -133,11 +134,14 @@ namespace GameModes.Game
 					{
 						direction |= Tools.Direction.Up;
 					}
-					Dependency.Character.SetDirectionFlag(direction, GameCharacterEntity.SetDirectionFlagAction.WriteType.Override).Execute(CharacterActionsSystem.Processor);
+
+					CharacterCoreSystem.Instance.SetDirectionFlag(Dependency.Character, direction, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
+						.Execute(CharacterActionsSystem.Processor);
 				}
 				else
 				{
-					Dependency.Character.SetDirectionFlag(Tools.Direction.None, GameCharacterEntity.SetDirectionFlagAction.WriteType.Override).Execute(CharacterActionsSystem.Processor);
+					CharacterCoreSystem.Instance.SetDirectionFlag(Dependency.Character, Tools.Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
+						.Execute(CharacterActionsSystem.Processor);
 					Dependency.GoToIdleState();
 				}
 

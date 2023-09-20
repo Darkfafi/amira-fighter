@@ -96,4 +96,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc04f1f7cdc665438020e7abfa8f45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCharacter: {fileID: 7336382082595238827}
+  <Character>k__BackingField: {fileID: 7336382082595238827}
