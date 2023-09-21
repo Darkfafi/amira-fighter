@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7388211200909750580
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394456fa4bdf25343a6657bd07d08df1, type: 3}
+  m_Name: OrthographicSortingSystem
+  m_EditorClassIdentifier: 
+  _dependencies: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e96d7cf93b07b40ad0ad95e3fff613, type: 3}
+  m_Name: GameSystemsCollection
+  m_EditorClassIdentifier: 
+  _nestedSOItems:
+  - {fileID: 2032442280188660891}
+  - {fileID: -7388211200909750580}
+  - {fileID: 2242681745087986672}
+  - {fileID: 2436287510375637637}
+--- !u!114 &2032442280188660891
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a672bfd1ef9c14a9dc13865df1ad0f, type: 3}
+  m_Name: CharacterActionsSystem
+  m_EditorClassIdentifier: 
+  _dependencies: []
+--- !u!114 &2242681745087986672
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b614e4db6d007c48b0d48ddcececd07, type: 3}
+  m_Name: CharacterCoreSystem
+  m_EditorClassIdentifier: 
+  _dependencies:
+  - {fileID: 2032442280188660891}
+--- !u!114 &2436287510375637637
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb22ae77ccb42c41ab3db4cbeaa40e8, type: 3}
+  m_Name: EnemyAILeaderSystem
+  m_EditorClassIdentifier: 
+  _dependencies:
+  - {fileID: 2032442280188660891}
+  - {fileID: 2242681745087986672}

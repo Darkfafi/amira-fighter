@@ -5,17 +5,21 @@ using static GameModes.Game.Tools;
 
 namespace GameModes.Game
 {
-	public class CharacterCoreSystem : GameSystemBase<CharacterCoreSystem>
+	public class CharacterCoreSystem : GameSystemBase
 	{
-		[SerializeField]
-		private Transform _charactersParent = null;
+		public RaActionsProcessor Processor => GetDependency<CharacterActionsSystem>().Processor;
 
-		protected override void OnSetData()
+		protected override void OnSetup()
 		{
 
 		}
 
-		protected override void OnClearData()
+		protected override void OnStart()
+		{
+
+		}
+
+		protected override void OnEnd()
 		{
 
 		}
@@ -27,14 +31,14 @@ namespace GameModes.Game
 			return new MainAttackAction((parameters) =>
 			{
 				Vector3 centerOfCrowd = Vector3.zero;
-				RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, parameters.Character.AttackRadius, Vector2.zero);
+				RaycastHit2D[] hits = Physics2D.CircleCastAll(parameters.Character.transform.position, parameters.Character.AttackRadius, Vector2.zero);
 				for(int i = 0; i < hits.Length; i++)
 				{
 					RaycastHit2D hit = hits[i];
 					if(hit.collider.TryGetComponent(out GameCharacterEntity otherEntity))
 					{
 						centerOfCrowd += otherEntity.transform.position;
-						if(otherEntity.tag != tag)
+						if(otherEntity.tag != parameters.Character.tag)
 						{
 							otherEntity.Health.Damage(1);
 						}
@@ -143,7 +147,6 @@ namespace GameModes.Game
 				{
 					get; set;
 				}
-
 			}
 
 			public enum WriteType
@@ -162,7 +165,7 @@ namespace GameModes.Game
 			{
 				if (parameters.CharacterPrefab)
 				{
-					GameCharacterEntity instance = Instantiate(parameters.CharacterPrefab, parameters.Position, Quaternion.identity, _charactersParent);
+					GameCharacterEntity instance = Instantiate(parameters.CharacterPrefab, parameters.Position, Quaternion.identity);
 					return new SpawnCharacterAction.ActionResult()
 					{
 						CreatedCharacter = instance,

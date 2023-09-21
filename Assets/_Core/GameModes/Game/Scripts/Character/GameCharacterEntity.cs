@@ -12,6 +12,9 @@ namespace GameModes.Game
 		public string Id => GetInstanceID().ToString();
 
 		[SerializeField]
+		private CharacterCoreSystem _coreSystem = null;
+
+		[SerializeField]
 		private List<string> _tags = new List<string>();
 
 		[SerializeField]
@@ -62,6 +65,8 @@ namespace GameModes.Game
 			get; private set;
 		}
 
+		public CharacterCoreSystem CoreSystem => _coreSystem;
+
 		protected void OnValidate()
 		{
 			if(CharacterView == null)
@@ -74,8 +79,8 @@ namespace GameModes.Game
 		{
 			Health = new Health(_hp);
 			Speed = Random.Range(_speedRange.x, _speedRange.y);
-			CharacterCoreSystem.Instance.SetDirectionFlag(this, Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
-				.Execute(CharacterActionsSystem.Processor);
+			CoreSystem.SetDirectionFlag(this, Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
+				.Execute(CoreSystem.Processor);
 		}
 
 		protected void FixedUpdate()

@@ -27,21 +27,21 @@ namespace GameModes.Game
 
 				if(Input.GetKeyDown(key))
 				{
-					CharacterCoreSystem.Instance.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Add)
-						.Execute(CharacterActionsSystem.Processor);
+					Character.CoreSystem.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Add)
+						.Execute(Character.CoreSystem.Processor);
 				}
 
 				if(Input.GetKeyUp(key))
 				{
-					CharacterCoreSystem.Instance.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Remove)
-						.Execute(CharacterActionsSystem.Processor);
+					Character.CoreSystem.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Remove)
+						.Execute(Character.CoreSystem.Processor);
 				}
 			}
 
 			if(Input.GetKeyDown(KeyCode.K))
 			{
-				CharacterCoreSystem.Instance.MainAttack(Character)
-					.Execute(CharacterActionsSystem.Processor);
+				Character.CoreSystem.MainAttack(Character)
+					.Execute(Character.CoreSystem.Processor);
 			}
 		}
 	}

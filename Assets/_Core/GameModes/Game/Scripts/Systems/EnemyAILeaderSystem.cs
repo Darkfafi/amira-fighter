@@ -3,27 +3,33 @@ using UnityEngine;
 
 namespace GameModes.Game
 {
-	public class EnemyAILeaderSystem : GameSystemBase<EnemyAILeaderSystem>
+	public class EnemyAILeaderSystem : GameSystemBase
 	{
 		private RaCollection<EnemyAIController> _spawnedEnemies;
 
-		protected override void OnInitialization()
+		private CharacterActionsSystem _characterActionsSystem = null;
+
+		protected override void OnSetup()
 		{
-			base.OnInitialization();
 			_spawnedEnemies = new RaCollection<EnemyAIController>(OnEnemyAdded, OnEnemyRemoved);
+
+			_characterActionsSystem = GetDependency<CharacterActionsSystem>();
+
+			_characterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
+			_characterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
 		}
 
-		protected override void OnSetData()
+		protected override void OnStart()
 		{
-			CharacterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
-			CharacterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
+
 		}
 
-		protected override void OnClearData()
+		protected override void OnEnd()
 		{
+			_spawnedEnemies.Dispose();
 
-			CharacterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
-			CharacterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
+			_characterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
+			_characterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
 		}
 
 		private void OnEnemyAdded(EnemyAIController item, int index)

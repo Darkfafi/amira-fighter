@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sortingGroup: {fileID: 5147660285373004639}
+  _system: {fileID: -7388211200909750580, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
 --- !u!1 &8762060249457118219
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1b79bc1170927418e63172cc888173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coreSystem: {fileID: 2242681745087986672, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
   _tags: []
   _rigidBody2D: {fileID: 8609164269614340071}
   _speedRange: {x: 3, y: 3}
