@@ -5,8 +5,11 @@ namespace GameModes.Game
 {
 	public class CharacterInputController : MonoBehaviour
 	{
-		[SerializeField]
-		private GameCharacterEntity _gameCharacter = null;
+		[field: SerializeField]
+		public GameCharacterEntity Character
+		{
+			get; private set;
+		}
 
 		private (KeyCode, Direction)[] _keycodeToDirectionMap = new (KeyCode, Direction)[]
 		{
@@ -24,18 +27,21 @@ namespace GameModes.Game
 
 				if(Input.GetKeyDown(key))
 				{
-					_gameCharacter.SetDirectionFlag(dir, GameCharacterEntity.SetDirectionFlagAction.WriteType.Add).Execute(CharacterActionsSystem.Processor);
+					Character.CoreSystem.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Add)
+						.Execute(Character.CoreSystem.Processor);
 				}
 
 				if(Input.GetKeyUp(key))
 				{
-					_gameCharacter.SetDirectionFlag(dir, GameCharacterEntity.SetDirectionFlagAction.WriteType.Remove).Execute(CharacterActionsSystem.Processor);
+					Character.CoreSystem.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Remove)
+						.Execute(Character.CoreSystem.Processor);
 				}
 			}
 
 			if(Input.GetKeyDown(KeyCode.K))
 			{
-				_gameCharacter.MainAttack().Execute(CharacterActionsSystem.Processor);
+				Character.CoreSystem.MainAttack(Character)
+					.Execute(Character.CoreSystem.Processor);
 			}
 		}
 	}

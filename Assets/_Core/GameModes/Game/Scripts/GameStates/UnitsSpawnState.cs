@@ -22,19 +22,20 @@ namespace GameModes.Game
 
 		protected override void OnEnter()
 		{
-			CharacterActionsSystem.MainActionEvent.RegisterMethod<CharacterFactoryController.DespawnCharacterAction>(OnUnitDespawned);
+			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
 			
 			for (int i = 0; i < _amountToSpawn; i++)
 			{
 				Vector3 spawnPoint = Dependency.Level.GetEnemySpawnPoint(0).GetSpawnPosition();
-				if(Dependency.CharacterFactoryController.SpawnCharacter(_charactersPool.GetRandomItem().Character, spawnPoint).Execute(CharacterActionsSystem.Processor, out var result))
+				if(Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_charactersPool.GetRandomItem().Character, spawnPoint)
+					.Execute(Dependency.GameSystems.CharacterCoreSystem.Processor, out var result))
 				{
 					_spawnedCharacters.Add(result.CreatedCharacter);
 				}
 			}
 		}
 
-		private void OnUnitDespawned(CharacterFactoryController.DespawnCharacterAction action)
+		private void OnUnitDespawned(CharacterCoreSystem.DespawnCharacterAction action)
 		{
 			if(	action.Result.Success && 
 				action.Parameters.CharacterToDespawn.HasTag(nameof(UnitsSpawnState)) && 
@@ -46,15 +47,12 @@ namespace GameModes.Game
 
 		protected override void OnExit(bool isSwitch)
 		{
-			if (CharacterActionsSystem.IsAvailable)
-			{
-				CharacterActionsSystem.MainActionEvent.UnregisterMethod<CharacterFactoryController.DespawnCharacterAction>(OnUnitDespawned);
+			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
 
-				_spawnedCharacters.ForEach(character =>
-				{
-					Dependency.CharacterFactoryController.DespawnCharacter(character).Execute(CharacterActionsSystem.Processor);
-				});
-			}
+			_spawnedCharacters.ForEach(character =>
+			{
+				Dependency.GameSystems.CharacterCoreSystem.DespawnCharacter(character).Execute(Dependency.GameSystems.CharacterCoreSystem.Processor);
+			});
 
 			_spawnedCharacters.Clear();
 		}

@@ -9,6 +9,9 @@ namespace GameModes.Game
 		[SerializeField]
 		private SortingGroup _sortingGroup = null;
 
+		[SerializeField]
+		private OrthographicSortingSystem _system = null;
+
 		private void OnValidate()
 		{
 			if(_sortingGroup == null)
@@ -19,17 +22,17 @@ namespace GameModes.Game
 
 		protected void OnEnable()
 		{
-			OrthographicSortingSystem.Register(this);
+			_system.Register(this);
 		}
 
 		protected void OnDisable()
 		{
-			OrthographicSortingSystem.Unregister(this);
+			_system.Unregister(this);
 		}
 
 		protected void OnDestroy()
 		{
-			OrthographicSortingSystem.Unregister(this);
+			_system.Unregister(this);
 		}
 
 		public void Refresh()

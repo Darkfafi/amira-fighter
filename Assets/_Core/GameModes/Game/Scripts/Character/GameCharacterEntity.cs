@@ -13,6 +13,9 @@ namespace GameModes.Game
 		public string Id => GetInstanceID().ToString();
 
 		[SerializeField]
+		private CharacterCoreSystem _coreSystem = null;
+
+		[SerializeField]
 		private List<string> _tags = new List<string>();
 
 		[SerializeField]
@@ -31,6 +34,7 @@ namespace GameModes.Game
 		private float _runSpeedThreshold = 4f;
 
 		public float AttackRadius => _attackRadius;
+		public float RunSpeedThreshold => _runSpeedThreshold;
 
 		[field: SerializeField]
 		public Character CharacterView
@@ -42,13 +46,13 @@ namespace GameModes.Game
 		[field: SerializeField]
 		public Direction CurrentDirections
 		{
-			get; private set;
+			get; set;
 		}
 
 		[field: SerializeField]
 		public Vector2 CurrentDirVector
 		{
-			get; private set;
+			get; set;
 		}
 
 		[field: SerializeField]
@@ -61,6 +65,8 @@ namespace GameModes.Game
 		{
 			get; private set;
 		}
+
+		public CharacterCoreSystem CoreSystem => _coreSystem;
 
 		protected void OnValidate()
 		{
@@ -78,7 +84,10 @@ namespace GameModes.Game
 			_agent.speed = Speed = Random.Range(_speedRange.x, _speedRange.y);
 
 			Health = new Health(_hp);
-			SetDirectionFlag(Direction.None, SetDirectionFlagAction.WriteType.Override).Execute(CharacterActionsSystem.Processor);
+
+			Speed = Random.Range(_speedRange.x, _speedRange.y);
+			CoreSystem.SetDirectionFlag(this, Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
+				.Execute(CoreSystem.Processor);
 		}
 
 		protected void Update()
@@ -121,141 +130,5 @@ namespace GameModes.Game
 		{
 			return _tags.Contains(tag);
 		}
-
-		#region Attacks
-
-		public MainAttackAction MainAttack()
-		{
-			return new MainAttackAction((parameters) =>
-			{
-				Vector3 centerOfCrowd = Vector3.zero;
-				RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _attackRadius, Vector2.zero);
-				for(int i = 0; i < hits.Length; i++)
-				{
-					RaycastHit2D hit = hits[i];
-					if(hit.collider.TryGetComponent(out GameCharacterEntity entity))
-					{
-						centerOfCrowd += entity.transform.position;
-						if (entity.tag != tag)
-						{
-							entity.Health.Damage(1);
-						}
-					}
-				}
-
-				CharacterView.Slash();
-				return new MainAttackAction.ActionResult()
-				{
-					Success = true
-				};
-			}, new MainAttackAction.ActionParams() 
-			{ 
-				Character = this 
-			});
-		}
-
-		public class MainAttackAction : RaAction<MainAttackAction.ActionParams, MainAttackAction.ActionResult>
-		{
-			public MainAttackAction(MainHandler executeMethod, ActionParams parameters)
-				: base(executeMethod, parameters)
-			{
-			}
-
-			public struct ActionParams
-			{
-				public GameCharacterEntity Character;
-			}
-
-			public struct ActionResult : IRaActionResult
-			{
-				public bool Success
-				{
-					get; set;
-				}
-
-			}
-		}
-
-		#endregion
-
-		#region Movement
-
-		public SetDirectionFlagAction SetDirectionFlag(Direction direction, SetDirectionFlagAction.WriteType writeType)
-		{
-			return new SetDirectionFlagAction((parameters) =>
-			{
-				// Logics
-				switch(writeType)
-				{
-					case SetDirectionFlagAction.WriteType.Add:
-						parameters.Character.CurrentDirections |= parameters.Direction;
-						break;
-					case SetDirectionFlagAction.WriteType.Remove:
-						parameters.Character.CurrentDirections &= ~parameters.Direction;
-						break;
-					case SetDirectionFlagAction.WriteType.Override:
-						parameters.Character.CurrentDirections = parameters.Direction;
-						break;
-				}
-
-				parameters.Character.CurrentDirVector = parameters.Character.CurrentDirections.ToVector(normalized: true);
-
-				// Visuals
-				if (parameters.Character.CurrentDirections != Direction.None)
-				{
-					CharacterState movementState = parameters.Character.Speed >= _runSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
-
-					parameters.Character.CharacterView.SetState(movementState);
-					parameters.Character.CharacterView.transform.localScale = new Vector3(Mathf.Sign(parameters.Character.CurrentDirVector.x), 1f, 1f);
-				}
-				else
-				{
-					parameters.Character.CharacterView.SetState(CharacterState.Idle);
-				}
-
-				return new SetDirectionFlagAction.ActionResult()
-				{
-					Success = true
-				};
-			}, new SetDirectionFlagAction.ActionParams()
-			{
-				Character = this,
-				Direction = direction,
-				WriteType = writeType,
-			});
-		}
-
-		public class SetDirectionFlagAction : RaAction<SetDirectionFlagAction.ActionParams, SetDirectionFlagAction.ActionResult>
-		{
-			public SetDirectionFlagAction(MainHandler executeMethod, ActionParams parameters) 
-				: base(executeMethod, parameters)
-			{
-			}
-
-			public struct ActionParams
-			{
-				public GameCharacterEntity Character;
-				public Direction Direction;
-				public WriteType WriteType;
-			}
-
-			public struct ActionResult : IRaActionResult
-			{
-				public bool Success
-				{
-					get; set;
-				}
-
-			}
-
-			public enum WriteType
-			{
-				Override = 0,
-				Add = 1,
-				Remove = 2
-			}
-		}
-
-		#endregion
 	}
 }

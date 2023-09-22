@@ -1,4 +1,5 @@
 ﻿using RaFSM;
+using System.Linq;
 using UnityEngine;
 
 namespace GameModes.Game
@@ -19,12 +20,6 @@ namespace GameModes.Game
 	public class GameSceneBootstrapper : SceneBootstrapperBase<GameSceneModel>, IRaFSMCycler
 	{
 		[field: SerializeField]
-		public CharacterFactoryController CharacterFactoryController
-		{
-			get; private set;
-		}
-
-		[field: SerializeField]
 		public GameLevel Level
 
 		{
@@ -42,7 +37,19 @@ namespace GameModes.Game
 			get; private set;
 		}
 
+		[SerializeField]
+		private GameSystemsCollection _gameSystems;
+
 		private RaGOFiniteStateMachine _gameFSM;
+		private GameSystemsController _gameSystemsController;
+
+		public GameSystemsController GameSystems => _gameSystemsController;
+
+		protected override void OnInitialization()
+		{
+			base.OnInitialization();
+			_gameSystemsController = new GameSystemsController(_gameSystems.GetItems().ToArray());
+		}
 
 		protected override void OnSetData()
 		{
@@ -53,7 +60,9 @@ namespace GameModes.Game
 		{
 			base.OnSetDataResolved();
 
-			if(CharacterFactoryController.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.GetSpawnPosition()).Execute(CharacterActionsSystem.Processor, out var result))
+			_gameSystemsController.Register(this);
+
+			if(GameSystems.CharacterCoreSystem.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.GetSpawnPosition()).Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
 				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);
@@ -65,12 +74,8 @@ namespace GameModes.Game
 
 		protected override void OnClearData()
 		{
+			_gameSystemsController.Unregister(this);
 			_gameFSM.Dispose();
-
-			if (CharacterActionsSystem.IsAvailable)
-			{
-				CharacterFactoryController.DespawnCharacter(PlayerCharacter).Execute(CharacterActionsSystem.Processor);
-			}
 		}
 
 		public void GoToNextState()
