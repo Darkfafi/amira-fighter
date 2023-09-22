@@ -3,6 +3,7 @@ using RaActions;
 using RaCollection;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using static GameModes.Game.Tools;
 
 namespace GameModes.Game
@@ -15,7 +16,7 @@ namespace GameModes.Game
 		private List<string> _tags = new List<string>();
 
 		[SerializeField]
-		private Rigidbody2D _rigidBody2D = null;
+		private NavMeshAgent _agent = null;
 
 		[SerializeField]
 		private Vector2 _speedRange = Vector2.one;
@@ -71,16 +72,25 @@ namespace GameModes.Game
 
 		protected void Awake()
 		{
+			_agent.updateRotation = false;
+			_agent.updateUpAxis = false;
+
+			_agent.speed = Speed = Random.Range(_speedRange.x, _speedRange.y);
+
 			Health = new Health(_hp);
-			Speed = Random.Range(_speedRange.x, _speedRange.y);
 			SetDirectionFlag(Direction.None, SetDirectionFlagAction.WriteType.Override).Execute(CharacterActionsSystem.Processor);
 		}
 
-		protected void FixedUpdate()
+		protected void Update()
 		{
 			if(CurrentDirections != Direction.None)
 			{
-				_rigidBody2D.MovePosition(_rigidBody2D.position + CurrentDirVector * Speed * Time.fixedDeltaTime);
+				_agent.isStopped = false;
+				_agent.SetDestination(transform.position + new Vector3(CurrentDirVector.x, CurrentDirVector.y));
+			}
+			else
+			{
+				_agent.isStopped = true;
 			}
 		}
 
