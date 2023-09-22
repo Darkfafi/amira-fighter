@@ -1,69 +1,45 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using UnityEngine;
 
 namespace GameModes.Game
 {
 	public class OrthographicSortingSystem : GameSystemBase
 	{
-		private HashSet<OrthographicAgent> _agents = new HashSet<OrthographicAgent>();
-		private CancellationTokenSource _source = null;
+		private OrthographicSortingBehaviour _behaviour;
 
 		public void Register(OrthographicAgent agent)
 		{
-			if(IsInitialized)
+			if(_behaviour != null)
 			{
-				_agents.Add(agent);
-				agent.Refresh();
+				_behaviour.Register(agent);
 			}
 		}
 
 		public void Unregister(OrthographicAgent agent)
 		{
-			if(IsInitialized)
+			if(_behaviour != null)
 			{
-				_agents.Remove(agent);
-			}
-		}
-
-		private async Task SortingRoutine()
-		{
-			CancellationToken token = _source.Token;
-			while(IsInitialized)
-			{
-				if(token.IsCancellationRequested)
-				{
-					break;
-				}
-
-				foreach(var agent in _agents)
-				{
-					agent.Refresh();
-				}
-				await Task.Delay(10);
+				_behaviour.Unregister(agent);
 			}
 		}
 
 		protected override void OnSetup()
 		{
-			_source = new CancellationTokenSource();
-			Task.Run(() => SortingRoutine());
+			_behaviour = new GameObject("<Behaviour>").AddComponent<OrthographicSortingBehaviour>();
+			DontDestroyOnLoad(_behaviour);
 		}
 
 		protected override void OnStart()
 		{
+
 		}
 
 		protected override void OnEnd()
 		{
-			if(_source != null)
+			if (_behaviour != null)
 			{
-				_source.Cancel();
-				_source.Dispose();
-				_source = null;
+				Destroy(_behaviour.gameObject);
+				_behaviour = null;
 			}
-
-			_agents.Clear();
 		}
 	}
 }

@@ -26,10 +26,13 @@ namespace GameModes.Game
 
 		protected override void OnEnd()
 		{
-			_spawnedEnemies.Dispose();
+			if (_spawnedEnemies != null)
+			{
+				_spawnedEnemies.Dispose();
 
-			_characterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
-			_characterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
+				_characterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
+				_characterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
+			}
 		}
 
 		private void OnEnemyAdded(EnemyAIController item, int index)

@@ -45,24 +45,20 @@ namespace GameModes.Game
 
 		public GameSystemsController GameSystems => _gameSystemsController;
 
-		protected override void OnInitialization()
-		{
-			base.OnInitialization();
-			_gameSystemsController = new GameSystemsController(_gameSystems.GetItems().ToArray());
-		}
-
 		protected override void OnSetData()
 		{
+			_gameSystemsController = new GameSystemsController(_gameSystems.GetItems().ToArray());
 			_gameFSM = new RaGOFiniteStateMachine(this, RaGOFiniteStateMachine.GetGOStates(transform));
+
+			_gameSystemsController.Register(this);
 		}
 
 		protected override void OnSetDataResolved()
 		{
 			base.OnSetDataResolved();
 
-			_gameSystemsController.Register(this);
-
-			if(GameSystems.CharacterCoreSystem.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.GetSpawnPosition()).Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
+			if(GameSystems.CharacterCoreSystem.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.GetSpawnPosition())
+				.Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
 				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);

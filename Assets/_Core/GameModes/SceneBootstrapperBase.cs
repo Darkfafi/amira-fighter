@@ -25,12 +25,6 @@ public abstract class SceneBootstrapperBase<TModel> : RaMonoDataHolderBase<TMode
 	protected override void OnInitialization()
 	{
 		base.OnInitialization();
-		SetData(ModelLocator.GetModelSO<TModel>(), resolve: false);
-		Invoke(nameof(StartScene), 0.1f);
-	}
-
-	private void StartScene()
-	{
-		Resolve();
+		SetData(ModelLocator.GetModelSO<TModel>());
 	}
 }

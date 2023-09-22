@@ -30,6 +30,7 @@ namespace GameModes.Game
 		protected override void OnEnd()
 		{
 			Processor.Dispose();
+			MainActionEvent.Dispose();
 		}
 
 		private void OnExecutedMainActionEvent(RaAction action)

@@ -20,14 +20,9 @@ namespace GameModes.Game
 			}
 		}
 
-		protected void OnEnable()
+		protected void Start()
 		{
 			_system.Register(this);
-		}
-
-		protected void OnDisable()
-		{
-			_system.Unregister(this);
 		}
 
 		protected void OnDestroy()
