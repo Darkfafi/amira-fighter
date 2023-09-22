@@ -27498,6 +27498,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
+      propertyPath: <CharacterName>k__BackingField
+      value: Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336382082595238827, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
       propertyPath: <CharacterView>k__BackingField
       value: 
       objectReference: {fileID: 3770081026812736076}

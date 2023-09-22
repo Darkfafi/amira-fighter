@@ -37,6 +37,12 @@ namespace GameModes.Game
 		public float RunSpeedThreshold => _runSpeedThreshold;
 
 		[field: SerializeField]
+		public string CharacterName
+		{
+			get; private set;
+		}
+
+		[field: SerializeField]
 		public Character CharacterView
 		{
 			get; private set;

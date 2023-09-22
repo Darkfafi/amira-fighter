@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: _runSpeedThreshold
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: <CharacterName>k__BackingField
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8762060249457118219, guid: 5949244e74505dc4183730aec0e08150, type: 3}
       propertyPath: m_Name
       value: CharacterBase - Enemy
