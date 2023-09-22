@@ -1,5 +1,4 @@
-﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using HeroEditor.Common;
+﻿using HeroEditor.Common;
 using System;
 using System.Collections;
 using TMPro;
@@ -13,7 +12,7 @@ namespace GameModes.Game
 		[SerializeField]
 		private GameObject _container = null;
 		[SerializeField]
-		private CharacterPortrait _portraitImage = null;
+		private CharacterPortraitView _characterPortraitView = null;
 		[SerializeField]
 		private TextMeshProUGUI _textLabel = null;
 		[SerializeField]
@@ -53,8 +52,8 @@ namespace GameModes.Game
 			_container.SetActive(true);
 			_dialogData = dialogData;
 
-			_portraitImage.ReplaceData(_dialogData.CharacterJSON);
-			_portraitImage.gameObject.SetActive(!string.IsNullOrEmpty(_dialogData.CharacterJSON));
+			_characterPortraitView.ReplaceData(_dialogData.CharacterJSON);
+			_characterPortraitView.gameObject.SetActive(!string.IsNullOrEmpty(_dialogData.CharacterJSON));
 
 			_textLabel.text = FormatDisplayText(0f, out _);
 			_nameLabel.text = _dialogData.Name;
@@ -88,7 +87,6 @@ namespace GameModes.Game
 					callback?.Invoke();
 				}
 			}
-
 		}
 
 		public void HideDialog()
@@ -112,7 +110,9 @@ namespace GameModes.Game
 				_durationRoutine = null;
 			}
 
-			_portraitImage.ClearData();
+			_characterPortraitView.ClearData();
+			_nameLabel.text = string.Empty;
+			_textLabel.text = string.Empty;
 
 			IsBeingShown = false;
 

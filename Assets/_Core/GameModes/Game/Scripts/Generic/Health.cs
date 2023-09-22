@@ -20,6 +20,8 @@ namespace GameModes.Game
 			get; private set;
 		}
 
+		public float NormalizedValue => (float)HP / MaxHP;
+
 		public bool IsAlive => HP > 0;
 
 		public Health(int hp)

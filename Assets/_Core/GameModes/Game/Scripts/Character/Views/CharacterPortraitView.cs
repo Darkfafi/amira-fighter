@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameModes.Game
 {
-	public class CharacterPortrait : RaMonoDataHolderBase<string>
+	public class CharacterPortraitView : RaMonoDataHolderBase<string>
 	{
 		[SerializeField]
 		private CharacterBase _character = null;

@@ -32,13 +32,19 @@ namespace GameModes.Game
 			get; private set;
 		}
 
-		public GameCharacterEntity PlayerCharacter
+		[field: SerializeField]
+		public CharacterHUDView CharacterHUDView
 		{
 			get; private set;
 		}
 
 		[SerializeField]
 		private GameSystemsCollection _gameSystems;
+
+		public GameCharacterEntity PlayerCharacter
+		{
+			get; private set;
+		}
 
 		private RaGOFiniteStateMachine _gameFSM;
 		private GameSystemsController _gameSystemsController;
@@ -61,6 +67,7 @@ namespace GameModes.Game
 				.Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
+				CharacterHUDView.SetData(PlayerCharacter);
 				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);
 				CameraFollowObject.transform.localPosition = Vector3.zero;
 			}
@@ -70,6 +77,8 @@ namespace GameModes.Game
 
 		protected override void OnClearData()
 		{
+			CharacterHUDView.ClearData();
+
 			_gameSystemsController.Unregister(this);
 			_gameFSM.Dispose();
 		}
