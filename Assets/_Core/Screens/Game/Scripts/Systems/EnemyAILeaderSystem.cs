@@ -1,7 +1,7 @@
 using RaCollection;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class EnemyAILeaderSystem : GameSystemBase
 	{

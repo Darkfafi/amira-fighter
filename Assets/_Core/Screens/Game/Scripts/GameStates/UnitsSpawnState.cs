@@ -3,7 +3,7 @@ using RaFSM;
 using System;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class UnitsSpawnState : GameFSMStateBase
 	{

@@ -1,6 +1,6 @@
 using RaModelsSO;
 
-namespace GameModes.Menu
+namespace Screens.Menu
 {
 	public class MenuSceneModel : RaModelSOBase
 	{

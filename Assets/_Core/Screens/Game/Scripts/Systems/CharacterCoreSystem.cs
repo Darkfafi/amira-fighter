@@ -1,9 +1,9 @@
 ﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using RaActions;
 using UnityEngine;
-using static GameModes.Game.Tools;
+using static Screens.Game.Tools;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class CharacterCoreSystem : GameSystemBase
 	{

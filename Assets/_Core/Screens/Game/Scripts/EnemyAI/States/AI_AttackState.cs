@@ -1,4 +1,4 @@
-﻿namespace GameModes.Game
+﻿namespace Screens.Game
 {
 	public class AI_AttackState : EnemyAIStateBase
 	{

@@ -2,7 +2,7 @@ using HeroEditor.Common;
 using RaDataHolder;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class CharacterPortraitView : RaMonoDataHolderBase<string>
 	{

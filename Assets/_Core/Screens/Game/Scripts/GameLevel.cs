@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class GameLevel : MonoBehaviour
 	{

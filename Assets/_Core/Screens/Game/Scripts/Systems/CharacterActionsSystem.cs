@@ -1,7 +1,7 @@
 ﻿using RaActions;
 using RaCastedEvents;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class CharacterActionsSystem : GameSystemBase
 	{

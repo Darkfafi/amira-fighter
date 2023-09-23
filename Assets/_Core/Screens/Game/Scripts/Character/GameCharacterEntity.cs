@@ -4,9 +4,9 @@ using RaCollection;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static GameModes.Game.Tools;
+using static Screens.Game.Tools;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class GameCharacterEntity : MonoBehaviour, IRaCollectionElement
 	{

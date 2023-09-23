@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class OrthographicSortingBehaviour : MonoBehaviour
 	{

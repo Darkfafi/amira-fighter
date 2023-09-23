@@ -1,9 +1,8 @@
-﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using RaFSM;
+﻿using RaFSM;
 using System;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class DialogState : RaGOFSMState
 	{

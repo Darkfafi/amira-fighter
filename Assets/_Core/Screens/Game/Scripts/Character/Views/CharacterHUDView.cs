@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class CharacterHUDView : RaMonoDataHolderBase<GameCharacterEntity>
 	{

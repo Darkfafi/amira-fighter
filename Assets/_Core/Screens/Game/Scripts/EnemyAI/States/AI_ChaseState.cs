@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 
 	public class AI_ChaseState : EnemyAIStateBase

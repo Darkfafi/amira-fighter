@@ -1,7 +1,7 @@
 ﻿using NestedSO;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	[CreateAssetMenu]
 	public class GameSystemsCollection : NestedSOCollectionBase<GameSystemBase>

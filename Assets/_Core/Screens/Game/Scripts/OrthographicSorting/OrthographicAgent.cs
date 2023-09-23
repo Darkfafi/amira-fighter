@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	[RequireComponent(typeof(SortingGroup))]
 	public class OrthographicAgent : MonoBehaviour

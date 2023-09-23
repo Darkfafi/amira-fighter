@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	// IDEA:
 	/*

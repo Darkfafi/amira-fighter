@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class DialogView : MonoBehaviour, IPointerClickHandler
 	{

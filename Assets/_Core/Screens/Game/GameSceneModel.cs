@@ -1,6 +1,6 @@
 ﻿using RaModelsSO;
 using UnityEngine;
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public class GameSceneModel : RaModelSOBase
 	{

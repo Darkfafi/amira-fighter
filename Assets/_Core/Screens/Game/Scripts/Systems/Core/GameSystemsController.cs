@@ -1,7 +1,7 @@
 ﻿using RaActions;
 using RaBehaviourSO;
 
-namespace GameModes.Game
+namespace Screens.Game
 {
 	public sealed class GameSystemsController : RaBehaviourSOController<GameSystemBase>
 	{
