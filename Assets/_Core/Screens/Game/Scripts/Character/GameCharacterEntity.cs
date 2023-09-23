@@ -1,14 +1,10 @@
 ﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using RaActions;
 using RaCollection;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using static Screens.Game.Tools;
 
 namespace Screens.Game
 {
-
 	public class GameCharacterEntity : MonoBehaviour, IRaCollectionElement
 	{
 		public string Id => GetInstanceID().ToString();
@@ -101,7 +97,7 @@ namespace Screens.Game
 					CharacterView.SetState(movementState);
 					if (Mathf.Abs(VisualizedVelocity.x) > MovementController.Speed * 0.35)
 					{
-						CharacterView.transform.localScale = new Vector3(Mathf.Sign(VisualizedVelocity.x), 1f, 1f);
+						SetLookDirection(VisualizedVelocity.x);
 					}
 				}
 				else
@@ -109,6 +105,16 @@ namespace Screens.Game
 					CharacterView.SetState(CharacterState.Idle);
 				}
 			}
+		}
+
+		public void SetLookDirection(float direction)
+		{
+			if(Mathf.Approximately(direction, 0f))
+			{
+				return;
+			}
+
+			CharacterView.transform.localScale = new Vector3(Mathf.Sign(direction), 1f, 1f);
 		}
 
 		protected void OnDrawGizmos()

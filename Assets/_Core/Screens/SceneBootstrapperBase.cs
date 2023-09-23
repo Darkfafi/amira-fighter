@@ -1,5 +1,6 @@
 using RaDataHolder;
 using RaModelsSO;
+using RaScenesSO;
 using System;
 using UnityEngine;
 
@@ -25,6 +26,21 @@ public abstract class SceneBootstrapperBase<TModel> : RaMonoDataHolderBase<TMode
 	protected override void OnInitialization()
 	{
 		base.OnInitialization();
+
+		RaSceneModelSO sceneModelSO = ModelLocator.GetModelSO<RaSceneModelSO>();
+		if(sceneModelSO.IsLoading)
+		{
+			sceneModelSO.SceneLoadEndedEvent += OnSceneLoadedEvent;
+		}
+		else
+		{
+			OnSceneLoadedEvent(sceneModelSO.CurrentScene);
+		}
+	}
+
+	private void OnSceneLoadedEvent(RaSceneSO scene)
+	{
+		ModelLocator.GetModelSO<RaSceneModelSO>().SceneLoadEndedEvent -= OnSceneLoadedEvent;
 		SetData(ModelLocator.GetModelSO<TModel>());
 	}
 }

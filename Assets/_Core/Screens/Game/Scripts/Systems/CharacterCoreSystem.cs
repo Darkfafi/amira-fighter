@@ -24,9 +24,9 @@ namespace Screens.Game
 
 		}
 
-		#region Attacks
+		#region Skills
 
-		public MainAttackAction MainAttack(GameCharacterEntity entity)
+		public MainAttackAction MainSkill(GameCharacterEntity entity)
 		{
 			return new MainAttackAction((parameters) =>
 			{
@@ -80,13 +80,14 @@ namespace Screens.Game
 
 		#endregion
 
-		public SpawnCharacterAction SpawnCharacter(GameCharacterEntity characterPrefab, Vector3 position)
+		public SpawnCharacterAction SpawnCharacter(GameCharacterEntity characterPrefab, Vector3 position, float lookDirection = 0f)
 		{
 			return new SpawnCharacterAction((parameters) => 
 			{
 				if (parameters.CharacterPrefab)
 				{
 					GameCharacterEntity instance = Instantiate(parameters.CharacterPrefab, parameters.Position, Quaternion.identity);
+					instance.SetLookDirection(parameters.LookDirection);
 					return new SpawnCharacterAction.ActionResult()
 					{
 						CreatedCharacter = instance,
@@ -97,6 +98,7 @@ namespace Screens.Game
 			}, new SpawnCharacterAction.ActionParams()
 			{
 				CharacterPrefab = characterPrefab,
+				LookDirection = lookDirection,
 				Position = position,
 			});
 		}
@@ -112,6 +114,7 @@ namespace Screens.Game
 			{
 				public GameCharacterEntity CharacterPrefab;
 				public Vector3 Position;
+				public float LookDirection;
 			}
 
 			public struct ActionResult : IRaActionResult

@@ -17,17 +17,19 @@ namespace Screens.Game
 
 		protected override void OnInit()
 		{
+			base.OnInit();
 			_spawnedCharacters = new RaElementCollection<GameCharacterEntity>(onAddItem: OnCharacterAdded, onRemoveItem: OnCharacterRemoved);
 		}
 
 		protected override void OnEnter()
 		{
+			base.OnEnter();
 			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
 			
 			for (int i = 0; i < _amountToSpawn; i++)
 			{
 				Vector3 spawnPoint = Dependency.Level.GetEnemySpawnPoint(0).GetSpawnPosition();
-				if(Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_charactersPool.GetRandomItem().Character, spawnPoint)
+				if(Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_charactersPool.GetRandomItem().Character, spawnPoint, UnityEngine.Random.Range(-1f, 1f))
 					.Execute(Dependency.GameSystems.CharacterCoreSystem.Processor, out var result))
 				{
 					_spawnedCharacters.Add(result.CreatedCharacter);
@@ -55,12 +57,14 @@ namespace Screens.Game
 			});
 
 			_spawnedCharacters.Clear();
+			base.OnExit(isSwitch);
 		}
 
 		protected override void OnDeinit()
 		{
 			_spawnedCharacters.Dispose();
 			_spawnedCharacters = null;
+			base.OnDeinit();
 		}
 
 		private void OnCharacterAdded(GameCharacterEntity item, int index)

@@ -8,7 +8,7 @@
 
 		protected override void OnEnter()
 		{
-			Dependency.Character.CoreSystem.MainAttack(Dependency.Character)
+			Dependency.Character.CoreSystem.MainSkill(Dependency.Character)
 				.Execute(Dependency.Character.CoreSystem.Processor);
 			Dependency.GoToIdleState();
 		}

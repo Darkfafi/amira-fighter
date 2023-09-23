@@ -4,7 +4,12 @@ using UnityEngine;
 
 namespace Screens.Game
 {
-	public class DialogState : RaGOFSMState
+	public interface IDialogCharacterContainer
+	{
+		GameCharacterEntity GetCharacter(int index);
+	}
+
+	public class DialogState : RaGOStateBase
 	{
 		[SerializeField]
 		private DialogEntry[] _dialog;
@@ -13,6 +18,11 @@ namespace Screens.Game
 		private DialogView _dialogView = null;
 
 		private int _currentIndex = 0;
+
+		protected override void OnInit()
+		{
+
+		}
 
 		protected override void OnEnter()
 		{
@@ -30,7 +40,20 @@ namespace Screens.Game
 
 		private void ShowDialog()
 		{
-			_dialogView.ShowDialog(_dialog[_currentIndex].CreateData(OnContinueDialog));
+			DialogEntry entry = _dialog[_currentIndex];
+			GameCharacterEntity overrideCharacterEntity = null;
+
+			if (entry.EnableCharacterLookupByIndex)
+			{
+				overrideCharacterEntity = GetDependency<IDialogCharacterContainer>().GetCharacter(entry.CharacterIndex);
+			}
+
+			_dialogView.ShowDialog(_dialog[_currentIndex].CreateData(OnContinueDialog, overrideCharacterEntity));
+		}
+
+		protected override void OnDeinit()
+		{
+
 		}
 
 		private void OnContinueDialog()
@@ -49,6 +72,11 @@ namespace Screens.Game
 		[Serializable]
 		private struct DialogEntry
 		{
+			[Header("IDialogCharacterContainer")]
+			public int CharacterIndex;
+			public bool EnableCharacterLookupByIndex;
+
+			[Header("Dialog Options")]
 			public GameCharacterEntity Character;
 
 			public string NameOverride;
@@ -56,11 +84,18 @@ namespace Screens.Game
 			[TextArea]
 			public string DialogText;
 
-			public DialogView.DialogData CreateData(Action callback)
+			public DialogView.DialogData CreateData(Action callback, GameCharacterEntity overrideCharacter)
 			{
+				GameCharacterEntity selectedCharacter = Character;
+
+				if(overrideCharacter != null)
+				{
+					selectedCharacter = overrideCharacter;
+				}
+
 				return DialogView.DialogData.Create(DialogText)
-					.SetPortrait(Character.CharacterView)
-					.SetName(string.IsNullOrEmpty(NameOverride) ? Character.CharacterName : NameOverride)
+					.SetPortrait(selectedCharacter.CharacterView)
+					.SetName(string.IsNullOrEmpty(NameOverride) ? selectedCharacter.CharacterName : NameOverride)
 					.SetContinueCallback(callback);
 			}
 		}

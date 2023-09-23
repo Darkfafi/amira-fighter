@@ -15,8 +15,18 @@ namespace Screens.Game
 		[SerializeField]
 		private TMP_Text _nameLabel = null;
 
+		[SerializeField]
+		private GameObject _container = null;
+
+		protected override void OnInitialization()
+		{
+			base.OnInitialization();
+			_container.SetActive(false);
+		}
+
 		protected override void OnSetData()
 		{
+			_container.SetActive(true);
 			_nameLabel.text = Data.CharacterName;
 			_healthView.SetData(Data.Health);
 			_characterPortraitView.SetData(Data.CharacterView.ToJson());
@@ -27,6 +37,7 @@ namespace Screens.Game
 			_nameLabel.text = string.Empty;
 			_healthView.ClearData();
 			_characterPortraitView.ClearData();
+			_container.SetActive(false);
 		}
 	}
 }

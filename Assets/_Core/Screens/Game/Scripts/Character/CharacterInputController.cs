@@ -54,7 +54,7 @@ namespace Screens.Game
 
 			if (Input.GetKeyDown(KeyCode.K))
 			{
-				Character.CoreSystem.MainAttack(Character)
+				Character.CoreSystem.MainSkill(Character)
 					.Execute(Character.CoreSystem.Processor);
 			}
 		}

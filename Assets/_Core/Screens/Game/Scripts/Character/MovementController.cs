@@ -1,4 +1,5 @@
-﻿using RaTweening;
+﻿using RaFlags;
+using RaTweening;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,8 @@ namespace Screens.Game
 		{
 			get; private set;
 		}
+
+		private RaFlagsTracker _movementBlockers;
 
 		public Vector2? Destination
 		{
@@ -37,6 +40,17 @@ namespace Screens.Game
 
 		public Vector2 Velocity => Agent.isStopped ? Vector2.zero : Agent.velocity;
 
+		public RaFlagsTracker MovementBlockers
+		{
+			get
+			{
+				if(_movementBlockers == null)
+				{
+					_movementBlockers = new RaFlagsTracker(OnBlockStateChangedEvent);
+				}
+				return _movementBlockers;
+			}
+		}
 
 		public float Speed
 		{
@@ -54,6 +68,14 @@ namespace Screens.Game
 			Agent.updateUpAxis = false;
 			Agent.speed = Speed = Random.Range(SpeedRange.x, SpeedRange.y);
 			Destination = null;
+		}
+
+		private void OnBlockStateChangedEvent(bool isEmpty, RaFlagsTracker tracker)
+		{
+			if(!isEmpty)
+			{
+				Destination = null;
+			}
 		}
 	}
 }

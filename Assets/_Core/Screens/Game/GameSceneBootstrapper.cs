@@ -1,4 +1,6 @@
-﻿using RaFSM;
+﻿using Cinemachine;
+using RaFSM;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -46,24 +48,38 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		[field: SerializeField]
+		public CinemachineVirtualCamera SkyCamera
+		{
+			get; private set;
+		}
+
+		[SerializeField]
+		private float _secondsBeforeStart = 1f;
+
 		private RaGOFiniteStateMachine _gameFSM;
 		private GameSystemsController _gameSystemsController;
 
 		public GameSystemsController GameSystems => _gameSystemsController;
 
-		protected override void OnSetData()
+		protected override void OnInitialization()
 		{
 			_gameSystemsController = new GameSystemsController(_gameSystems.GetItems().ToArray());
-			_gameFSM = new RaGOFiniteStateMachine(this, RaGOFiniteStateMachine.GetGOStates(transform));
-
 			_gameSystemsController.Register(this);
+
+			base.OnInitialization();
+		}
+
+		protected override void OnSetData()
+		{
+			_gameFSM = new RaGOFiniteStateMachine(this, RaGOFiniteStateMachine.GetGOStates(transform));
 		}
 
 		protected override void OnSetDataResolved()
 		{
 			base.OnSetDataResolved();
 
-			if(GameSystems.CharacterCoreSystem.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.GetSpawnPosition())
+			if(GameSystems.CharacterCoreSystem.SpawnCharacter(Data.PlayerCharacterPrefab, Level.PlayerSpawn.GetSpawnPosition(), 1f)
 				.Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
@@ -72,11 +88,13 @@ namespace Screens.Game
 				CameraFollowObject.transform.localPosition = Vector3.zero;
 			}
 
-			_gameFSM.SwitchState(0);
+			StartCoroutine(Setup());
 		}
 
 		protected override void OnClearData()
 		{
+			StopAllCoroutines();
+
 			CharacterHUDView.ClearData();
 
 			_gameSystemsController.Unregister(this);
@@ -86,6 +104,14 @@ namespace Screens.Game
 		public void GoToNextState()
 		{
 			_gameFSM.GoToNextState(wrap: false);
+		}
+
+		private IEnumerator Setup()
+		{
+			yield return new WaitForSeconds(_secondsBeforeStart);
+
+			_gameFSM.SwitchState(0);
+			SkyCamera.Priority = 0;
 		}
 	}
 }
