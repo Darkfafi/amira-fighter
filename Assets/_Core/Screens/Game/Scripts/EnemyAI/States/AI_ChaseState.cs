@@ -3,14 +3,10 @@ using UnityEngine;
 
 namespace Screens.Game
 {
-
 	public class AI_ChaseState : EnemyAIStateBase
 	{
 		[SerializeField]
 		private float _separationRadius = 0.25f;
-
-		[SerializeField]
-		private float _dirThreshold = 0.25f;
 
 		private IEnumerator _chaseRoutine = null;
 
@@ -38,8 +34,7 @@ namespace Screens.Game
 
 			IsChasing = false;
 
-			Dependency.Character.CoreSystem.SetDirectionFlag(Dependency.Character, Tools.Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
-				.Execute(Dependency.Character.CoreSystem.Processor);
+			Dependency.Character.MovementController.Destination = null;
 		}
 
 		protected override void OnDeinit()
@@ -104,42 +99,15 @@ namespace Screens.Game
 					}
 				}
 
-				Tools.Direction direction = Tools.Direction.None;
-
 				IsChasing = targetPosition.HasValue;
 
 				if (IsChasing)
 				{
-					Vector2 toTargetDelta = targetPosition.Value - Dependency.transform.position;
-
-					if (toTargetDelta.x < -_dirThreshold)
-					{
-						direction |= Tools.Direction.Left;
-					}
-
-					if (toTargetDelta.x > _dirThreshold)
-					{
-						direction |= Tools.Direction.Right;
-					}
-
-					if (toTargetDelta.y < -_dirThreshold)
-					{
-						direction |= Tools.Direction.Down;
-					}
-
-					if (toTargetDelta.y > _dirThreshold)
-					{
-						direction |= Tools.Direction.Up;
-					}
-
-					Dependency.Character.CoreSystem.SetDirectionFlag(Dependency.Character, direction, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
-						.Execute(Dependency.Character.CoreSystem.Processor);
+					Dependency.Character.MovementController.Destination = targetPosition.Value;
 				}
 				else
 				{
-					Dependency.Character.CoreSystem.SetDirectionFlag(Dependency.Character, Tools.Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
-						.Execute(Dependency.Character.CoreSystem.Processor);
-
+					Dependency.Character.MovementController.Destination = null;
 					Dependency.GoToIdleState();
 				}
 

@@ -8,8 +8,7 @@
 
 		protected override void OnEnter()
 		{
-			Dependency.Character.CoreSystem.SetDirectionFlag(Dependency.Character, Tools.Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
-				.Execute(Dependency.Character.CoreSystem.Processor);
+			Dependency.Character.MovementController.Destination = null;
 		}
 
 		protected override void OnExit(bool isSwitch)

@@ -11,6 +11,11 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		[SerializeField]
+		private float _directionRange = 0.5f;
+
+		private Direction _direction = Direction.None;
+
 		private (KeyCode, Direction)[] _keycodeToDirectionMap = new (KeyCode, Direction)[]
 		{
 			(KeyCode.A, Direction.Left),
@@ -21,24 +26,33 @@ namespace Screens.Game
 
 		protected void Update()
 		{
-			for(int i = 0; i < _keycodeToDirectionMap.Length; i++)
+			for (int i = 0; i < _keycodeToDirectionMap.Length; i++)
 			{
 				(KeyCode key, Direction dir) = _keycodeToDirectionMap[i];
 
-				if(Input.GetKeyDown(key))
+				if (Input.GetKeyDown(key))
 				{
-					Character.CoreSystem.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Add)
-						.Execute(Character.CoreSystem.Processor);
+					_direction |= dir;
 				}
 
 				if(Input.GetKeyUp(key))
 				{
-					Character.CoreSystem.SetDirectionFlag(Character, dir, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Remove)
-						.Execute(Character.CoreSystem.Processor);
+					_direction &= ~dir;
 				}
 			}
 
-			if(Input.GetKeyDown(KeyCode.K))
+			if (_direction != Direction.None)
+			{
+				Vector2 destination = Character.transform.position;
+				destination += _direction.ToVector(normalized: true) * _directionRange;
+				Character.MovementController.Destination = destination;
+			}
+			else
+			{
+				Character.MovementController.Destination = null;
+			}
+
+			if (Input.GetKeyDown(KeyCode.K))
 			{
 				Character.CoreSystem.MainAttack(Character)
 					.Execute(Character.CoreSystem.Processor);

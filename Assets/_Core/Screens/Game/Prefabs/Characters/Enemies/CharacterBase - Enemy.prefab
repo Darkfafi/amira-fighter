@@ -215,7 +215,6 @@ MonoBehaviour:
     CurrentStateSuffix: ' [CURRENT]'
   _searchHierarchyForDependencies: 1
   _separationRadius: 1
-  _dirThreshold: 0.25
   <IsChasing>k__BackingField: 0
 --- !u!1001 &295019735313992027
 PrefabInstance:
@@ -228,6 +227,14 @@ PrefabInstance:
     - target: {fileID: 874312969381107121, guid: 5949244e74505dc4183730aec0e08150, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104221384327036973, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: <SpeedRange>k__BackingField.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104221384327036973, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: <SpeedRange>k__BackingField.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3111832403512021230, guid: 5949244e74505dc4183730aec0e08150, type: 3}
       propertyPath: m_LocalPosition.x

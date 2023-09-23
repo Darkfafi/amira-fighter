@@ -2,40 +2,44 @@
 using RaActions;
 using RaCollection;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.AI;
 using static Screens.Game.Tools;
 
 namespace Screens.Game
 {
+
 	public class GameCharacterEntity : MonoBehaviour, IRaCollectionElement
 	{
 		public string Id => GetInstanceID().ToString();
 
+		[Header("Systems")]
 		[SerializeField]
 		private CharacterCoreSystem _coreSystem = null;
 
+		[Header("Data")]
 		[SerializeField]
 		private List<string> _tags = new List<string>();
 
-		[SerializeField]
-		private NavMeshAgent _agent = null;
+		[field: Header("Controllers")]
+		[field: SerializeField]
+		public MovementController MovementController
+		{
+			get; set;
+		}
 
-		[SerializeField]
-		private Vector2 _speedRange = Vector2.one;
+		[field: Header("Combat")]
+		[field: SerializeField]
+		public float AttackRadius
+		{
+			get; private set;
+
+		}
 
 		[SerializeField]
 		private int _hp = 5;
 
-		[SerializeField]
-		private float _attackRadius = 1f;
-
-		[SerializeField]
-		private float _runSpeedThreshold = 4f;
-
-		public float AttackRadius => _attackRadius;
-		public float RunSpeedThreshold => _runSpeedThreshold;
-
+		[field: Header("View")]
 		[field: SerializeField]
 		public string CharacterName
 		{
@@ -48,26 +52,18 @@ namespace Screens.Game
 			get; private set;
 		}
 
-		[field: Header("ReadOnly")]
 		[field: SerializeField]
-		public Direction CurrentDirections
+		public float RunSpeedThreshold
 		{
-			get; set;
-		}
+			get; private set;
+		} = 3f;
 
-		[field: SerializeField]
-		public Vector2 CurrentDirVector
-		{
-			get; set;
-		}
-
-		[field: SerializeField]
-		public float Speed
+		public Health Health
 		{
 			get; private set;
 		}
 
-		public Health Health
+		public Vector2 VisualizedVelocity
 		{
 			get; private set;
 		}
@@ -84,35 +80,41 @@ namespace Screens.Game
 
 		protected void Awake()
 		{
-			_agent.updateRotation = false;
-			_agent.updateUpAxis = false;
-
-			_agent.speed = Speed = Random.Range(_speedRange.x, _speedRange.y);
-
+			MovementController.Setup();
 			Health = new Health(_hp);
 
-			Speed = Random.Range(_speedRange.x, _speedRange.y);
-			CoreSystem.SetDirectionFlag(this, Direction.None, CharacterCoreSystem.SetDirectionFlagAction.WriteType.Override)
-				.Execute(CoreSystem.Processor);
+			CharacterView.SetState(CharacterState.Idle);
 		}
 
 		protected void Update()
 		{
-			if(CurrentDirections != Direction.None)
+			Vector2 velocity = MovementController.Velocity;
+
+			if (VisualizedVelocity != velocity)
 			{
-				_agent.isStopped = false;
-				_agent.SetDestination(transform.position + new Vector3(CurrentDirVector.x, CurrentDirVector.y));
-			}
-			else
-			{
-				_agent.isStopped = true;
+				VisualizedVelocity = velocity;
+
+				if (VisualizedVelocity.magnitude > 0)
+				{
+					CharacterState movementState = MovementController.Speed >= RunSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
+
+					CharacterView.SetState(movementState);
+					if (Mathf.Abs(VisualizedVelocity.x) > MovementController.Speed * 0.35)
+					{
+						CharacterView.transform.localScale = new Vector3(Mathf.Sign(VisualizedVelocity.x), 1f, 1f);
+					}
+				}
+				else
+				{
+					CharacterView.SetState(CharacterState.Idle);
+				}
 			}
 		}
 
 		protected void OnDrawGizmos()
 		{
 			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(transform.position, _attackRadius);
+			Gizmos.DrawWireSphere(transform.position, AttackRadius);
 			Gizmos.color = Color.white;
 		}
 
