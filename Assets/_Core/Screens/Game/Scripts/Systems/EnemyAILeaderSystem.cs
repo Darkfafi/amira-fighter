@@ -1,12 +1,15 @@
 using RaCollection;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Screens.Game
 {
-
 	public class EnemyAILeaderSystem : GameSystemBase
 	{
+		public const int AttackDelayInSeconds = 3;
+
 		[SerializeField]
 		private EnemyFormation _formationPrefab = null;
 
@@ -36,11 +39,13 @@ namespace Screens.Game
 
 			_characterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
 			_characterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
+
+
 		}
 
 		protected override void OnStart()
 		{
-
+			SelectAttackerRoutine();
 		}
 
 		protected override void OnEnd()
@@ -103,7 +108,7 @@ namespace Screens.Game
 			_enemiesInSubsitution.Remove(enemy);
 
 			// Try Assign unassigned enemy to any free points
-			if(_enemiesInSubsitution.Count > 0 && TryGetFirstAvailablePoint(out Transform point))
+			if (_enemiesInSubsitution.Count > 0 && TryGetFirstAvailablePoint(out Transform point))
 			{
 				RegisterEnemyToPoint(_enemiesInSubsitution.Dequeue(), point);
 			}
@@ -111,13 +116,13 @@ namespace Screens.Game
 
 		private void OnSpawnedCharacter(CharacterCoreSystem.SpawnCharacterAction spawnAction)
 		{
-			if(spawnAction.Result.Success)
+			if (spawnAction.Result.Success)
 			{
 				if (spawnAction.Result.CreatedCharacter.TryGetComponent(out EnemyAIController enemyAI))
 				{
 					_spawnedEnemies.Add(enemyAI);
 				}
-				else if(_targetEntity == null && spawnAction.Result.CreatedCharacter.TryGetComponent<CharacterInputController>(out _))
+				else if (_targetEntity == null && spawnAction.Result.CreatedCharacter.TryGetComponent<CharacterInputController>(out _))
 				{
 					_targetEntity = spawnAction.Result.CreatedCharacter;
 					_targetFormation = Instantiate(_formationPrefab, _targetEntity.transform, worldPositionStays: false);
@@ -129,13 +134,13 @@ namespace Screens.Game
 
 		private void OnDespawnedCharacter(CharacterCoreSystem.DespawnCharacterAction despawnedAction)
 		{
-			if(despawnedAction.Result.Success)
+			if (despawnedAction.Result.Success)
 			{
 				if (despawnedAction.Parameters.CharacterToDespawn.TryGetComponent(out EnemyAIController enemyAI))
 				{
 					_spawnedEnemies.Remove(enemyAI);
 				}
-				else if(despawnedAction.Parameters.CharacterToDespawn == _targetEntity)
+				else if (despawnedAction.Parameters.CharacterToDespawn == _targetEntity)
 				{
 					_targetEntity = null;
 					Destroy(_targetFormation.gameObject);
@@ -147,7 +152,7 @@ namespace Screens.Game
 		private void RegisterEnemyToPoint(EnemyAIController enemy, Transform point)
 		{
 			UnregisterEnemyPoint(point);
-			enemy.SetCurrentFormationPoint(point);
+			enemy.SetCurrentFormationPoint(TargetEntity, point);
 			_enemyToFormationPointMap[enemy] = point;
 			_formationPointToEnemyMap[point] = enemy;
 			SetOccupationStatus(point, true);
@@ -158,12 +163,12 @@ namespace Screens.Game
 
 		private void UnregisterEnemyPoint(EnemyAIController enemy)
 		{
-			if(_enemyToFormationPointMap.TryGetValue(enemy, out Transform point))
+			if (_enemyToFormationPointMap.TryGetValue(enemy, out Transform point))
 			{
 				_enemyToFormationPointMap.Remove(enemy);
 				_formationPointToEnemyMap.Remove(point);
 				SetOccupationStatus(point, false);
-				enemy.SetCurrentFormationPoint(null);
+				enemy.ClearCurrentFormationPoint();
 				enemy.GoToIdleState();
 			}
 		}
@@ -175,14 +180,14 @@ namespace Screens.Game
 				_enemyToFormationPointMap.Remove(enemy);
 				_formationPointToEnemyMap.Remove(point);
 				SetOccupationStatus(point, false);
-				enemy.SetCurrentFormationPoint(null);
+				enemy.ClearCurrentFormationPoint();
 				enemy.GoToIdleState();
 			}
 		}
 
 		private void SetOccupationStatus(Transform point, bool status)
 		{
-			if(_targetFormation != null)
+			if (_targetFormation != null)
 			{
 				_pointsOccupationStatus[_targetFormation.GetIndex(point)] = status;
 			}
@@ -206,7 +211,7 @@ namespace Screens.Game
 		private bool TryGetFirstAvailablePoint(out Transform point)
 		{
 			int index = GetFirstAvailablePointIndex();
-			if(index >= 0)
+			if (index >= 0)
 			{
 				point = _targetFormation.Points[index];
 				return true;
@@ -221,7 +226,7 @@ namespace Screens.Game
 
 			// When Locked, Remove from Formation and from Subsitution.
 			// Then try to assign a different enemy to a spot in the formation if one was made free.
-			if(isLocked)
+			if (isLocked)
 			{
 				UnregisterEnemyPoint(enemy);
 				_enemiesInSubsitution.Remove(enemy);
@@ -238,6 +243,56 @@ namespace Screens.Game
 			{
 				_enemiesInSubsitution.Remove(enemyToAssignPoint);
 				RegisterEnemyToPoint(enemyToAssignPoint, point);
+			}
+		}
+
+		private async void SelectAttackerRoutine()
+		{
+			while (IsInitialized)
+			{
+				await Task.Delay(AttackDelayInSeconds * 1000);
+
+				if (_enemyToFormationPointMap.Count == 0)
+
+				{
+					continue;
+				}
+
+				EnemyAIController[] formationEnemies = _enemyToFormationPointMap.Keys.ToArray();
+				formationEnemies.Shuffle();
+
+				EnemyAIController enemyToAttack = null;
+
+				for (int i = 0; i < formationEnemies.Length; i++)
+				{
+					EnemyAIController formationEnemy = formationEnemies[i];
+
+					if(formationEnemy.CurrentFormationPoint == null)
+					{
+						continue;
+					}
+
+					if(formationEnemy.CurrentStateIndex != EnemyAIController.FORMATION_INDEX)
+					{
+						continue;
+					}
+
+					Vector2 formationPointDeltaFromCenter = formationEnemy.CurrentFormationPoint.transform.position - formationEnemy.CurrentFormationPoint.parent.transform.position;
+					float maxAllowedDistanceFromTarget = formationPointDeltaFromCenter.magnitude + 1f;
+
+					if(Vector2.Distance(formationEnemy.Character.transform.position, TargetEntity.transform.position) > maxAllowedDistanceFromTarget)
+					{
+						continue;
+					}
+
+					enemyToAttack = formationEnemy;
+					break;
+				}
+
+				if (enemyToAttack != null)
+				{
+					enemyToAttack.GoToAttackState();
+				}
 			}
 		}
 	}

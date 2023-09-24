@@ -155,7 +155,7 @@ MonoBehaviour:
   _coreSystem: {fileID: 2242681745087986672, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
   _tags: []
   <MovementController>k__BackingField: {fileID: 3104221384327036973}
-  <AttackRadius>k__BackingField: 0
+  <AttackRadius>k__BackingField: 1.5
   _hp: 5
   <CharacterName>k__BackingField: 
   <CharacterView>k__BackingField: {fileID: 0}

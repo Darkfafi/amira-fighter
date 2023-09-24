@@ -18,6 +18,12 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		[field: SerializeField]
+		public GameCharacterEntity Target
+		{
+			get; private set;
+		}
+
 		[SerializeField]
 		private float _lookRadius = 2f;
 
@@ -48,9 +54,16 @@ namespace Screens.Game
 			}
 		}
 
-		public void SetCurrentFormationPoint(Transform formationPoint)
+		public void SetCurrentFormationPoint(GameCharacterEntity target, Transform formationPoint)
 		{
+			Target = target;
 			CurrentFormationPoint = formationPoint;
+		}
+
+		public void ClearCurrentFormationPoint()
+		{
+			Target = null;
+			CurrentFormationPoint = null;
 		}
 
 		protected void OnDestroy()
@@ -89,6 +102,16 @@ namespace Screens.Game
 			}
 
 			_aiFSM.SwitchState(FORMATION_INDEX);
+		}
+
+		public void GoToAttackState()
+		{
+			if(Character.IsCharacterLocked)
+			{
+				return;
+			}
+
+			_aiFSM.SwitchState(ATTACK_INDEX);
 		}
 
 		private void OnCharacterLockedStateChangedEvent(bool isLocked)

@@ -1,24 +1,74 @@
-﻿namespace Screens.Game
+﻿using RaProgression;
+using System.Collections;
+using UnityEngine;
+
+namespace Screens.Game
 {
 	public class AI_AttackState : EnemyAIStateBase
 	{
+		private IEnumerator _attackRoutine = null;
+
 		protected override void OnInit()
 		{
 		}
 
 		protected override void OnEnter()
 		{
-			Dependency.Character.CoreSystem.MainSkill(Dependency.Character)
-				.Execute(Dependency.Character.CoreSystem.Processor);
-			Dependency.GoToIdleState();
+			StartCoroutine(_attackRoutine = AttackRoutine());
 		}
 
 		protected override void OnExit(bool isSwitch)
 		{
+			EndAttackState();
 		}
 
 		protected override void OnDeinit()
 		{
+		}
+
+		private IEnumerator AttackRoutine()
+		{
+			while (IsCurrentState)
+			{
+				if(Dependency.Target == null)
+				{
+					continue;
+				}
+
+				Dependency.Character.MovementController.Destination = Dependency.Target.transform.position;
+
+				if(Vector2.Distance(Dependency.Character.transform.position, Dependency.Target.transform.position) < Dependency.Character.AttackRadius)
+				{
+					if(Dependency.Character.CoreSystem.MainSkill(Dependency.Character).Execute(Dependency.Character.CoreSystem.Processor, out var result))
+					{
+						RaProgress attackProgress = result.SkillProgress;
+						yield return new WaitUntil(() => attackProgress.HasEnded);
+						attackProgress.Dispose();
+						EndAttackState();
+					}
+					else
+					{
+						EndAttackState();
+					}
+				}
+
+				yield return new WaitForSeconds(Random.Range(0.1f, 0.15f));
+			}
+			EndAttackState();
+		}
+
+		private void EndAttackState()
+		{
+			if(_attackRoutine != null)
+			{
+				StopCoroutine(_attackRoutine);
+				_attackRoutine = null;
+			}
+
+			if (IsCurrentState)
+			{
+				Dependency.GoToFormationState();
+			}
 		}
 	}
 }

@@ -1,7 +1,6 @@
-﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using RaActions;
+﻿using RaActions;
+using RaProgression;
 using UnityEngine;
-using static Screens.Game.Tools;
 
 namespace Screens.Game
 {
@@ -30,24 +29,30 @@ namespace Screens.Game
 		{
 			return new MainAttackAction((parameters) =>
 			{
-				Vector3 centerOfCrowd = Vector3.zero;
-				RaycastHit2D[] hits = Physics2D.CircleCastAll(parameters.Character.transform.position, parameters.Character.AttackRadius, Vector2.zero);
-				for(int i = 0; i < hits.Length; i++)
+				RaProgress progress = new RaProgress();
 				{
-					RaycastHit2D hit = hits[i];
-					if(hit.collider.TryGetComponent(out GameCharacterEntity otherEntity))
+					Vector3 centerOfCrowd = Vector3.zero;
+					RaycastHit2D[] hits = Physics2D.CircleCastAll(parameters.Character.transform.position, parameters.Character.AttackRadius, Vector2.zero);
+					for (int i = 0; i < hits.Length; i++)
 					{
-						centerOfCrowd += otherEntity.transform.position;
-						if(otherEntity.tag != parameters.Character.tag)
+						RaycastHit2D hit = hits[i];
+						if (hit.collider.TryGetComponent(out GameCharacterEntity otherEntity))
 						{
-							otherEntity.Health.Damage(1);
+							centerOfCrowd += otherEntity.transform.position;
+							if (otherEntity.tag != parameters.Character.tag)
+							{
+								otherEntity.Health.Damage(1);
+							}
 						}
 					}
-				}
 
-				entity.CharacterView.Slash();
+					entity.CharacterView.Slash();
+				}
+				progress.Complete();
+
 				return new MainAttackAction.ActionResult()
 				{
+					SkillProgress = progress,
 					Success = true
 				};
 			}, new MainAttackAction.ActionParams()
@@ -70,6 +75,11 @@ namespace Screens.Game
 
 			public struct ActionResult : IRaActionResult
 			{
+				public RaProgress SkillProgress
+				{
+					get; set;
+				}
+
 				public bool Success
 				{
 					get; set;
