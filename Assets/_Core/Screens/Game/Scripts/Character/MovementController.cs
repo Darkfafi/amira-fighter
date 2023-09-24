@@ -38,6 +38,7 @@ namespace Screens.Game
 			}
 		}
 
+		public bool IsMoving => !Mathf.Approximately(Velocity.magnitude, 0f);
 		public Vector2 Velocity => Agent.isStopped ? Vector2.zero : Agent.velocity;
 
 		public RaFlagsTracker MovementBlockers

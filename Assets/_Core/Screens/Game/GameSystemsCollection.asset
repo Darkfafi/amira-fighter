@@ -72,3 +72,4 @@ MonoBehaviour:
   _dependencies:
   - {fileID: 2032442280188660891}
   - {fileID: 2242681745087986672}
+  _formationPrefab: {fileID: 5511670495489811695, guid: bf2c6ada57202874c8e7083e2c74122f, type: 3}

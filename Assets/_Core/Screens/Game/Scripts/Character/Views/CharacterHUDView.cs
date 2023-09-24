@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Screens.Game
 {
-	public class CharacterHUDView : RaMonoDataHolderBase<GameCharacterEntity>
+    public class CharacterHUDView : RaMonoDataHolderBase<GameCharacterEntity>
 	{
 		[SerializeField]
 		private CharacterPortraitView _characterPortraitView = null;

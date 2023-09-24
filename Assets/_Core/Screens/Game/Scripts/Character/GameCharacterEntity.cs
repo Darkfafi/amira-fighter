@@ -2,11 +2,15 @@
 using RaCollection;
 using System.Collections.Generic;
 using UnityEngine;
+using RaFlags;
+using System;
 
 namespace Screens.Game
 {
 	public class GameCharacterEntity : MonoBehaviour, IRaCollectionElement
 	{
+		public event Action<bool> CharacterLockedStateChangedEvent;
+
 		public string Id => GetInstanceID().ToString();
 
 		[Header("Systems")]
@@ -64,7 +68,23 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		public bool IsCharacterLocked => !CharacterLockedTracker.IsEmpty();
+
 		public CharacterCoreSystem CoreSystem => _coreSystem;
+
+		public RaFlagsTracker CharacterLockedTracker
+		{
+			get
+			{
+				if(_characterLockedTracker == null)
+				{
+					_characterLockedTracker = new RaFlagsTracker(OnCharacterLockedStateChanged);
+				}
+				return _characterLockedTracker;
+			}
+		}
+
+		private RaFlagsTracker _characterLockedTracker;
 
 		protected void OnValidate()
 		{
@@ -78,8 +98,7 @@ namespace Screens.Game
 		{
 			MovementController.Setup();
 			Health = new Health(_hp);
-
-			CharacterView.SetState(CharacterState.Idle);
+			RefreshMovementAnimation();
 		}
 
 		protected void Update()
@@ -89,21 +108,7 @@ namespace Screens.Game
 			if (VisualizedVelocity != velocity)
 			{
 				VisualizedVelocity = velocity;
-
-				if (VisualizedVelocity.magnitude > 0)
-				{
-					CharacterState movementState = MovementController.Speed >= RunSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
-
-					CharacterView.SetState(movementState);
-					if (Mathf.Abs(VisualizedVelocity.x) > MovementController.Speed * 0.35)
-					{
-						SetLookDirection(VisualizedVelocity.x);
-					}
-				}
-				else
-				{
-					CharacterView.SetState(CharacterState.Idle);
-				}
+				RefreshMovementAnimation();
 			}
 		}
 
@@ -143,6 +148,35 @@ namespace Screens.Game
 		public bool HasTag(string tag)
 		{
 			return _tags.Contains(tag);
+		}
+
+		private void RefreshMovementAnimation()
+		{
+			if (VisualizedVelocity.magnitude > 0)
+			{
+				CharacterState movementState = MovementController.Speed >= RunSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
+
+				CharacterView.SetState(movementState);
+				if (MovementController.Destination.HasValue)
+				{
+					Vector2 delta = transform.position;
+					delta = MovementController.Destination.Value - delta;
+
+					if (delta.magnitude >= 0.5f)
+					{
+						SetLookDirection(delta.x);
+					}
+				}
+			}
+			else
+			{
+				CharacterView.SetState(CharacterState.Idle);
+			}
+		}
+
+		private void OnCharacterLockedStateChanged(bool isEmpty, RaFlagsTracker tracker)
+		{
+			CharacterLockedStateChangedEvent?.Invoke(!isEmpty);
 		}
 	}
 }

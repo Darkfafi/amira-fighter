@@ -19,12 +19,14 @@ namespace Screens.Game
 		{
 			base.OnEnter();
 			_speachVirtualCamera.Priority = int.MaxValue;
+			Dependency.LockCharacters(this);
 		}
 
 		protected override void OnExit(bool isSwitch)
 		{
 			base.OnExit(isSwitch);
 			_speachVirtualCamera.Priority = 0;
+			Dependency.UnlockCharacters(this);
 		}
 
 		protected override void OnDeinit()

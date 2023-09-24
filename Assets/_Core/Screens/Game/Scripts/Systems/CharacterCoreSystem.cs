@@ -80,7 +80,7 @@ namespace Screens.Game
 
 		#endregion
 
-		public SpawnCharacterAction SpawnCharacter(GameCharacterEntity characterPrefab, Vector3 position, float lookDirection = 0f)
+		public SpawnCharacterAction SpawnCharacter(GameCharacterEntity characterPrefab, Vector3 position, float lookDirection = 0f, object lockFlag = null)
 		{
 			return new SpawnCharacterAction((parameters) => 
 			{
@@ -88,6 +88,12 @@ namespace Screens.Game
 				{
 					GameCharacterEntity instance = Instantiate(parameters.CharacterPrefab, parameters.Position, Quaternion.identity);
 					instance.SetLookDirection(parameters.LookDirection);
+					
+					if (parameters.LockFlag != null)
+					{
+						instance.CharacterLockedTracker.Register(parameters.LockFlag);
+					}
+
 					return new SpawnCharacterAction.ActionResult()
 					{
 						CreatedCharacter = instance,
@@ -99,6 +105,7 @@ namespace Screens.Game
 			{
 				CharacterPrefab = characterPrefab,
 				LookDirection = lookDirection,
+				LockFlag = lockFlag,
 				Position = position,
 			});
 		}
@@ -115,6 +122,7 @@ namespace Screens.Game
 				public GameCharacterEntity CharacterPrefab;
 				public Vector3 Position;
 				public float LookDirection;
+				public object LockFlag;
 			}
 
 			public struct ActionResult : IRaActionResult

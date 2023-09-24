@@ -6,6 +6,13 @@ namespace Screens.Game
 {
 	public class GameIntroSceneFSMState : GameFSMStateBase, IDialogCharacterContainer
 	{
+		// They conduct the plan (Camera on them)
+		// Then it goes to amira, awaiting trigger
+		// Then play second cinematic (Him walking to her, singing)
+
+		// Setup Gameboard
+		// Spawn Trickster
+
 		[Header("Spawning")]
 		[SerializeField]
 		private GameCharacterEntity _tricksterPrefab = null;
@@ -34,9 +41,11 @@ namespace Screens.Game
 
 		protected override void OnEnter()
 		{
+			object setupLockFlag = new object();
+
 			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
 
-			if(Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_tricksterPrefab, _trickterSpawn.position, -1f)
+			if(Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_tricksterPrefab, _trickterSpawn.position, lookDirection: -1f, lockFlag: setupLockFlag)
 				.Execute(Dependency.GameSystems.ActionsProcessor, out var tricksterSpawnResult))
 			{
 				TricksterInstance = tricksterSpawnResult.CreatedCharacter;
@@ -47,7 +56,7 @@ namespace Screens.Game
 			for(int i = 0; i < _enemiesSpawns.Length; i++)
 			{
 				GameCharacterEntity enemyPrefab = _enemyPrefabs[Random.Range(0, _enemyPrefabs.Length)];
-				if (Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(enemyPrefab, _enemiesSpawns[i].position, 1f)
+				if (Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(enemyPrefab, _enemiesSpawns[i].position, lookDirection: 1f, lockFlag: setupLockFlag)
 					.Execute(Dependency.GameSystems.ActionsProcessor, out var enemySpawnResult))
 				{
 					enemySpawnResult.CreatedCharacter.AddTag(nameof(GameIntroSceneFSMState));
@@ -57,6 +66,8 @@ namespace Screens.Game
 			}
 
 			base.OnEnter();
+
+			UnlockCharacters(setupLockFlag);
 		}
 
 		private void OnUnitDespawned(CharacterCoreSystem.DespawnCharacterAction action)
@@ -105,6 +116,26 @@ namespace Screens.Game
 			_enemies = null;
 			TricksterInstance = null;
 			base.OnDeinit();
+		}
+
+		public void LockCharacters(object flag)
+		{
+			if(TricksterInstance != null)
+			{
+				TricksterInstance.CharacterLockedTracker.Register(flag);
+			}
+
+			Enemies.ForEachReadOnly(x => x.CharacterLockedTracker.Register(flag));
+		}
+
+		public void UnlockCharacters(object flag)
+		{
+			Enemies.ForEachReadOnly(x => x.CharacterLockedTracker.Unregister(flag));
+
+			if (TricksterInstance != null)
+			{
+				TricksterInstance.CharacterLockedTracker.Unregister(flag);
+			}
 		}
 
 		public GameCharacterEntity GetCharacter(int index)
