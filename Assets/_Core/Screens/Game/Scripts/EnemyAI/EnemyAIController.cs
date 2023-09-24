@@ -18,21 +18,18 @@ namespace Screens.Game
 			get; private set;
 		}
 
-		[field: SerializeField]
-		public GameCharacterEntity Target
-		{
-			get; private set;
-		}
-
-		[SerializeField]
-		private float _lookRadius = 2f;
-
 		[SerializeField]
 		private Transform _statesRoot = null;
 
 		[field: Header("ReadOnly")]
 		[field: SerializeField]
 		public Transform CurrentFormationPoint
+		{
+			get; private set;
+		}
+
+		[field: SerializeField]
+		public GameCharacterEntity Target
 		{
 			get; private set;
 		}
@@ -75,13 +72,6 @@ namespace Screens.Game
 
 			_aiFSM.Dispose();
 			_aiFSM = null;
-		}
-
-		private void OnDrawGizmos()
-		{
-			Gizmos.color = Color.blue;
-			Gizmos.DrawWireSphere(transform.position, _lookRadius);
-			Gizmos.color = Color.white;
 		}
 
 		public void GoToIdleState()

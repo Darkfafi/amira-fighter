@@ -81,7 +81,7 @@ namespace Screens.Game
 
 			if (Input.GetKeyDown(KeyCode.K))
 			{
-				Character.CoreSystem.MainSkill(Character)
+				Character.CoreSystem.MeleeAttackSkill(Character)
 					.Execute(Character.CoreSystem.Processor);
 			}
 		}

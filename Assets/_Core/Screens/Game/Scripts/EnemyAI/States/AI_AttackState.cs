@@ -35,11 +35,17 @@ namespace Screens.Game
 					continue;
 				}
 
+				if(!Dependency.Character.MeleeAttackSkill.CanUse())
+				{
+					continue;
+				}
+
 				Dependency.Character.MovementController.Destination = Dependency.Target.transform.position;
 
-				if(Vector2.Distance(Dependency.Character.transform.position, Dependency.Target.transform.position) < Dependency.Character.AttackRadius)
+				if(Vector2.Distance(Dependency.Character.transform.position, Dependency.Target.transform.position) < Dependency.Character.MeleeAttackSkill.AttackRadius)
 				{
-					if(Dependency.Character.CoreSystem.MainSkill(Dependency.Character).Execute(Dependency.Character.CoreSystem.Processor, out var result))
+					Dependency.Character.MovementController.Destination = null;
+					if (Dependency.Character.CoreSystem.MeleeAttackSkill(Dependency.Character).Execute(Dependency.Character.CoreSystem.Processor, out var result))
 					{
 						RaProgress attackProgress = result.SkillProgress;
 						yield return new WaitUntil(() => attackProgress.HasEnded);

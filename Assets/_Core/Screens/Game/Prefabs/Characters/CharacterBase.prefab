@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &870186764687067592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436595884281815407}
+  - component: {fileID: 5123216965598719776}
+  m_Layer: 0
+  m_Name: Skills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436595884281815407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870186764687067592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3111832403512021230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5123216965598719776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870186764687067592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7bfd73496668b4dadd1942628a2081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IconSprite>k__BackingField: {fileID: 21300000, guid: 56afccfd75bb40b19cd1935f469e9f06, type: 3}
+  <Character>k__BackingField: {fileID: 7045897288228535024}
+  <CooldownTimeInSeconds>k__BackingField: 0.35
+  <AttackRadius>k__BackingField: 1.5
+  _momentOfImpact: 0.67
+  _attackDuration: 0.3
+  _hitSingleCharacter: 1
 --- !u!1 &1636084451099887859
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +65,7 @@ GameObject:
   - component: {fileID: 9208781207385795168}
   m_Layer: 0
   m_Name: CharacterView - Root
-  m_TagString: Untagged
+  m_TagString: MainCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +156,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sortingGroup: {fileID: 5147660285373004639}
   _system: {fileID: -7388211200909750580, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
+--- !u!1 &6333056708780791605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7732587818017853578}
+  - component: {fileID: 7539278870275502360}
+  m_Layer: 0
+  m_Name: Movement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7732587818017853578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333056708780791605}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3111832403512021230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7539278870275502360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333056708780791605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a9c58f076b94b45b0b6b68295c31e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Agent>k__BackingField: {fileID: 4865798059581919181}
+  <SpeedRange>k__BackingField: {x: 4, y: 4}
 --- !u!1 &8762060249457118219
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +213,6 @@ GameObject:
   - component: {fileID: 3111832403512021230}
   - component: {fileID: 7045897288228535024}
   - component: {fileID: 4865798059581919181}
-  - component: {fileID: 3104221384327036973}
   m_Layer: 0
   m_Name: CharacterBase
   m_TagString: Untagged
@@ -138,6 +234,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9150966923884581839}
+  - {fileID: 7732587818017853578}
+  - {fileID: 1436595884281815407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7045897288228535024
@@ -154,8 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coreSystem: {fileID: 2242681745087986672, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
   _tags: []
-  <MovementController>k__BackingField: {fileID: 3104221384327036973}
-  <AttackRadius>k__BackingField: 1.5
+  <MovementController>k__BackingField: {fileID: 7539278870275502360}
+  <MeleeAttackSkill>k__BackingField: {fileID: 5123216965598719776}
   _hp: 5
   <CharacterName>k__BackingField: 
   <CharacterView>k__BackingField: {fileID: 0}
@@ -182,17 +280,3 @@ NavMeshAgent:
   m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3104221384327036973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762060249457118219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26a9c58f076b94b45b0b6b68295c31e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Agent>k__BackingField: {fileID: 4865798059581919181}
-  <SpeedRange>k__BackingField: {x: 4, y: 4}

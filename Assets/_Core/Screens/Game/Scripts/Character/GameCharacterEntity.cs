@@ -1,9 +1,9 @@
 ﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using RaCollection;
-using System.Collections.Generic;
-using UnityEngine;
 using RaFlags;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Screens.Game
 {
@@ -30,10 +30,9 @@ namespace Screens.Game
 
 		[field: Header("Combat")]
 		[field: SerializeField]
-		public float AttackRadius
+		public MeleeAttackSkill MeleeAttackSkill
 		{
 			get; private set;
-
 		}
 
 		[SerializeField]
@@ -122,13 +121,6 @@ namespace Screens.Game
 			CharacterView.transform.localScale = new Vector3(Mathf.Sign(direction), 1f, 1f);
 		}
 
-		protected void OnDrawGizmos()
-		{
-			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(transform.position, AttackRadius);
-			Gizmos.color = Color.white;
-		}
-
 		public bool AddTag(string tag)
 		{
 			if(HasTag(tag))
@@ -162,7 +154,7 @@ namespace Screens.Game
 					Vector2 delta = transform.position;
 					delta = MovementController.Destination.Value - delta;
 
-					if (delta.magnitude >= 0.5f)
+					if (delta.magnitude >= 0.15f)
 					{
 						SetLookDirection(delta.x);
 					}

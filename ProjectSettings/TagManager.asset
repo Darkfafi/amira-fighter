@@ -7,6 +7,7 @@ TagManager:
   - LoadingScreen
   - Enemy
   - Blocker
+  - Body
   layers:
   - Default
   - TransparentFX

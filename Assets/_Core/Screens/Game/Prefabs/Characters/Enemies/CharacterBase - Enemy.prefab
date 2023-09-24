@@ -214,8 +214,6 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _searchHierarchyForDependencies: 1
-  _separationRadius: 1
-  <IsChasing>k__BackingField: 0
 --- !u!1001 &295019735313992027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,6 +290,14 @@ PrefabInstance:
       propertyPath: <CharacterName>k__BackingField
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7539278870275502360, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: <SpeedRange>k__BackingField.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539278870275502360, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: <SpeedRange>k__BackingField.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8762060249457118219, guid: 5949244e74505dc4183730aec0e08150, type: 3}
       propertyPath: m_Name
       value: CharacterBase - Enemy
@@ -345,7 +351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Character>k__BackingField: {fileID: 7336382082595238827}
-  _lookRadius: 10
   _statesRoot: {fileID: 3524618557934064218}
-  _aliesInLookRadius: []
-  _targetInLookRadius: {fileID: 0}
+  <CurrentFormationPoint>k__BackingField: {fileID: 0}
+  <Target>k__BackingField: {fileID: 0}

@@ -25,35 +25,16 @@ namespace Screens.Game
 
 		#region Skills
 
-		public MainAttackAction MainSkill(GameCharacterEntity entity)
+		public MainAttackAction MeleeAttackSkill(GameCharacterEntity entity)
 		{
 			return new MainAttackAction((parameters) =>
 			{
-				RaProgress progress = new RaProgress();
-				{
-					Vector3 centerOfCrowd = Vector3.zero;
-					RaycastHit2D[] hits = Physics2D.CircleCastAll(parameters.Character.transform.position, parameters.Character.AttackRadius, Vector2.zero);
-					for (int i = 0; i < hits.Length; i++)
-					{
-						RaycastHit2D hit = hits[i];
-						if (hit.collider.TryGetComponent(out GameCharacterEntity otherEntity))
-						{
-							centerOfCrowd += otherEntity.transform.position;
-							if (otherEntity.tag != parameters.Character.tag)
-							{
-								otherEntity.Health.Damage(1);
-							}
-						}
-					}
-
-					entity.CharacterView.Slash();
-				}
-				progress.Complete();
+				bool success = parameters.Character.MeleeAttackSkill.Use();
 
 				return new MainAttackAction.ActionResult()
 				{
-					SkillProgress = progress,
-					Success = true
+					SkillProgress = parameters.Character.MeleeAttackSkill.SkillUseProgress,
+					Success = success
 				};
 			}, new MainAttackAction.ActionParams()
 			{
