@@ -8,7 +8,8 @@ namespace Screens.Game
 {
 	public class EnemyAILeaderSystem : GameSystemBase
 	{
-		public const int AttackDelayInSeconds = 3;
+		[SerializeField]
+		private Vector2 _attackDelayRange = new Vector2(1f, 3f);
 
 		[SerializeField]
 		private EnemyFormation _formationPrefab = null;
@@ -250,7 +251,7 @@ namespace Screens.Game
 		{
 			while (IsInitialized)
 			{
-				await Task.Delay(AttackDelayInSeconds * 1000);
+				await Task.Delay(Mathf.RoundToInt(Random.Range(_attackDelayRange.x, _attackDelayRange.y) * 1000));
 
 				if (_enemyToFormationPointMap.Count == 0)
 

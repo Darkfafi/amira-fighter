@@ -27505,6 +27505,10 @@ PrefabInstance:
       propertyPath: <CharacterView>k__BackingField
       value: 
       objectReference: {fileID: 8756862704053644958}
+    - target: {fileID: 7834285136135845955, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
+      propertyPath: <SpeedRange>k__BackingField.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9043520235170727248, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
       propertyPath: m_Name
       value: Enemy - Skeleton - Intro

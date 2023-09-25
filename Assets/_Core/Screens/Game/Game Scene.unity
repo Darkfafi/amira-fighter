@@ -3756,7 +3756,7 @@ MonoBehaviour:
   <CharacterHUDView>k__BackingField: {fileID: 1369636772}
   _gameSystems: {fileID: 11400000, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
   <SkyCamera>k__BackingField: {fileID: 595532138}
-  _secondsBeforeStart: 0.5
+  _secondsBeforeStart: 0.1
 --- !u!1 &1172300401
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,7 +5252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1739844956
 Transform:
   m_ObjectHideFlags: 0
@@ -6814,7 +6814,7 @@ MonoBehaviour:
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 7b08edbc850a2e747b1b6744497126a0, type: 3}
   - <RaItemWeight>k__BackingField: 1
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
-  _amountToSpawn: 10
+  _amountToSpawn: 8
 --- !u!1 &2100320926
 GameObject:
   m_ObjectHideFlags: 0

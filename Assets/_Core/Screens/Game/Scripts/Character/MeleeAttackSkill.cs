@@ -36,7 +36,6 @@ namespace Screens.Game
 			Character.CharacterView.Slash();
 
 			// Wait until Impact
-			Debug.Log("Attack - Wait For Impact");
 			float secondsUntilImpact = _attackDuration * _momentOfImpact;
 			yield return new WaitForSeconds(secondsUntilImpact);
 
@@ -54,7 +53,6 @@ namespace Screens.Game
 				return (int)Mathf.Sign(distanceA - distanceB);
 			});
 
-			Debug.Log("Attack - Impact");
 			for (int i = 0, c = hits.Length; i < c; i++)
 			{
 				var hit = hits[i];
@@ -76,9 +74,7 @@ namespace Screens.Game
 			}
 
 			// Wait until End
-			Debug.Log("Attack - Wait for animation to end");
 			yield return new WaitForSeconds(_attackDuration - secondsUntilImpact);
-			Debug.Log("Attack - End");
 			progress.Complete();
 			EndAttackRoutine();
 		}

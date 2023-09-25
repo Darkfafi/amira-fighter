@@ -144,7 +144,7 @@ namespace Screens.Game
 
 		private void RefreshMovementAnimation()
 		{
-			if (VisualizedVelocity.magnitude > 0)
+			if (VisualizedVelocity.magnitude > MovementController.Speed * 0.25f)
 			{
 				CharacterState movementState = MovementController.Speed >= RunSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
 
@@ -154,7 +154,7 @@ namespace Screens.Game
 					Vector2 delta = transform.position;
 					delta = MovementController.Destination.Value - delta;
 
-					if (delta.magnitude >= 0.15f)
+					if (delta.magnitude >= .2f)
 					{
 						SetLookDirection(delta.x);
 					}

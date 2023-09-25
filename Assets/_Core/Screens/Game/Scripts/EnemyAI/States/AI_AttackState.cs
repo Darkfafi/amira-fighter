@@ -30,6 +30,8 @@ namespace Screens.Game
 		{
 			while (IsCurrentState)
 			{
+				yield return null;
+
 				if(Dependency.Target == null)
 				{
 					continue;
