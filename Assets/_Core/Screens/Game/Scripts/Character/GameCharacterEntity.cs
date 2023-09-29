@@ -230,7 +230,7 @@ namespace Screens.Game
 
 			RaTweenBase.CompleteGroup(_hitGroup);
 
-			CharacterView.transform.TweenPunchScale(Vector3.one * 0.1f, 0.2f, 1).OnComplete(() => 
+			CharacterView.transform.TweenScale(0.9f, 0.25f).SetModifier(RaModifierType.AbsSin).OnComplete(() => 
 			{
 				CharacterView.transform.localScale = Vector3.one;
 			}).SetGroup(_hitGroup);
