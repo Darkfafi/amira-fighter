@@ -25,7 +25,13 @@ namespace Screens.Game
 		[field: SerializeField]
 		public MovementController MovementController
 		{
-			get; set;
+			get; private set;
+		}
+
+		[field: SerializeField]
+		public KnockbackController KnockbackController
+		{
+			get; private set;
 		}
 
 		[field: Header("Combat")]

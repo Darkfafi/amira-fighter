@@ -84,6 +84,8 @@ MonoBehaviour:
   _momentOfImpact: 0.67
   _attackDuration: 0.3
   _hitSingleCharacter: 1
+  _knockbackDuration: 0.15
+  _knockbackStrength: 1.15
 --- !u!1 &1636084451099887859
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +309,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Healthbar>k__BackingField: {fileID: 6872636733977452414}
   _healthbarCanvasGroup: {fileID: 7114299291806140204}
+--- !u!1 &4378481210621574691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326945699149445899}
+  m_Layer: 5
+  m_Name: Controllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326945699149445899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378481210621574691}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7732587818017853578}
+  - {fileID: 5302867094396174201}
+  m_Father: {fileID: 3111832403512021230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5342406184219605124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5302867094396174201}
+  - component: {fileID: 4165873161183577015}
+  m_Layer: 5
+  m_Name: Knockback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5302867094396174201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342406184219605124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 326945699149445899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4165873161183577015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342406184219605124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae997fe7b15d2e4a8d02cb687846273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Character>k__BackingField: {fileID: 7045897288228535024}
 --- !u!1 &6333056708780791605
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,12 +412,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6333056708780791605}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3111832403512021230}
+  m_Father: {fileID: 326945699149445899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7539278870275502360
 MonoBehaviour:
@@ -386,7 +466,7 @@ Transform:
   m_Children:
   - {fileID: 9150966923884581839}
   - {fileID: 5559998639502361317}
-  - {fileID: 7732587818017853578}
+  - {fileID: 326945699149445899}
   - {fileID: 8854160835778135990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -405,6 +485,7 @@ MonoBehaviour:
   _coreSystem: {fileID: 2242681745087986672, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
   _tags: []
   <MovementController>k__BackingField: {fileID: 7539278870275502360}
+  <KnockbackController>k__BackingField: {fileID: 4165873161183577015}
   <MeleeAttackSkill>k__BackingField: {fileID: 5123216965598719776}
   _hp: 5
   <CharacterName>k__BackingField: 

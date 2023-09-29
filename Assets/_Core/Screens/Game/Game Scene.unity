@@ -5473,6 +5473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sortingGroup: {fileID: 1760699226}
+  _agentCanvas: {fileID: 0}
   _system: {fileID: -7388211200909750580, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
 --- !u!210 &1760699226
 SortingGroup:
@@ -6814,7 +6815,7 @@ MonoBehaviour:
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 7b08edbc850a2e747b1b6744497126a0, type: 3}
   - <RaItemWeight>k__BackingField: 1
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
-  _amountToSpawn: 8
+  _amountToSpawn: 10
 --- !u!1 &2100320926
 GameObject:
   m_ObjectHideFlags: 0
@@ -7233,6 +7234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sortingGroup: {fileID: 2143853761}
+  _agentCanvas: {fileID: 0}
   _system: {fileID: -7388211200909750580, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
 --- !u!210 &2143853761
 SortingGroup:

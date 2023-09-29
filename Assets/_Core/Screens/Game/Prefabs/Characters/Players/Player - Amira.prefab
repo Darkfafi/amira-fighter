@@ -27509,6 +27509,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitSingleCharacter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: <CharacterName>k__BackingField
       value: Amira

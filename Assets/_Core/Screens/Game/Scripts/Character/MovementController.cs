@@ -1,5 +1,4 @@
 ﻿using RaFlags;
-using RaTweening;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,7 +18,9 @@ namespace Screens.Game
 			get; private set;
 		}
 
-		private RaFlagsTracker _movementBlockers;
+
+		private RaFlagsTracker _movementBlockers; 
+		private RaFlagsTracker _agentDisablers;
 
 		public Vector2? Destination
 		{
@@ -53,6 +54,18 @@ namespace Screens.Game
 			}
 		}
 
+		public RaFlagsTracker AgentDisablers
+		{
+			get
+			{
+				if(_agentDisablers == null)
+				{
+					_agentDisablers = new RaFlagsTracker(OnAgentDisabledStateChangedEvent);
+				}
+				return _agentDisablers;
+			}
+		}
+
 		public float Speed
 		{
 			get; private set;
@@ -77,6 +90,11 @@ namespace Screens.Game
 			{
 				Destination = null;
 			}
+		}
+
+		private void OnAgentDisabledStateChangedEvent(bool isEmpty, RaFlagsTracker tracker)
+		{
+			Agent.enabled = isEmpty;
 		}
 	}
 }

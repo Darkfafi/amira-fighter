@@ -29,7 +29,10 @@ namespace Screens.Game
 		private float _attackDuration = 1f;
 
 		[SerializeField]
-		private bool _hitSingleCharacter = true;
+		private float _knockbackDuration = 1f;
+
+		[SerializeField]
+		private float _knockbackStrength = 1f;
 
 		private IEnumerator _attackRoutine = null;
 
@@ -52,11 +55,13 @@ namespace Screens.Game
 			hitPos += new Vector2(Character.CharacterView.transform.localScale.x, 0) * AttackDistance;
 			var hits = Physics2D.OverlapCircleAll(hitPos, AttackRadius);
 
+			Vector2 centerPos = Character.transform.position + ((new Vector3(hitPos.x, hitPos.y) - Character.transform.position) * 0.5f);
+
 			// Sort on distance from hit position
 			Array.Sort(hits, (a, b) =>
 			{
-				float distanceA = Vector2.Distance(a.transform.position, hitPos);
-				float distanceB = Vector2.Distance(b.transform.position, hitPos);
+				float distanceA = Vector2.Distance(a.transform.position, centerPos);
+				float distanceB = Vector2.Distance(b.transform.position, centerPos);
 				return (int)Mathf.Sign(distanceA - distanceB);
 			});
 
@@ -72,10 +77,11 @@ namespace Screens.Game
 					hit.transform.parent.TryGetComponent(out GameCharacterEntity entity) &&
 					entity.tag != Character.transform.tag)
 				{
-					entity.Health.Damage(1);
-					if (_hitSingleCharacter)
+					if (entity.Health.Damage(1))
 					{
-						break;
+						Vector2 delta = entity.transform.position - Character.transform.position;
+
+						entity.KnockbackController.Knockback(delta.normalized, _knockbackDuration, _knockbackStrength);
 					}
 				}
 			}
