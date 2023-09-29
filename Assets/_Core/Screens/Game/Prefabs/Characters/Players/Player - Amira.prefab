@@ -27697,8 +27697,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitEffectPrefab
+      value: 
+      objectReference: {fileID: 1859849678209445064, guid: f58c26e74ac5eec4b88d1d3f86c92951, type: 3}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: _hitSingleCharacter
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitEffectPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitEffectPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1859849678209445064, guid: f58c26e74ac5eec4b88d1d3f86c92951, type: 3}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitEffectPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1859849678209445064, guid: 70db0f240f4733a488bb899eebe874a0, type: 3}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: <CooldownTimeInSeconds>k__BackingField
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: <CharacterName>k__BackingField

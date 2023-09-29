@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Screens.Game
 {
@@ -34,6 +35,9 @@ namespace Screens.Game
 		[SerializeField]
 		private float _knockbackStrength = 1f;
 
+		[SerializeField]
+		private ParticleSystem[] _hitEffectPrefabs = null;
+
 		private IEnumerator _attackRoutine = null;
 
 		protected override void DoPerform(RaProgress progres)
@@ -65,6 +69,8 @@ namespace Screens.Game
 				return (int)Mathf.Sign(distanceA - distanceB);
 			});
 
+			bool causedHit = false;
+
 			for (int i = 0, c = hits.Length; i < c; i++)
 			{
 				var hit = hits[i];
@@ -79,9 +85,18 @@ namespace Screens.Game
 				{
 					if (entity.Health.Damage(1))
 					{
+						causedHit = true;
 						Vector2 delta = entity.transform.position - Character.transform.position;
 						entity.PushMovementController.Push(delta.normalized, _knockbackDuration, _knockbackStrength);
 					}
+				}
+			}
+
+			if(causedHit)
+			{
+				if (_hitEffectPrefabs != null && _hitEffectPrefabs.Length > 0)
+				{
+					Instantiate(_hitEffectPrefabs[UnityEngine.Random.Range(0, _hitEffectPrefabs.Length)], hitPos, Quaternion.identity).SetSortingOrder(Character.OrthographicAgent.SortingOrder + 250);
 				}
 			}
 
