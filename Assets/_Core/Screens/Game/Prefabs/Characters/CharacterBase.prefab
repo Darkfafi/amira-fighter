@@ -595,6 +595,7 @@ MonoBehaviour:
   <LookDirectionThreshold>k__BackingField: 0.2
   <UIView>k__BackingField: {fileID: 3455602603986726639}
   <HitEffect>k__BackingField: {fileID: 8443320256129397867}
+  <DespawnEffectPrefab>k__BackingField: {fileID: 366628113923237753, guid: 8acc750082e4b5240ab688d5576e2449, type: 3}
 --- !u!195 &4865798059581919181
 NavMeshAgent:
   m_ObjectHideFlags: 0

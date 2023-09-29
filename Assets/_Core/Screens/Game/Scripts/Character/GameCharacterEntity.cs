@@ -107,6 +107,12 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		[field: SerializeField]
+		public ParticleSystem DespawnEffectPrefab
+		{
+			get; private set;
+		}
+
 		public Health Health
 		{
 			get; private set;
@@ -271,8 +277,13 @@ namespace Screens.Game
 				
 				if (_despawnOnDeath)
 				{
-					CharacterView.transform.TweenScale(0f, 1f).SetEasing(RaEasingType.InExpo).SetDelay(5f).OnComplete(() =>
+					int preDeathSortingOrder = OrthographicAgent.SortingOrder;
+					CharacterView.transform.TweenScale(0f, 0.25f).SetEasing(RaEasingType.InExpo).SetDelay(3f).OnComplete(() =>
 					{
+						Instantiate(DespawnEffectPrefab, CharacterView.transform.position, Quaternion.identity)
+							.SetSortingOrder(preDeathSortingOrder + 25)
+							.transform.localScale = Vector3.one * 0.75f;
+
 						CoreSystem.DespawnCharacter(this).Execute(CoreSystem.Processor);
 					});
 				}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class Utils
 {
-	public static void SetSortingOrder(this ParticleSystem rootParticleSystem, int sortingOrder)
+	public static ParticleSystem SetSortingOrder(this ParticleSystem rootParticleSystem, int sortingOrder)
 	{
 		ParticleSystemRenderer[] allParticleSystems = rootParticleSystem.GetComponentsInChildren<ParticleSystemRenderer>(true);
 
@@ -10,5 +10,7 @@ public static class Utils
 		{
 			allParticleSystems[i].sortingOrder = sortingOrder;
 		}
+
+		return rootParticleSystem;
 	}
 }
