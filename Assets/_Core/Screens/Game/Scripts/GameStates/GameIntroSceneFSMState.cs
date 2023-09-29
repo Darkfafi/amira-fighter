@@ -65,6 +65,8 @@ namespace Screens.Game
 				}
 			}
 
+			LockCharacters(setupLockFlag);
+
 			base.OnEnter();
 
 			UnlockCharacters(setupLockFlag);
@@ -120,6 +122,11 @@ namespace Screens.Game
 
 		public void LockCharacters(object flag)
 		{
+			if(Dependency.PlayerCharacter != null)
+			{
+				Dependency.PlayerCharacter.CharacterLockedTracker.Register(flag);
+			}
+
 			if(TricksterInstance != null)
 			{
 				TricksterInstance.CharacterLockedTracker.Register(flag);
@@ -135,6 +142,11 @@ namespace Screens.Game
 			if (TricksterInstance != null)
 			{
 				TricksterInstance.CharacterLockedTracker.Unregister(flag);
+			}
+
+			if (Dependency.PlayerCharacter != null)
+			{
+				Dependency.PlayerCharacter.CharacterLockedTracker.Unregister(flag);
 			}
 		}
 
