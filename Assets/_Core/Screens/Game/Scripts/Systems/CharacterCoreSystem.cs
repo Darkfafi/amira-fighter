@@ -25,33 +25,33 @@ namespace Screens.Game
 
 		#region Skills
 
-		public MainAttackAction MeleeAttackSkill(GameCharacterEntity entity)
+		public UseSkillAction UseSkill(CharacterSkillBase characterSkill)
 		{
-			return new MainAttackAction((parameters) =>
+			return new UseSkillAction((parameters) =>
 			{
-				bool success = parameters.Character.MeleeAttackSkill.Use();
+				bool success = parameters.CharacterSkill.Use();
 
-				return new MainAttackAction.ActionResult()
+				return new UseSkillAction.ActionResult()
 				{
-					SkillProgress = parameters.Character.MeleeAttackSkill.SkillUseProgress,
+					SkillProgress = parameters.CharacterSkill.SkillUseProgress,
 					Success = success
 				};
-			}, new MainAttackAction.ActionParams()
+			}, new UseSkillAction.ActionParams()
 			{
-				Character = entity
+				CharacterSkill = characterSkill
 			});
 		}
 
-		public class MainAttackAction : RaAction<MainAttackAction.ActionParams, MainAttackAction.ActionResult>
+		public class UseSkillAction : RaAction<UseSkillAction.ActionParams, UseSkillAction.ActionResult>
 		{
-			public MainAttackAction(MainHandler executeMethod, ActionParams parameters)
+			public UseSkillAction(MainHandler executeMethod, ActionParams parameters)
 				: base(executeMethod, parameters)
 			{
 			}
 
 			public struct ActionParams
 			{
-				public GameCharacterEntity Character;
+				public CharacterSkillBase CharacterSkill;
 			}
 
 			public struct ActionResult : IRaActionResult

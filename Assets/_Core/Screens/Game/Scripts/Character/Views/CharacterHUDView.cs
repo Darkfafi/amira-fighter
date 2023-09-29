@@ -1,4 +1,5 @@
-﻿using RaDataHolder;
+﻿using RaCollection;
+using RaDataHolder;
 using TMPro;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ namespace Screens.Game
 		private GameObject _container = null;
 
 		[SerializeField]
-		private SkillView _meleeSkillView = null; 
+		private SkillView[] _skillViews = null; 
 
 		protected override void OnInitialization()
 		{
@@ -34,13 +35,17 @@ namespace Screens.Game
 			_healthView.SetData(Data.Health);
 			_characterPortraitView.SetData(Data.CharacterView.ToJson());
 
-			_meleeSkillView.SetData(Data.MeleeAttackSkill);
+			for(int i = 0; i < _skillViews.Length; i++)
+			{
+				CharacterSkillBase skill = ((i <= Data.AllSkills.Length - 1) ? Data.AllSkills[i] : null);
+				_skillViews[i].ReplaceData(skill);
+			}
 		}
 
 		protected override void OnClearData()
 		{
 			_nameLabel.text = string.Empty;
-			_meleeSkillView.ClearData();
+			_skillViews.ForEachReverse(x => x.ClearData());
 			_healthView.ClearData();
 			_characterPortraitView.ClearData();
 			_container.SetActive(false);

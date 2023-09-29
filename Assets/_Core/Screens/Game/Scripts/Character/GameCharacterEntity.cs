@@ -12,6 +12,7 @@ namespace Screens.Game
 	public class GameCharacterEntity : MonoBehaviour, IRaCollectionElement
 	{
 		public event Action<bool> CharacterLockedStateChangedEvent;
+		public event Action CharacterKilledEvent;
 
 		public string Id => GetInstanceID().ToString();
 
@@ -31,7 +32,7 @@ namespace Screens.Game
 		}
 
 		[field: SerializeField]
-		public KnockbackController KnockbackController
+		public PushMovementController PushMovementController
 		{
 			get; private set;
 		}
@@ -43,8 +44,17 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		[field: SerializeField]
+		public CharacterSkillBase[] AllSkills
+		{
+			get; private set;
+		}
+
 		[SerializeField]
 		private int _hp = 5;
+
+		[SerializeField]
+		private bool _despawnOnDeath = true;
 
 		[field: Header("View")]
 		[field: SerializeField]
@@ -119,6 +129,7 @@ namespace Screens.Game
 
 		private RaFlagsTracker _characterLockedTracker;
 		private readonly object _hitGroup = new object();
+		private readonly object _deathCharacterLocker = new object();
 
 		protected void OnValidate()
 		{
@@ -154,7 +165,12 @@ namespace Screens.Game
 
 		protected void Update()
 		{
-			Vector2 velocity = MovementController.Velocity;
+            if (IsCharacterLocked)
+            {
+				return;
+            }
+
+            Vector2 velocity = MovementController.Velocity;
 
 			if (VisualizedVelocity != velocity)
 			{
@@ -196,25 +212,28 @@ namespace Screens.Game
 
 		private void RefreshMovementAnimation()
 		{
-			if (VisualizedVelocity.magnitude > MovementController.Speed * 0.25f)
+			if (!IsCharacterLocked)
 			{
-				CharacterState movementState = MovementController.Speed >= RunSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
-
-				CharacterView.SetState(movementState);
-				if (MovementController.Destination.HasValue)
+				if (VisualizedVelocity.magnitude > MovementController.Speed * 0.25f)
 				{
-					Vector2 delta = transform.position;
-					delta = MovementController.Destination.Value - delta;
+					CharacterState movementState = MovementController.Speed >= RunSpeedThreshold ? CharacterState.Run : CharacterState.Walk;
 
-					if (delta.magnitude >= .2f)
+					CharacterView.SetState(movementState);
+					if (MovementController.Destination.HasValue)
 					{
-						SetLookDirection(delta.x);
+						Vector2 delta = transform.position;
+						delta = MovementController.Destination.Value - delta;
+
+						if (delta.magnitude >= .2f)
+						{
+							SetLookDirection(delta.x);
+						}
 					}
 				}
-			}
-			else
-			{
-				CharacterView.SetState(CharacterState.Idle);
+				else
+				{
+					CharacterView.SetState(CharacterState.Idle);
+				}
 			}
 		}
 
@@ -234,6 +253,26 @@ namespace Screens.Game
 			{
 				CharacterView.transform.localScale = Vector3.one;
 			}).SetGroup(_hitGroup);
+
+			if(!health.IsAlive)
+			{
+				// Lock Character & Movement
+				CharacterLockedTracker.Register(_deathCharacterLocker);
+				MovementController.MovementBlockers.Register(_deathCharacterLocker);
+				MovementController.AgentDisablers.Register(_deathCharacterLocker);
+
+				CharacterView.SetState(UnityEngine.Random.Range(0f, 1f) >= 0.5f ? CharacterState.DeathB : CharacterState.DeathF);
+				
+				if (_despawnOnDeath)
+				{
+					CharacterView.transform.TweenScale(0f, 1f).SetEasing(RaEasingType.InExpo).SetDelay(5f).OnComplete(() =>
+					{
+						CoreSystem.DespawnCharacter(this).Execute(CoreSystem.Processor);
+					});
+				}
+
+				CharacterKilledEvent?.Invoke();
+			}
 		}
 	}
 }

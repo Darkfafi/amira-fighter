@@ -79,7 +79,7 @@ MonoBehaviour:
   <IconSprite>k__BackingField: {fileID: 21300000, guid: 56afccfd75bb40b19cd1935f469e9f06, type: 3}
   <Character>k__BackingField: {fileID: 7045897288228535024}
   <CooldownTimeInSeconds>k__BackingField: 0.35
-  <AttackRadius>k__BackingField: 0.95
+  <AttackRadius>k__BackingField: 0.6
   <AttackDistance>k__BackingField: 1.5
   _momentOfImpact: 0.67
   _attackDuration: 0.3
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 5302867094396174201}
   - component: {fileID: 4165873161183577015}
   m_Layer: 5
-  m_Name: Knockback
+  m_Name: PushMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,9 +581,12 @@ MonoBehaviour:
   _coreSystem: {fileID: 2242681745087986672, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
   _tags: []
   <MovementController>k__BackingField: {fileID: 7539278870275502360}
-  <KnockbackController>k__BackingField: {fileID: 4165873161183577015}
+  <PushMovementController>k__BackingField: {fileID: 4165873161183577015}
   <MeleeAttackSkill>k__BackingField: {fileID: 5123216965598719776}
+  <AllSkills>k__BackingField:
+  - {fileID: 5123216965598719776}
   _hp: 5
+  _despawnOnDeath: 1
   <CharacterName>k__BackingField: 
   <OrthographicAgent>k__BackingField: {fileID: 4923298401273443841}
   <CharacterView>k__BackingField: {fileID: 0}

@@ -6,6 +6,7 @@ namespace Screens.Game
 {
 	public class EnemyAIController : MonoBehaviour
 	{
+		public event Action<EnemyAIController> EnemyKilledEvent;
 		public event Action<EnemyAIController, bool> EnemyLockedStateChangedEvent;
 
 		public const int IDLE_INDEX = 0;
@@ -41,6 +42,7 @@ namespace Screens.Game
 		{
 			_aiFSM = new RaGOFiniteStateMachine(this, RaGOFiniteStateMachine.GetGOStates(_statesRoot));
 			Character.CharacterLockedStateChangedEvent += OnCharacterLockedStateChangedEvent;
+			Character.CharacterKilledEvent += OnCharacterKilledEvent;
 		}
 
 		protected void Start()
@@ -67,6 +69,7 @@ namespace Screens.Game
 		{
 			if(Character != null)
 			{
+				Character.CharacterKilledEvent -= OnCharacterKilledEvent;
 				Character.CharacterLockedStateChangedEvent -= OnCharacterLockedStateChangedEvent;
 			}
 
@@ -116,6 +119,11 @@ namespace Screens.Game
 			}
 
 			EnemyLockedStateChangedEvent?.Invoke(this, isLocked);
+		}
+
+		private void OnCharacterKilledEvent()
+		{
+			EnemyKilledEvent?.Invoke(this);
 		}
 	}
 }

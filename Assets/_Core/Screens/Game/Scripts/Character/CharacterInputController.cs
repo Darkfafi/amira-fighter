@@ -27,6 +27,12 @@ namespace Screens.Game
 			(KeyCode.S, Direction.Down),
 		};
 
+		private KeyCode[] _skillKeycodes = new KeyCode[]
+		{
+			KeyCode.J,
+			KeyCode.K
+		};
+
 		protected void Awake()
 		{
 			Character.CharacterLockedStateChangedEvent += OnCharacterLockedStateChangedEvent;
@@ -43,16 +49,6 @@ namespace Screens.Game
 
 		protected void Update()
 		{
-			if(_isInputLocked)
-			{
-				if (_direction != Direction.None)
-				{
-					_direction = Direction.None;
-					Character.MovementController.Destination = null;
-				}
-				return;
-			}
-
 			for (int i = 0; i < _keycodeToDirectionMap.Length; i++)
 			{
 				(KeyCode key, Direction dir) = _keycodeToDirectionMap[i];
@@ -68,6 +64,11 @@ namespace Screens.Game
 				}
 			}
 
+			if (_isInputLocked)
+			{
+				return;
+			}
+
 			if (_direction != Direction.None)
 			{
 				Vector2 destination = Character.transform.position;
@@ -79,16 +80,26 @@ namespace Screens.Game
 				Character.MovementController.Destination = null;
 			}
 
-			if (Input.GetKeyDown(KeyCode.K))
+			for(int i = 0; i < _skillKeycodes.Length; i++)
 			{
-				Character.CoreSystem.MeleeAttackSkill(Character)
-					.Execute(Character.CoreSystem.Processor);
+				KeyCode keyCode = _skillKeycodes[i];
+				if(Input.GetKeyDown(keyCode) && i <= Character.AllSkills.Length - 1)
+				{
+					Character.CoreSystem.UseSkill(Character.AllSkills[i])
+						.Execute(Character.CoreSystem.Processor);
+				}
 			}
 		}
 
 		private void OnCharacterLockedStateChangedEvent(bool isLocked)
 		{
-			_isInputLocked = isLocked;
+			if (_isInputLocked = isLocked)
+			{
+				if (_direction != Direction.None)
+				{
+					Character.MovementController.Destination = null;
+				}
+			}
 		}
 	}
 }

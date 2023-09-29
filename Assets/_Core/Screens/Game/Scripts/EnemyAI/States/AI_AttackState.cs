@@ -44,10 +44,12 @@ namespace Screens.Game
 
 				Dependency.Character.MovementController.Destination = Dependency.Target.transform.position;
 
-				if(Vector2.Distance(Dependency.Character.transform.position, Dependency.Target.transform.position) < Dependency.Character.MeleeAttackSkill.AttackRadius)
+				float attackDistance = Dependency.Character.MeleeAttackSkill.AttackDistance + (Dependency.Character.MeleeAttackSkill.AttackRadius / 2f);
+
+				if(Vector2.Distance(Dependency.Character.transform.position, Dependency.Target.transform.position) < attackDistance)
 				{
 					Dependency.Character.MovementController.Destination = null;
-					if (Dependency.Character.CoreSystem.MeleeAttackSkill(Dependency.Character).Execute(Dependency.Character.CoreSystem.Processor, out var result))
+					if (Dependency.Character.CoreSystem.UseSkill(Dependency.Character.MeleeAttackSkill).Execute(Dependency.Character.CoreSystem.Processor, out var result))
 					{
 						RaProgress attackProgress = result.SkillProgress;
 						yield return new WaitUntil(() => attackProgress.HasEnded);

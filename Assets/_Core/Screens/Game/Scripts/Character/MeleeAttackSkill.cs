@@ -80,8 +80,7 @@ namespace Screens.Game
 					if (entity.Health.Damage(1))
 					{
 						Vector2 delta = entity.transform.position - Character.transform.position;
-
-						entity.KnockbackController.Knockback(delta.normalized, _knockbackDuration, _knockbackStrength);
+						entity.PushMovementController.Push(delta.normalized, _knockbackDuration, _knockbackStrength);
 					}
 				}
 			}
