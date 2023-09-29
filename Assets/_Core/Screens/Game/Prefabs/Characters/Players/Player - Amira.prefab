@@ -7543,7 +7543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IconSprite>k__BackingField: {fileID: 21300000, guid: bf5517de517f4c5a9bef6061ce7596fc, type: 3}
   <Character>k__BackingField: {fileID: 821707089124145097}
-  <CooldownTimeInSeconds>k__BackingField: 2
+  <CooldownTimeInSeconds>k__BackingField: 1.5
   <Distance>k__BackingField: 4
   <Duration>k__BackingField: 0.25
 --- !u!1 &2950430358644651706

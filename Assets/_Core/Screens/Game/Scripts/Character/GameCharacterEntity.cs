@@ -87,6 +87,12 @@ namespace Screens.Game
 			get; private set;
 		} = 3f;
 
+		[field: SerializeField]
+		public float LookDirectionThreshold
+		{
+			get; private set;
+		} = .2f;
+
 		[field: Header("UI")]
 		[field: SerializeField]
 		public GameCharacterUIView UIView
@@ -224,7 +230,7 @@ namespace Screens.Game
 						Vector2 delta = transform.position;
 						delta = MovementController.Destination.Value - delta;
 
-						if (delta.magnitude >= .2f)
+						if (delta.magnitude >= LookDirectionThreshold)
 						{
 							SetLookDirection(delta.x);
 						}

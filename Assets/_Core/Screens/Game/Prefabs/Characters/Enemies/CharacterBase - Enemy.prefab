@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: <CharacterName>k__BackingField
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: <LookDirectionThreshold>k__BackingField
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7539278870275502360, guid: 5949244e74505dc4183730aec0e08150, type: 3}
       propertyPath: <SpeedRange>k__BackingField.x
       value: 2
