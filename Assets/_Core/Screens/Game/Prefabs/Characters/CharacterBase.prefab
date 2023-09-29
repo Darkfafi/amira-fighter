@@ -592,6 +592,7 @@ MonoBehaviour:
   <CharacterView>k__BackingField: {fileID: 0}
   <DirectionView>k__BackingField: {fileID: 213230623053178977}
   <RunSpeedThreshold>k__BackingField: 3
+  <LookDirectionThreshold>k__BackingField: 0.2
   <UIView>k__BackingField: {fileID: 3455602603986726639}
   <HitEffect>k__BackingField: {fileID: 8443320256129397867}
 --- !u!195 &4865798059581919181
@@ -751,7 +752,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3921820186556775563, guid: f7e1645089da8604c82f57b5e9dfb8aa, type: 3}
       propertyPath: m_Name
-      value: SkeletonHitEffect
+      value: GenericHitFX
       objectReference: {fileID: 0}
     - target: {fileID: 3921820186556775604, guid: f7e1645089da8604c82f57b5e9dfb8aa, type: 3}
       propertyPath: m_LocalPosition.x

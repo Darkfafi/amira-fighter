@@ -1,4 +1,5 @@
-﻿using RaProgression;
+﻿using Assets.HeroEditor.Common.Scripts.Common;
+using RaProgression;
 using UnityEngine;
 
 namespace Screens.Game
@@ -17,9 +18,17 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		[SerializeField]
+		private TrailRenderer _dashTrail = null;
+
 		public override bool CanUse()
 		{
 			return base.CanUse() && Character.PushMovementController.CanPush() && Character.MovementController.IsMoving;
+		}
+
+		protected void Awake()
+		{
+			_dashTrail.emitting = false;
 		}
 
 		protected override void DoPerform(RaProgress progres)
@@ -28,10 +37,12 @@ namespace Screens.Game
 
 			if (Character.PushMovementController.Push(dir, Duration, Distance, (isComplete) =>
 			{
+				_dashTrail.emitting = false;
 				progres.Complete();
 			}))
 			{
-
+				_dashTrail.sortingOrder = Character.OrthographicAgent.SortingOrder - 25;
+				_dashTrail.emitting = true;
 			}
 		}
 	}
