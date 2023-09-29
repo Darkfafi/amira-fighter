@@ -52,7 +52,7 @@ namespace Screens.Game
 
 			// Perform Hit Logics
 			Vector2 hitPos = transform.position;
-			hitPos += new Vector2(Character.CharacterView.transform.localScale.x, 0) * AttackDistance;
+			hitPos += new Vector2(Character.DirectionView.localScale.x, 0) * AttackDistance;
 			var hits = Physics2D.OverlapCircleAll(hitPos, AttackRadius);
 
 			Vector2 centerPos = Character.transform.position + ((new Vector3(hitPos.x, hitPos.y) - Character.transform.position) * 0.5f);
@@ -74,7 +74,7 @@ namespace Screens.Game
 				// And it is not aligned with us (or us)
 				// Perform Hit
 				if (hit.tag == "MainCollider" &&
-					hit.transform.parent.TryGetComponent(out GameCharacterEntity entity) &&
+					hit.transform.root.TryGetComponent(out GameCharacterEntity entity) &&
 					entity.tag != Character.transform.tag)
 				{
 					if (entity.Health.Damage(1))
@@ -109,9 +109,9 @@ namespace Screens.Game
 		protected void OnDrawGizmos()
 		{
 			Gizmos.color = Color.red;
-			if (Character != null && Character.CharacterView != null)
+			if (Character != null && Character.DirectionView != null)
 			{
-				Gizmos.DrawWireSphere(transform.position + new Vector3(Character.CharacterView.transform.localScale.x, 0, 0) * AttackDistance, AttackRadius);
+				Gizmos.DrawWireSphere(transform.position + new Vector3(Character.DirectionView.localScale.x, 0, 0) * AttackDistance, AttackRadius);
 			}
 			else
 			{

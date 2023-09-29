@@ -15,6 +15,11 @@ namespace Screens.Game
 		[SerializeField]
 		private OrthographicSortingSystem _system = null;
 
+		public int SortingOrder
+		{
+			get; private set;
+		}
+
 		private void OnValidate()
 		{
 			if(_sortingGroup == null)
@@ -35,16 +40,16 @@ namespace Screens.Game
 
 		public void Refresh()
 		{
-			int order = Mathf.RoundToInt(-(transform.position.y) * 100);
+			SortingOrder = Mathf.RoundToInt(-(transform.position.y) * 100);
 
 			if (_sortingGroup != null)
 			{
-				_sortingGroup.sortingOrder = order;
+				_sortingGroup.sortingOrder = SortingOrder;
 			}
 
 			if (_agentCanvas != null)
 			{
-				_agentCanvas.sortingOrder = order + 1;
+				_agentCanvas.sortingOrder = SortingOrder + 1;
 			}
 		}
 	}

@@ -1,6 +1,8 @@
 ﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
+using CartoonFX;
 using RaCollection;
 using RaFlags;
+using RaTweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +54,19 @@ namespace Screens.Game
 		}
 
 		[field: SerializeField]
+		public OrthographicAgent OrthographicAgent
+		{
+			get; private set;
+		}
+
+		[field: SerializeField]
 		public Character CharacterView
+		{
+			get; private set;
+		}
+
+		[field: SerializeField]
+		public Transform DirectionView
 		{
 			get; private set;
 		}
@@ -63,8 +77,16 @@ namespace Screens.Game
 			get; private set;
 		} = 3f;
 
+		[field: Header("UI")]
 		[field: SerializeField]
 		public GameCharacterUIView UIView
+		{
+			get; private set;
+		}
+
+		[field: Header("VFX")]
+		[field: SerializeField]
+		public ParticleSystem HitEffect
 		{
 			get; private set;
 		}
@@ -96,6 +118,7 @@ namespace Screens.Game
 		}
 
 		private RaFlagsTracker _characterLockedTracker;
+		private readonly object _hitGroup = new object();
 
 		protected void OnValidate()
 		{
@@ -109,6 +132,7 @@ namespace Screens.Game
 		{
 			MovementController.Setup();
 			Health = new Health(_hp);
+			Health.DamagedEvent += OnDamagedEvent;
 
 			UIView.SetData(this);
 
@@ -117,6 +141,11 @@ namespace Screens.Game
 
 		protected void OnDestroy()
 		{
+			if(Health != null)
+			{
+				Health.DamagedEvent -= OnDamagedEvent;
+			}
+
 			if (UIView)
 			{
 				UIView.ClearData();
@@ -141,7 +170,7 @@ namespace Screens.Game
 				return;
 			}
 
-			CharacterView.transform.localScale = new Vector3(Mathf.Sign(direction), 1f, 1f);
+			DirectionView.localScale = new Vector3(Mathf.Sign(direction), 1f, 1f);
 		}
 
 		public bool AddTag(string tag)
@@ -192,6 +221,19 @@ namespace Screens.Game
 		private void OnCharacterLockedStateChanged(bool isEmpty, RaFlagsTracker tracker)
 		{
 			CharacterLockedStateChangedEvent?.Invoke(!isEmpty);
+		}
+
+		private void OnDamagedEvent(Health health)
+		{
+			HitEffect.SetSortingOrder(OrthographicAgent.SortingOrder);
+			HitEffect.Play();
+
+			RaTweenBase.CompleteGroup(_hitGroup);
+
+			CharacterView.transform.TweenPunchScale(Vector3.one * 0.1f, 0.2f, 1).OnComplete(() => 
+			{
+				CharacterView.transform.localScale = Vector3.one;
+			}).SetGroup(_hitGroup);
 		}
 	}
 }
