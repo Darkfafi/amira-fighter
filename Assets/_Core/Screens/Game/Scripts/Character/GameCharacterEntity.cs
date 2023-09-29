@@ -57,6 +57,12 @@ namespace Screens.Game
 			get; private set;
 		} = 3f;
 
+		[field: SerializeField]
+		public GameCharacterUIView UIView
+		{
+			get; private set;
+		}
+
 		public Health Health
 		{
 			get; private set;
@@ -97,7 +103,18 @@ namespace Screens.Game
 		{
 			MovementController.Setup();
 			Health = new Health(_hp);
+
+			UIView.SetData(this);
+
 			RefreshMovementAnimation();
+		}
+
+		protected void OnDestroy()
+		{
+			if (UIView)
+			{
+				UIView.ClearData();
+			}
 		}
 
 		protected void Update()

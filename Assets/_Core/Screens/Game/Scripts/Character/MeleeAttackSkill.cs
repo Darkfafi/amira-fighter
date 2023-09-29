@@ -14,6 +14,14 @@ namespace Screens.Game
 
 		} = 1.5f;
 
+
+		[field: SerializeField]
+		public float AttackDistance
+		{
+			get; private set;
+
+		} = 0.5f;
+
 		[SerializeField, Range(0f, 1f)]
 		private float _momentOfImpact = 1f;
 
@@ -40,10 +48,9 @@ namespace Screens.Game
 			yield return new WaitForSeconds(secondsUntilImpact);
 
 			// Perform Hit Logics
-			var hits = Physics2D.CircleCastAll(Character.transform.position, AttackRadius, new Vector2(Character.CharacterView.transform.localScale.x, 0));
-
-			Vector2 hitPos = Character.transform.position;
-			hitPos += new Vector2(Character.CharacterView.transform.localScale.x, 0) * 0.15f;
+			Vector2 hitPos = transform.position;
+			hitPos += new Vector2(Character.CharacterView.transform.localScale.x, 0) * AttackDistance;
+			var hits = Physics2D.OverlapCircleAll(hitPos, AttackRadius);
 
 			// Sort on distance from hit position
 			Array.Sort(hits, (a, b) =>
@@ -61,8 +68,8 @@ namespace Screens.Game
 				// And the body is attached to a GameCharacterEntity 
 				// And it is not aligned with us (or us)
 				// Perform Hit
-				if (hit.collider.tag == "Body" &&
-					hit.transform.TryGetComponent(out GameCharacterEntity entity) &&
+				if (hit.tag == "MainCollider" &&
+					hit.transform.parent.TryGetComponent(out GameCharacterEntity entity) &&
 					entity.tag != Character.transform.tag)
 				{
 					entity.Health.Damage(1);
@@ -96,7 +103,14 @@ namespace Screens.Game
 		protected void OnDrawGizmos()
 		{
 			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(transform.position, AttackRadius);
+			if (Character != null && Character.CharacterView != null)
+			{
+				Gizmos.DrawWireSphere(transform.position + new Vector3(Character.CharacterView.transform.localScale.x, 0, 0) * AttackDistance, AttackRadius);
+			}
+			else
+			{
+				Gizmos.DrawWireSphere(transform.position + Vector3.right * AttackDistance, AttackRadius);
+			}
 			Gizmos.color = Color.white;
 		}
 	}

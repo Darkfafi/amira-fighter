@@ -80,8 +80,6 @@ namespace Screens.Game
 
 		private void OnEnemyAdded(EnemyAIController enemy, int index)
 		{
-			Debug.Log("Spawned: " + enemy);
-
 			enemy.EnemyLockedStateChangedEvent += OnEnemyLockedStateChangedEvent;
 
 			// Register, if not locked
@@ -100,8 +98,6 @@ namespace Screens.Game
 
 		private void OnEnemyRemoved(EnemyAIController enemy, int index)
 		{
-			Debug.Log("Despawned: " + enemy);
-
 			enemy.EnemyLockedStateChangedEvent -= OnEnemyLockedStateChangedEvent;
 
 			// Unregister

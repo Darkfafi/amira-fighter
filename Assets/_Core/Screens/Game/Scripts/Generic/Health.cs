@@ -51,7 +51,7 @@ namespace Screens.Game
 
 		public bool SetHP(int value)
 		{
-			if(IsAlive)
+			if(!IsAlive)
 			{
 				return false;
 			}
