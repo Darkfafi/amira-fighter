@@ -395,6 +395,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &146760766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 146760767}
+  - component: {fileID: 146760768}
+  m_Layer: 0
+  m_Name: Stage 3 - Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &146760767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146760766}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1339732047}
+  - {fileID: 995208695}
+  m_Father: {fileID: 1157218335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &146760768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146760766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0593a1c69770a042aa9409c21ef035b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1339732048}
+  - {fileID: 995208696}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  _searchHierarchyForDependencies: 1
+  <EventIcon>k__BackingField: {fileID: 21300000, guid: 15d38394ad804e40aced5fcc718c9a2d, type: 3}
 --- !u!1 &194572265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +3764,88 @@ SortingGroup:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!1 &995208694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995208695}
+  - component: {fileID: 995208696}
+  m_Layer: 0
+  m_Name: SpawnState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &995208695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995208694}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 146760767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995208696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995208694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289c19c9a14d104dbef411f717c6836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states: []
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  _searchHierarchyForDependencies: 1
+  _charactersPool:
+  - <RaItemWeight>k__BackingField: 1
+    <Character>k__BackingField: {fileID: 4686129856981903817, guid: 81abca417d585714cbfdf0467099f7a7, type: 3}
+  - <RaItemWeight>k__BackingField: 1
+    <Character>k__BackingField: {fileID: 4686129856981903817, guid: 7b08edbc850a2e747b1b6744497126a0, type: 3}
+  - <RaItemWeight>k__BackingField: 1
+    <Character>k__BackingField: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
+  _amountToSpawn: 15
 --- !u!1 &1034773993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,6 +4289,7 @@ Transform:
   - {fileID: 1739844956}
   - {fileID: 1920180741}
   - {fileID: 513748837}
+  - {fileID: 146760767}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1157218336
@@ -4720,6 +4882,98 @@ MonoBehaviour:
     Character: {fileID: 4686129856981903817, guid: 81abca417d585714cbfdf0467099f7a7, type: 3}
     NameOverride: Captain Boneman
     DialogText: GET HER!
+  _dialogView: {fileID: 73329176}
+--- !u!1 &1339732046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339732047}
+  - component: {fileID: 1339732048}
+  m_Layer: 0
+  m_Name: DialogState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339732047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339732046}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 146760767}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339732048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339732046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 4686129856981903817, guid: 7b08edbc850a2e747b1b6744497126a0, type: 3}
+    NameOverride: More bonesman
+    DialogText: S..she is too strong.
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 4686129856981903817, guid: 7b08edbc850a2e747b1b6744497126a0, type: 3}
+    NameOverride: More bonesman
+    DialogText: WE NEED MORE BONES!
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
+    NameOverride: Big boner
+    DialogText: I see what you did there. Your name is 'More Bonesman' and you say
+      you need more bones..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
+    NameOverride: Big Boner
+    DialogText: Hehehe
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
+    NameOverride: More bonesman
+    DialogText: WHAT ARE YOU TALKING ABOUT?! SAVE US!! WHAT IS WRONG WITH YOU?!
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
+    NameOverride: Big Boner
+    DialogText: Calm down broner..
   _dialogView: {fileID: 73329176}
 --- !u!1 &1382942795
 GameObject:
