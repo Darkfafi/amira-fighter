@@ -4,15 +4,8 @@ using UnityEngine;
 
 namespace Screens.Game
 {
-	public class GameIntroSceneFSMState : GameFSMStateBase, IDialogCharacterContainer
+	public class GameIntroSceneFSMState : GameEventFSMState, IDialogCharacterContainer
 	{
-		// They conduct the plan (Camera on them)
-		// Then it goes to amira, awaiting trigger
-		// Then play second cinematic (Him walking to her, singing)
-
-		// Setup Gameboard
-		// Spawn Trickster
-
 		[Header("Spawning")]
 		[SerializeField]
 		private GameCharacterEntity _tricksterPrefab = null;
@@ -88,7 +81,7 @@ namespace Screens.Game
 
 				if(TricksterInstance == null && _enemies.Count == 0)
 				{
-					GetDependency<IRaFSMCycler>().GoToNextState();
+					GoToNextState();
 				}
 			}
 		}

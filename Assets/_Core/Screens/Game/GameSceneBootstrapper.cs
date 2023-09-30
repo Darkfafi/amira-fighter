@@ -35,18 +35,13 @@ namespace Screens.Game
 		}
 
 		[field: SerializeField]
-		public CharacterHUDView CharacterHUDView
+		public GameHUDView GameHUDView
 		{
 			get; private set;
 		}
 
 		[SerializeField]
 		private GameSystemsCollection _gameSystems;
-
-		public GameCharacterEntity PlayerCharacter
-		{
-			get; private set;
-		}
 
 		[field: SerializeField]
 		public CinemachineVirtualCamera SkyCamera
@@ -56,6 +51,16 @@ namespace Screens.Game
 
 		[SerializeField]
 		private float _secondsBeforeStart = 1f;
+
+		public GameStoryProgress StoryProgress
+		{
+			get; private set;
+		}
+
+		public GameCharacterEntity PlayerCharacter
+		{
+			get; private set;
+		}
 
 		private RaGOFiniteStateMachine _gameFSM;
 		private GameSystemsController _gameSystemsController;
@@ -73,6 +78,7 @@ namespace Screens.Game
 		protected override void OnSetData()
 		{
 			_gameFSM = new RaGOFiniteStateMachine(this, RaGOFiniteStateMachine.GetGOStates(transform));
+			StoryProgress = new GameStoryProgress(_gameFSM);
 		}
 
 		protected override void OnSetDataResolved()
@@ -83,7 +89,7 @@ namespace Screens.Game
 				.Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
-				CharacterHUDView.SetData(PlayerCharacter);
+				GameHUDView.SetData(this);
 				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);
 				CameraFollowObject.transform.localPosition = Vector3.zero;
 			}
@@ -95,7 +101,10 @@ namespace Screens.Game
 		{
 			StopAllCoroutines();
 
-			CharacterHUDView.ClearData();
+			GameHUDView.ClearData();
+
+			StoryProgress.Dispose();
+			StoryProgress = null;
 
 			_gameSystemsController.Unregister(this);
 			_gameFSM.Dispose();
