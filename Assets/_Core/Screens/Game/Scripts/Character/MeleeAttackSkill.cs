@@ -39,13 +39,15 @@ namespace Screens.Game
 		private ParticleSystem[] _hitEffectPrefabs = null;
 
 		private IEnumerator _attackRoutine = null;
+		private RaProgress _progress = null;
 
-		protected override void DoPerform(RaProgress progres)
+		protected override void DoPerform(RaProgress progress)
 		{
-			StartCoroutine(_attackRoutine = AttackRoutine(progres));
+			_progress = progress;
+			StartCoroutine(_attackRoutine = AttackRoutine());
 		}
 
-		private IEnumerator AttackRoutine(RaProgress progress)
+		private IEnumerator AttackRoutine()
 		{
 			// Animate Attack
 			Character.CharacterView.Slash();
@@ -102,16 +104,25 @@ namespace Screens.Game
 
 			// Wait until End
 			yield return new WaitForSeconds(_attackDuration - secondsUntilImpact);
-			progress.Complete();
+			_progress.Complete();
 			EndAttackRoutine();
 		}
 
-		private void EndAttackRoutine()
+		public void EndAttackRoutine()
 		{
 			if(_attackRoutine != null)
 			{
 				StopCoroutine(_attackRoutine);
 				_attackRoutine = null;
+			}
+
+			if(_progress != null)
+			{
+				if(!_progress.HasEnded)
+				{
+					_progress.Cancel(throwIfNotValid: false);
+				}
+				_progress = null;
 			}
 		}
 

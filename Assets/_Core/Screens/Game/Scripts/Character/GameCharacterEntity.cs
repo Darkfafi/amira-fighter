@@ -56,6 +56,9 @@ namespace Screens.Game
 		[SerializeField]
 		private bool _despawnOnDeath = true;
 
+		[SerializeField]
+		private bool _cancelAttackOnHit = true;
+
 		[field: Header("View")]
 		[field: SerializeField]
 		public string CharacterName
@@ -266,15 +269,20 @@ namespace Screens.Game
 				CharacterView.transform.localScale = Vector3.one;
 			}).SetGroup(_hitGroup);
 
+			MeleeAttackSkill.EndAttackRoutine();
+
 			if(!health.IsAlive)
 			{
 				// Lock Character & Movement
 				CharacterLockedTracker.Register(_deathCharacterLocker);
 				MovementController.MovementBlockers.Register(_deathCharacterLocker);
 				MovementController.AgentDisablers.Register(_deathCharacterLocker);
-
-				CharacterView.SetState(UnityEngine.Random.Range(0f, 1f) >= 0.5f ? CharacterState.DeathB : CharacterState.DeathF);
 				
+				if(_cancelAttackOnHit)
+				{
+					CharacterView.SetState(UnityEngine.Random.Range(0f, 1f) >= 0.5f ? CharacterState.DeathB : CharacterState.DeathF);
+				}
+
 				if (_despawnOnDeath)
 				{
 					int preDeathSortingOrder = OrthographicAgent.SortingOrder;
