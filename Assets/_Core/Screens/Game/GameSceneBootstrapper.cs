@@ -89,9 +89,10 @@ namespace Screens.Game
 				.Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
-				GameHUDView.SetData(this);
 				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);
 				CameraFollowObject.transform.localPosition = Vector3.zero;
+
+				GameHUDView.SetData(this, resolve: false);
 			}
 
 			StartCoroutine(Setup());
@@ -121,6 +122,9 @@ namespace Screens.Game
 
 			_gameFSM.SwitchState(0);
 			SkyCamera.Priority = 0;
+
+			// Setup HUD
+			GameHUDView.Resolve();
 		}
 	}
 }

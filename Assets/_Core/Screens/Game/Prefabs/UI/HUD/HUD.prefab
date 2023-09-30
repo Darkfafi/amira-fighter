@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891873210025247403}
   - component: {fileID: 7028766179903900139}
+  - component: {fileID: 159736370458390504}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -52,6 +53,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CharacterHUDView>k__BackingField: {fileID: 5130286516607505359}
   <GameProgressHUDView>k__BackingField: {fileID: 5387837933301075061}
+  _canvasGroup: {fileID: 159736370458390504}
+  _nestedFadeGroups:
+  - {fileID: 503634086383065321}
+  - {fileID: 367190394819682653}
+--- !u!225 &159736370458390504
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3573764813423289640}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2671288742437643037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -829,6 +846,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5deab27a13410d646a30ea6febc54ee2, type: 3}
+--- !u!114 &503634086383065321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2589313037808368628, guid: 5deab27a13410d646a30ea6febc54ee2, type: 3}
+  m_PrefabInstance: {fileID: 2671288742437643037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbef588be0047f40bd0b2baa5c0a069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5130286516607505359 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7070689427632369874, guid: 5deab27a13410d646a30ea6febc54ee2, type: 3}
@@ -1622,6 +1650,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d19d5f5bf2494114ba5720fe7c8790d5, type: 3}
+--- !u!114 &367190394819682653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8994262102638438225, guid: d19d5f5bf2494114ba5720fe7c8790d5, type: 3}
+  m_PrefabInstance: {fileID: 8775980813304727052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbef588be0047f40bd0b2baa5c0a069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5387837933301075061 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3679438699179084409, guid: d19d5f5bf2494114ba5720fe7c8790d5, type: 3}

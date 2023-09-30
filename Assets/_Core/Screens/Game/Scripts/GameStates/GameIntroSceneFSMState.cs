@@ -113,7 +113,7 @@ namespace Screens.Game
 			base.OnDeinit();
 		}
 
-		public void LockCharacters(object flag)
+		public void LockCharacters(object flag, bool includeHUDHide = true)
 		{
 			if(Dependency.PlayerCharacter != null)
 			{
@@ -126,10 +126,17 @@ namespace Screens.Game
 			}
 
 			Enemies.ForEachReadOnly(x => x.CharacterLockedTracker.Register(flag));
+
+			if(includeHUDHide)
+			{
+				Dependency.GameHUDView.HideFlags.Register(flag);
+			}
 		}
 
 		public void UnlockCharacters(object flag)
 		{
+			Dependency.GameHUDView.HideFlags.Unregister(flag);
+
 			Enemies.ForEachReadOnly(x => x.CharacterLockedTracker.Unregister(flag));
 
 			if (TricksterInstance != null)
