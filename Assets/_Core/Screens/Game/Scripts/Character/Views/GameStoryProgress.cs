@@ -33,6 +33,8 @@ namespace Screens.Game
 			Progress = new RaProgress(markAsStarted: false);
 			_stateMachine.SwitchedStateEvent += OnSwitchedStateEvent;
 			Events = _stateMachine.States.OfType<GameEventFSMState>().ToArray();
+			CurrentEventIndex = -1;
+
 			OnSwitchedStateEvent(_stateMachine.GetCurrentState(), null);
 		}
 
@@ -81,7 +83,7 @@ namespace Screens.Game
 					Progress.Start();
 				}
 
-				Progress.Evaluate((float)CurrentEventIndex / Events.Length, throwIfNotValid: false);
+				Progress.Evaluate((float)(CurrentEventIndex + 1) / Events.Length, throwIfNotValid: false);
 			}
 			else if(Progress.State == RaProgressState.InProgress)
 			{

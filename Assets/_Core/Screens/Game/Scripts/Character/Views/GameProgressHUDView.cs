@@ -26,6 +26,12 @@ namespace Screens.Game
 
 		private List<GameEventSlotView> _slotViews = new List<GameEventSlotView>();
 
+		protected override void OnInitialization()
+		{
+			base.OnInitialization();
+			_progressFill.transform.localScale = new Vector3(0f, 1f, 1f);
+		}
+
 		protected override void OnSetData()
 		{
 			_characterPortraitView.SetData(Data.GameCharacter.CharacterView.ToJson());
@@ -39,6 +45,14 @@ namespace Screens.Game
 				slot.SetData(gameEvent);
 			}
 			OnEventChangedEvent(Data.StoryProgress.CurrentEventIndex, -1);
+		}
+
+		protected void Update()
+		{
+			if (HasData)
+			{
+				_characterPortraitView.transform.position = _characterSlot.transform.position;
+			}
 		}
 
 		protected override void OnClearData()
@@ -67,8 +81,7 @@ namespace Screens.Game
 				_slotViews[i].SetActiveState(GameEventSlotView.State.IsActive);
 			}
 
-			_progressFill.transform.TweenScaleX(Data.StoryProgress.Progress.NormalizedValue, 0.2f);
-			_characterPortraitView.transform.TweenMove(Vector3.zero, 0.2f).SetEndRef(_characterSlot);
+			_progressFill.transform.TweenScaleX(Data.StoryProgress.Progress.NormalizedValue, 0.45f);
 		}
 
 		public struct CoreData
