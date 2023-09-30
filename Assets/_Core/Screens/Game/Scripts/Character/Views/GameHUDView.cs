@@ -46,6 +46,7 @@ namespace Screens.Game
 			base.OnInitialization();
 			HideFlags = new RaFlagsTracker(OnHideFlagsChangedEvent);
 			IsShowing = false;
+			Hide();
 			SetAlpha(0f);
 		}
 
@@ -81,16 +82,38 @@ namespace Screens.Game
 
 			IsShowing = isEmpty;
 
+			if(IsShowing)
+			{
+				Show();
+			}
+
+			RaTweenBase.StopGroup(_canvasGroup);
+
 			RaTweenLambda.TweenFloat(IsShowing ? 0f : 1f, IsShowing ? 1f : 0f, 0.5f, (v, n) =>
 			{
 				SetAlpha(v);
-			});
+			}, () => _canvasGroup != null).OnComplete(() => 
+			{ 
+				if(!IsShowing)
+				{
+					Hide();
+				}
+			}).SetGroup(_canvasGroup);
 		}
 
 		private void SetAlpha(float v)
 		{
 			_canvasGroup.alpha = v;
 			_nestedFadeGroups.ForEach(g => g.AlphaSelf = v);
+		}
+
+		private void Hide()
+		{
+			_nestedFadeGroups.ForEach(x => x.gameObject.SetActive(false));
+		}
+		private void Show()
+		{
+			_nestedFadeGroups.ForEach(x => x.gameObject.SetActive(true));
 		}
 	}
 }
