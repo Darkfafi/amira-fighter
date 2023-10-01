@@ -74,7 +74,7 @@ namespace Screens.Game
 				_slotViews[i].SetActiveState(GameEventSlotView.State.Completed);
 			}
 
-			oldEventIndex = Mathf.Max(0, oldEventIndex);
+			oldEventIndex = oldEventIndex + 1;
 
 			for (int i = oldEventIndex; i <= newEventIndex; i++)
 			{
