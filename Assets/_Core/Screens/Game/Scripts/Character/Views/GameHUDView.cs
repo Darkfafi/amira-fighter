@@ -69,6 +69,8 @@ namespace Screens.Game
 
 		protected override void OnClearData()
 		{
+			HideFlags.Dispose();
+
 			GameProgressHUDView.ClearData();
 			CharacterHUDView.ClearData();
 		}
@@ -111,6 +113,7 @@ namespace Screens.Game
 		{
 			_nestedFadeGroups.ForEach(x => x.gameObject.SetActive(false));
 		}
+
 		private void Show()
 		{
 			_nestedFadeGroups.ForEach(x => x.gameObject.SetActive(true));

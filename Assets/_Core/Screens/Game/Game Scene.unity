@@ -369,7 +369,7 @@ MonoBehaviour:
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
     NameOverride: 
-    DialogText: How Naive!!..
+    DialogText: How naive..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
@@ -874,7 +874,7 @@ MonoBehaviour:
           m_MethodName: set_clip
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: b35d701632a3f314fa1358de2c399d92, type: 3}
+            m_ObjectArgument: {fileID: 8300000, guid: 9833925eda2a30f46992af9bf6d2675b, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -884,6 +884,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1972372087}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: HideBossWithEffects
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3743,7 +3755,7 @@ MonoBehaviour:
   _effect: {fileID: 1768455730}
   _secondsUntilEffectStart: 2.5
   _secondsUntilEffectStartToSpawn: 2
-  _secondsSpawnToEffectStop: 2
+  _secondsSpawnToEffectStop: 1
   _secondsUntilEffectStopToEnd: 2
 --- !u!1 &879603620
 GameObject:
@@ -3829,6 +3841,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &884794273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 367190394819682653, guid: a83e335d45b30ea4bbcbac3c0606d292, type: 3}
+  m_PrefabInstance: {fileID: 3796478298930719758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbef588be0047f40bd0b2baa5c0a069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &895687151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3989,7 +4012,19 @@ MonoBehaviour:
         m_Calls: []
     EnterStateEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1972372087}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     ExitStateEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -4899,7 +4934,6 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _states:
-  - {fileID: 1075385261}
   - {fileID: 871865599}
   - {fileID: 57882279}
   _wrapFSM: 0
@@ -5320,7 +5354,7 @@ MonoBehaviour:
   <GameHUDView>k__BackingField: {fileID: 3796478298930719760}
   _gameSystems: {fileID: 11400000, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
   <SkyCamera>k__BackingField: {fileID: 595532138}
-  _secondsBeforeStart: 0.1
+  _secondsBeforeStart: 0
 --- !u!1 &1168152153
 GameObject:
   m_ObjectHideFlags: 0
@@ -7521,10 +7555,34 @@ MonoBehaviour:
         m_Calls: []
     EnterStateEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1972372087}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     ExitStateEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1972372087}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     DeinitStateEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -9084,7 +9142,19 @@ MonoBehaviour:
         m_Calls: []
     EnterStateEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1157218336}
+          m_TargetAssemblyTypeName: Screens.Game.GameSceneBootstrapper, Assembly-CSharp
+          m_MethodName: ResetPlayerToSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     ExitStateEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -9112,6 +9182,7 @@ MonoBehaviour:
   _searchHierarchyForDependencies: 1
   <EventIcon>k__BackingField: {fileID: 21300000, guid: f8ff4b5c06f44569bdff201c00a3abc0, type: 3}
   _bossPrefab: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+  _hideShowFXPrefab: {fileID: 4488313388254351236, guid: f053e0dbfc115e9478f159a4e3b055fb, type: 3}
   <BossCharacterHUDView>k__BackingField: {fileID: 3796478298930719761}
   _bossSpawnPoint: {fileID: 904653951}
 --- !u!1 &1955112305
@@ -9999,6 +10070,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9186224965977591115, guid: fc329982e58e1e746b31fc00f3c08170, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10237,6 +10312,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7028766179903900139, guid: a83e335d45b30ea4bbcbac3c0606d292, type: 3}
+      propertyPath: _nestedFadeGroups.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028766179903900139, guid: a83e335d45b30ea4bbcbac3c0606d292, type: 3}
+      propertyPath: _nestedFadeGroups.Array.data[1]
+      value: 
+      objectReference: {fileID: 884794273}
     - target: {fileID: 7589234836142810033, guid: a83e335d45b30ea4bbcbac3c0606d292, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -17.599998

@@ -6,19 +6,6 @@ using UnityEngine;
 
 namespace Screens.Game
 {
-	// IDEA:
-	/*
-	 * Cinematic intro:
-	 * Amira Playing in her room
-	 * Zombies conversing its her birthday, and plan an attack
-	 * Amira overhears and gets ready for battle
-	 * Then, on her birthday, they try to trick her by congratulating her, and then try to attack
-	 * She is ready for battle
-	 * Start
-	 * 
-	 * Timeline of wave system, going to the boss battle
-	 * Zombies use Boid behaviour to swarm around and try to navigate to Amira
-	 */
 	public class GameSceneBootstrapper : SceneBootstrapperBase<GameSceneModel>, IRaFSMCycler
 	{
 		[field: SerializeField]
@@ -96,6 +83,17 @@ namespace Screens.Game
 			}
 
 			StartCoroutine(Setup());
+		}
+
+		public void ResetPlayerToSpawn()
+		{
+			object resetFlag = new object();
+			PlayerCharacter.CharacterLockedTracker.Register(resetFlag);
+			{
+				PlayerCharacter.transform.position = Level.PlayerSpawn.GetSpawnPosition();
+				PlayerCharacter.SetLookDirection(1f);
+			}
+			PlayerCharacter.CharacterLockedTracker.Unregister(resetFlag);
 		}
 
 		protected override void OnClearData()

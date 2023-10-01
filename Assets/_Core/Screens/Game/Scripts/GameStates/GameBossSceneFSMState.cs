@@ -8,6 +8,9 @@ namespace Screens.Game
 		[SerializeField]
 		private GameCharacterEntity _bossPrefab  = null;
 
+		[SerializeField]
+		private ParticleSystem _hideShowFXPrefab = null;
+
 		[field: SerializeField]
 		public CharacterHUDView BossCharacterHUDView
 		{
@@ -21,6 +24,8 @@ namespace Screens.Game
 		{
 			get; private set;
 		}
+
+		private readonly object _hideLock = new object();
 
 		protected override void OnInit()
 		{
@@ -101,6 +106,7 @@ namespace Screens.Game
 			{
 				BossInstance.gameObject.SetActive(true);
 			}
+			UnlockBoss(_hideLock);
 		}
 
 		public void HideBoss()
@@ -108,6 +114,39 @@ namespace Screens.Game
 			if(BossInstance != null)
 			{
 				BossInstance.gameObject.SetActive(false);
+			}
+			LockBoss(_hideLock);
+		}
+
+		public void ShowBossWithEffects()
+		{
+			if(BossInstance != null && !BossInstance.gameObject.activeSelf)
+			{
+				ShowBoss();
+				Instantiate(_hideShowFXPrefab, BossInstance.transform.position, Quaternion.identity);
+			}
+		}
+
+		public void HideBossWithEffects()
+		{
+			if(BossInstance != null && BossInstance.gameObject.activeSelf)
+			{
+				HideBoss();
+				Instantiate(_hideShowFXPrefab, BossInstance.transform.position, Quaternion.identity);
+			}
+		}
+
+		public void ReturnBossToSpawn()
+		{
+			if(BossInstance != null)
+			{
+				object resetFlag = new object();
+				BossInstance.CharacterLockedTracker.Register(resetFlag);
+				{
+					BossInstance.transform.position = _bossSpawnPoint.position;
+					BossInstance.SetLookDirection(-1f);
+				}
+				BossInstance.CharacterLockedTracker.Unregister(resetFlag);
 			}
 		}
 
