@@ -27499,7 +27499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
       propertyPath: _hp
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
       propertyPath: <CharacterName>k__BackingField
@@ -27511,7 +27511,7 @@ PrefabInstance:
       objectReference: {fileID: 3584221312642195115}
     - target: {fileID: 7834285136135845955, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
       propertyPath: <SpeedRange>k__BackingField.x
-      value: 4
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 7834285136135845955, guid: 185f75aa102453f478525e0c556d1bf1, type: 3}
       propertyPath: <SpeedRange>k__BackingField.y
