@@ -1,5 +1,4 @@
 ﻿using Assets.HeroEditor.Common.Scripts.CharacterScripts;
-using CartoonFX;
 using RaCollection;
 using RaFlags;
 using RaTweening;
@@ -254,6 +253,7 @@ namespace Screens.Game
 
 		private void OnCharacterLockedStateChanged(bool isEmpty, RaFlagsTracker tracker)
 		{
+			CharacterView.SetState(CharacterState.Idle);
 			CharacterLockedStateChangedEvent?.Invoke(!isEmpty);
 		}
 
@@ -268,8 +268,11 @@ namespace Screens.Game
 			{
 				CharacterView.transform.localScale = Vector3.one;
 			}).SetGroup(_hitGroup);
-
-			MeleeAttackSkill.EndAttackRoutine();
+			
+			if (_cancelAttackOnHit)
+			{
+				MeleeAttackSkill.EndAttackRoutine();
+			}
 
 			if(!health.IsAlive)
 			{
@@ -278,10 +281,7 @@ namespace Screens.Game
 				MovementController.MovementBlockers.Register(_deathCharacterLocker);
 				MovementController.AgentDisablers.Register(_deathCharacterLocker);
 				
-				if(_cancelAttackOnHit)
-				{
-					CharacterView.SetState(UnityEngine.Random.Range(0f, 1f) >= 0.5f ? CharacterState.DeathB : CharacterState.DeathF);
-				}
+				CharacterView.SetState(UnityEngine.Random.Range(0f, 1f) >= 0.5f ? CharacterState.DeathB : CharacterState.DeathF);
 
 				if (_despawnOnDeath)
 				{

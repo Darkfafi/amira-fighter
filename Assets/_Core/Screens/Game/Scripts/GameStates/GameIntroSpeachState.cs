@@ -15,18 +15,27 @@ namespace Screens.Game
 			_speachVirtualCamera.Priority = 0;
 		}
 
+		protected override void OnPreSwitch()
+		{
+			base.OnPreSwitch();
+			if(!IsCurrentState)
+			{
+				Dependency.LockIntroElements(this);
+			}
+		}
+
 		protected override void OnEnter()
 		{
 			base.OnEnter();
 			_speachVirtualCamera.Priority = int.MaxValue;
-			Dependency.LockCharacters(this);
+			Dependency.LockIntroElements(this);
 		}
 
 		protected override void OnExit(bool isSwitch)
 		{
 			base.OnExit(isSwitch);
 			_speachVirtualCamera.Priority = 0;
-			Dependency.UnlockCharacters(this);
+			Dependency.UnlockIntroElements(this);
 		}
 
 		protected override void OnDeinit()

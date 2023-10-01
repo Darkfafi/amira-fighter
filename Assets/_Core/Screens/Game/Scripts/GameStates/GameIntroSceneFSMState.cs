@@ -1,5 +1,4 @@
 ﻿using RaCollection;
-using RaFSM;
 using UnityEngine;
 
 namespace Screens.Game
@@ -58,11 +57,11 @@ namespace Screens.Game
 				}
 			}
 
-			LockCharacters(setupLockFlag);
+			LockIntroElements(setupLockFlag);
 
 			base.OnEnter();
 
-			UnlockCharacters(setupLockFlag);
+			UnlockIntroElements(setupLockFlag);
 		}
 
 		private void OnUnitDespawned(CharacterCoreSystem.DespawnCharacterAction action)
@@ -113,27 +112,37 @@ namespace Screens.Game
 			base.OnDeinit();
 		}
 
-		public void LockCharacters(object flag, bool includeHUDHide = true)
+		public void LockEnemyCharacters(object flag)
+		{
+			if (TricksterInstance != null)
+			{
+				TricksterInstance.CharacterLockedTracker.Register(flag);
+			}
+
+			Enemies.ForEachReadOnly(x => x.CharacterLockedTracker.Register(flag));
+		}
+
+		public void LockHUD(object flag)
+		{
+			Dependency.GameHUDView.HideFlags.Register(flag);
+		}
+
+		public void LockIntroElements(object flag, bool includeHUDHide = true)
 		{
 			if(Dependency.PlayerCharacter != null)
 			{
 				Dependency.PlayerCharacter.CharacterLockedTracker.Register(flag);
 			}
 
-			if(TricksterInstance != null)
-			{
-				TricksterInstance.CharacterLockedTracker.Register(flag);
-			}
+			LockEnemyCharacters(flag);
 
-			Enemies.ForEachReadOnly(x => x.CharacterLockedTracker.Register(flag));
-
-			if(includeHUDHide)
+			if (includeHUDHide)
 			{
-				Dependency.GameHUDView.HideFlags.Register(flag);
+				LockHUD(flag);
 			}
 		}
 
-		public void UnlockCharacters(object flag)
+		public void UnlockIntroElements(object flag)
 		{
 			Dependency.GameHUDView.HideFlags.Unregister(flag);
 
