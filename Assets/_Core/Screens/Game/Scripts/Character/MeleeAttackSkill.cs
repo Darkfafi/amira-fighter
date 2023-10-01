@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Screens.Game
 {
@@ -38,6 +37,16 @@ namespace Screens.Game
 		[SerializeField]
 		private ParticleSystem[] _hitEffectPrefabs = null;
 
+		[Header("Audio")]
+		[SerializeField]
+		private AudioSource _combatSFXSource = null;
+
+		[SerializeField]
+		private AudioClip[] _swingSounds = null;
+
+		[SerializeField]
+		private AudioClip[] _impactSounds = null;
+
 		private IEnumerator _attackRoutine = null;
 		private RaProgress _progress = null;
 
@@ -51,6 +60,8 @@ namespace Screens.Game
 		{
 			// Animate Attack
 			Character.CharacterView.Slash();
+			_combatSFXSource.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
+			_combatSFXSource.PlayRandomOneShot(_swingSounds);
 
 			// Wait until Impact
 			float secondsUntilImpact = _attackDuration * _momentOfImpact;
@@ -100,6 +111,9 @@ namespace Screens.Game
 				{
 					Instantiate(_hitEffectPrefabs[UnityEngine.Random.Range(0, _hitEffectPrefabs.Length)], hitPos, Quaternion.identity).SetSortingOrder(Character.OrthographicAgent.SortingOrder + 250);
 				}
+
+				_combatSFXSource.pitch = UnityEngine.Random.Range(0.98f, 1.08f);
+				_combatSFXSource.PlayRandomOneShot(_impactSounds);
 			}
 
 			// Wait until End

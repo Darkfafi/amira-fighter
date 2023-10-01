@@ -22,6 +22,13 @@ namespace Screens.Game
 		[SerializeField]
 		private float _secondsUntilEffectStopToEnd = 1f;
 
+		[Header("Audio")]
+		[SerializeField]
+		private AudioSource _sfxSource = null;
+
+		[SerializeField]
+		private AudioClip _showPortalSound = null;
+
 		private IEnumerator _routine = null;
 
 		protected override void OnInit()
@@ -55,6 +62,7 @@ namespace Screens.Game
 			yield return new WaitForSeconds(_secondsUntilEffectStart);
 			
 			_effect.Play();
+			_sfxSource.PlayOneShot(_showPortalSound);
 
 			yield return new WaitForSeconds(_secondsUntilEffectStartToSpawn);
 

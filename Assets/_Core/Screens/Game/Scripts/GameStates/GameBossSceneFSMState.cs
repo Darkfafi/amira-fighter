@@ -20,6 +20,12 @@ namespace Screens.Game
 		[SerializeField]
 		private Transform _bossSpawnPoint = null;
 
+		[SerializeField]
+		private AudioSource _sfxSource = null;
+
+		[SerializeField]
+		private AudioClip _showHideAudio = null;
+
 		public GameCharacterEntity BossInstance
 		{
 			get; private set;
@@ -123,7 +129,8 @@ namespace Screens.Game
 			if(BossInstance != null && !BossInstance.gameObject.activeSelf)
 			{
 				ShowBoss();
-				Instantiate(_hideShowFXPrefab, BossInstance.transform.position, Quaternion.identity);
+				Instantiate(_hideShowFXPrefab, BossInstance.transform.position + Vector3.up * 0.5f, Quaternion.identity);
+				_sfxSource.PlayOneShot(_showHideAudio);
 			}
 		}
 
@@ -132,7 +139,8 @@ namespace Screens.Game
 			if(BossInstance != null && BossInstance.gameObject.activeSelf)
 			{
 				HideBoss();
-				Instantiate(_hideShowFXPrefab, BossInstance.transform.position, Quaternion.identity);
+				Instantiate(_hideShowFXPrefab, BossInstance.transform.position + Vector3.up * 0.5f, Quaternion.identity);
+				_sfxSource.PlayOneShot(_showHideAudio);
 			}
 		}
 
