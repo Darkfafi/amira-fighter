@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Screens.Game
 {
+
 	public class GameIntroSceneFSMState : GameEventFSMState, IDialogCharacterContainer
 	{
 		[Header("Spawning")]
@@ -25,11 +26,6 @@ namespace Screens.Game
 		}
 
 		public IReadOnlyRaCollection<GameCharacterEntity> Enemies => _enemies;
-
-		protected override void OnInit()
-		{
-			base.OnInit();
-		}
 
 		protected override void OnEnter()
 		{
