@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 1383712076893357395}
   - component: {fileID: 3648553841143194124}
   m_Layer: 0
-  m_Name: Chase State
+  m_Name: Formation State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
