@@ -115,6 +115,16 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		[Header("Audio")]
+		[SerializeField]
+		private AudioSource _combatSFXSource = null;
+
+		[SerializeField]
+		private GameSound[] _hitSounds = null;
+
+		[SerializeField]
+		private GameSound[] _deathSounds = null;
+
 		public Health Health
 		{
 			get; private set;
@@ -262,6 +272,8 @@ namespace Screens.Game
 			HitEffect.SetSortingOrder(OrthographicAgent.SortingOrder);
 			HitEffect.Play();
 
+			_combatSFXSource.PlayRandomOneShot(_hitSounds);
+
 			RaTweenBase.CompleteGroup(_hitGroup);
 
 			CharacterView.transform.TweenScale(0.9f, 0.25f).SetModifier(RaModifierType.AbsSin).OnComplete(() => 
@@ -280,19 +292,21 @@ namespace Screens.Game
 				CharacterLockedTracker.Register(_deathCharacterLocker);
 				MovementController.MovementBlockers.Register(_deathCharacterLocker);
 				MovementController.AgentDisablers.Register(_deathCharacterLocker);
-				
+
 				CharacterView.SetState(UnityEngine.Random.Range(0f, 1f) >= 0.5f ? CharacterState.DeathB : CharacterState.DeathF);
+				_combatSFXSource.PlayRandomOneShot(_deathSounds);
 
 				if (_despawnOnDeath)
 				{
 					int preDeathSortingOrder = OrthographicAgent.SortingOrder;
 					CharacterView.transform.TweenScale(0f, 0.25f).SetEasing(RaEasingType.InExpo).SetDelay(3f).OnComplete(() =>
 					{
-						Instantiate(DespawnEffectPrefab, CharacterView.transform.position, Quaternion.identity)
+						if(CoreSystem.DespawnCharacter(this).Execute(CoreSystem.Processor))
+						{
+							Instantiate(DespawnEffectPrefab, CharacterView.transform.position, Quaternion.identity)
 							.SetSortingOrder(preDeathSortingOrder + 25)
 							.transform.localScale = Vector3.one * 0.75f;
-
-						CoreSystem.DespawnCharacter(this).Execute(CoreSystem.Processor);
+						}
 					});
 				}
 

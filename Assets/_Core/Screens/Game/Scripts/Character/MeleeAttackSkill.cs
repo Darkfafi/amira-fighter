@@ -42,10 +42,10 @@ namespace Screens.Game
 		private AudioSource _combatSFXSource = null;
 
 		[SerializeField]
-		private AudioClip[] _swingSounds = null;
+		private GameSound[] _swingSounds = null;
 
 		[SerializeField]
-		private AudioClip[] _impactSounds = null;
+		private GameSound[] _impactSounds = null;
 
 		private IEnumerator _attackRoutine = null;
 		private RaProgress _progress = null;

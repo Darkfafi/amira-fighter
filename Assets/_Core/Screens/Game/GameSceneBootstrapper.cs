@@ -39,6 +39,9 @@ namespace Screens.Game
 		[SerializeField]
 		private float _secondsBeforeStart = 1f;
 
+		[SerializeField]
+		private AudioSource _musicAudioSource = null;
+
 		public GameStoryProgress StoryProgress
 		{
 			get; private set;
@@ -118,6 +121,7 @@ namespace Screens.Game
 		{
 			yield return new WaitForSeconds(_secondsBeforeStart);
 
+			_musicAudioSource.Play();
 			_gameFSM.SwitchState(0);
 			SkyCamera.Priority = 0;
 
