@@ -272,7 +272,10 @@ namespace Screens.Game
 			HitEffect.SetSortingOrder(OrthographicAgent.SortingOrder);
 			HitEffect.Play();
 
-			_combatSFXSource.PlayRandomOneShot(_hitSounds);
+			if(health.IsAlive || !_combatSFXSource.PlayRandomOneShot(_deathSounds))
+			{
+				_combatSFXSource.PlayRandomOneShot(_hitSounds);
+			}
 
 			RaTweenBase.CompleteGroup(_hitGroup);
 
@@ -294,7 +297,6 @@ namespace Screens.Game
 				MovementController.AgentDisablers.Register(_deathCharacterLocker);
 
 				CharacterView.SetState(UnityEngine.Random.Range(0f, 1f) >= 0.5f ? CharacterState.DeathB : CharacterState.DeathF);
-				_combatSFXSource.PlayRandomOneShot(_deathSounds);
 
 				if (_despawnOnDeath)
 				{

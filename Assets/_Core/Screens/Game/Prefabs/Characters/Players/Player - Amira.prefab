@@ -7548,6 +7548,10 @@ MonoBehaviour:
   <Distance>k__BackingField: 5
   <Duration>k__BackingField: 0.1
   _dashTrail: {fileID: 2512793565919092525}
+  _combatSFXSource: {fileID: 8927800875337822981}
+  _dashSounds:
+  - <Clip>k__BackingField: {fileID: 8300000, guid: de082fd7d31508244a773fb44ab2ebd2, type: 3}
+    <VolumeScaler>k__BackingField: 0.5
 --- !u!1 &2950430358644651706
 GameObject:
   m_ObjectHideFlags: 0
@@ -27721,6 +27725,14 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _deathSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: <CharacterName>k__BackingField
       value: Amira
       objectReference: {fileID: 0}
@@ -27736,6 +27748,30 @@ PrefabInstance:
       propertyPath: <AllSkills>k__BackingField.Array.data[1]
       value: 
       objectReference: {fileID: 5163901755911463002}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitSounds.Array.data[0].<Clip>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 03906409e0c50b641834543ab9d69c82, type: 3}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitSounds.Array.data[1].<Clip>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 46ac828c4eb24824eafe27e58b5b0a43, type: 3}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _deathSounds.Array.data[0].<Clip>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 510b540d4d68c374991fe664c52dbe00, type: 3}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitSounds.Array.data[0].<VolumeScaler>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hitSounds.Array.data[1].<VolumeScaler>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _deathSounds.Array.data[0].<VolumeScaler>k__BackingField
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 9043520235170727248, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: m_Name
       value: Player - Amira
@@ -27770,5 +27806,10 @@ Transform:
 --- !u!4 &1464100407380319990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8856008761624730260, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+  m_PrefabInstance: {fileID: 7977944891324564578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8927800875337822981 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1536485054210226023, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
   m_PrefabInstance: {fileID: 7977944891324564578}
   m_PrefabAsset: {fileID: 0}

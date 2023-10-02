@@ -2,21 +2,21 @@ using UnityEngine;
 
 public static class Utils
 {
-	public static void PlayRandomOneShot(this AudioSource audioSource, GameSound[] sounds)
+	public static bool PlayRandomOneShot(this AudioSource audioSource, GameSound[] sounds)
 	{
 		if(audioSource == null)
 		{
-			return;
+			return false;
 		}
 
 		if(sounds == null || sounds.Length == 0)
 		{
-			return;
+			return false;
 		}
 
 		GameSound sound = sounds[Random.Range(0, sounds.Length)];
-
 		audioSource.PlayOneShot(sound.Clip, sound.VolumeScaler);
+		return true;
 	}
 
 	public static ParticleSystem SetSortingOrder(this ParticleSystem rootParticleSystem, int sortingOrder)

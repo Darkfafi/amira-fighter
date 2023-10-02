@@ -21,6 +21,13 @@ namespace Screens.Game
 		[SerializeField]
 		private TrailRenderer _dashTrail = null;
 
+		[Header("Audio")]
+		[SerializeField]
+		private AudioSource _combatSFXSource = null;
+
+		[SerializeField]
+		private GameSound[] _dashSounds = null;
+
 		public override bool CanUse()
 		{
 			return base.CanUse() && Character.PushMovementController.CanPush() && Character.MovementController.IsMoving;
@@ -41,6 +48,7 @@ namespace Screens.Game
 				progres.Complete();
 			}))
 			{
+				_combatSFXSource.PlayRandomOneShot(_dashSounds);
 				_dashTrail.sortingOrder = Character.OrthographicAgent.SortingOrder - 25;
 				_dashTrail.emitting = true;
 			}
