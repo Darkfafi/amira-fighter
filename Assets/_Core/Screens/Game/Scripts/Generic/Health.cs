@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-
 namespace Screens.Game
 {
 	public class Health
@@ -23,6 +22,11 @@ namespace Screens.Game
 		public float NormalizedValue => (float)HP / MaxHP;
 
 		public bool IsAlive => HP > 0;
+
+		public bool Invulnerable
+		{
+			get; set;
+		}
 
 		public Health(int hp)
 		{
@@ -51,6 +55,11 @@ namespace Screens.Game
 
 		public bool SetHP(int value)
 		{
+			if(Invulnerable)
+			{
+				return false;
+			}
+
 			if(!IsAlive)
 			{
 				return false;

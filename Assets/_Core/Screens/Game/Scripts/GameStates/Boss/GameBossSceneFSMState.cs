@@ -25,6 +25,8 @@ namespace Screens.Game
 			get; private set;
 		}
 
+		public GameCharacterEntity PlayerInstance => Dependency.PlayerCharacter;
+
 		private readonly object _hideLock = new object();
 
 		protected override void OnInit()

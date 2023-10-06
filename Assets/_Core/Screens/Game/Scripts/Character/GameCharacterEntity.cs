@@ -150,8 +150,23 @@ namespace Screens.Game
 				return _characterLockedTracker;
 			}
 		}
-
+		
 		private RaFlagsTracker _characterLockedTracker;
+
+		public RaFlagsTracker InvulnerableFlagsTracker
+		{
+			get
+			{
+				if(_invulnerableFlagsTracker == null)
+				{
+					_invulnerableFlagsTracker = new RaFlagsTracker(OnInvulnerableStateChanged);
+				}
+				return _invulnerableFlagsTracker;
+			}
+		}
+
+		private RaFlagsTracker _invulnerableFlagsTracker;
+
 		private readonly object _hitGroup = new object();
 		private readonly object _deathCharacterLocker = new object();
 
@@ -259,6 +274,11 @@ namespace Screens.Game
 					CharacterView.SetState(CharacterState.Idle);
 				}
 			}
+		}
+
+		private void OnInvulnerableStateChanged(bool isEmpty, RaFlagsTracker tracker)
+		{
+			Health.Invulnerable = !isEmpty;
 		}
 
 		private void OnCharacterLockedStateChanged(bool isEmpty, RaFlagsTracker tracker)
