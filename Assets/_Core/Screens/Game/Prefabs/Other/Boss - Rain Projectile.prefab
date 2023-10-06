@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303266034386310818}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4958593290096452647}
+  m_Father: {fileID: 4552771726049913368}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8722324170543193755
 SpriteRenderer:
@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 19638526252417492}
   - component: {fileID: 7785885036426534761}
   - component: {fileID: 7371228210699737173}
+  - component: {fileID: 7169682097219979758}
   m_Layer: 0
   m_Name: Boss - Rain Projectile
   m_TagString: Untagged
@@ -123,8 +124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4552771726049913368}
-  - {fileID: 6002052786938206173}
-  - {fileID: 8694525183929036861}
+  - {fileID: 7529796197147605930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1870322231263436922
@@ -544,7 +544,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7273693150409641118}
+      - m_Target: {fileID: 8743894509145558003}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -924,6 +924,21 @@ MonoBehaviour:
         _endIsDelta: 0
         _dynamicSetupStep: 0
         _excludeChannels: 7
+--- !u!114 &7169682097219979758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631841914499861701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342ebda0c6e02944cbc2de65cfa76221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortingGroup: {fileID: 7785885036426534761}
+  _agentCanvas: {fileID: 0}
+  _system: {fileID: -7388211200909750580, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
 --- !u!1 &2629905738260542360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,12 +1048,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5963626846748946573}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4958593290096452647}
+  m_Father: {fileID: 4552771726049913368}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7703934846435162724
 SpriteRenderer:
@@ -1207,7 +1222,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3818593200625299564}
-  - {fileID: 7529796197147605930}
+  - {fileID: 6002052786938206173}
+  - {fileID: 8694525183929036861}
   m_Father: {fileID: 4958593290096452647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5040186684793053847
@@ -1216,7 +1232,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4552771726049913368}
+    m_TransformParent: {fileID: 4958593290096452647}
     m_Modifications:
     - target: {fileID: 139044238229852795, guid: 08ab51f84c42a074398e60152b6ff2f2, type: 3}
       propertyPath: m_Materials.Array.size
@@ -1256,7 +1272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282388189442971965, guid: 08ab51f84c42a074398e60152b6ff2f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 3282388189442971965, guid: 08ab51f84c42a074398e60152b6ff2f2, type: 3}
       propertyPath: m_LocalPosition.z

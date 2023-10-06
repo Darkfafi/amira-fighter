@@ -13,6 +13,9 @@ namespace Screens.Game
 		private Canvas _agentCanvas = null;
 
 		[SerializeField]
+		private ParticleSystem _particleSystem = null;
+
+		[SerializeField]
 		private OrthographicSortingSystem _system = null;
 
 		public int SortingOrder
@@ -50,6 +53,11 @@ namespace Screens.Game
 			if (_agentCanvas != null)
 			{
 				_agentCanvas.sortingOrder = SortingOrder + 1;
+			}
+
+			if(_particleSystem != null)
+			{
+				_particleSystem.SetSortingOrder(SortingOrder + 1);
 			}
 		}
 	}
