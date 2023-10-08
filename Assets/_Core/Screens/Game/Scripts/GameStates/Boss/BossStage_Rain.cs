@@ -1,9 +1,11 @@
 using RaFSM;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Screens.Game
 {
+
 	public class BossStage_Rain : RaGOStateBase<GameBossSceneFSMState>
 	{
 		[SerializeField]
@@ -54,8 +56,11 @@ namespace Screens.Game
 			{
 				yield return new WaitForSeconds(Random.Range(_spawnDelayRangeInSeconds.x, _spawnDelayRangeInSeconds.y));
 				Vector2 spawnPosition = SpawnPoint.GetSpawnPosition(Dependency.PlayerInstance.transform.position, _spawnRadius);
-				Instantiate(_objectToRain, spawnPosition, Quaternion.identity);
-				count++;
+				if (NavMesh.SamplePosition(spawnPosition, out _, float.MaxValue, NavMesh.AllAreas))
+				{
+					Instantiate(_objectToRain, spawnPosition, Quaternion.identity);
+					count++;
+				}
 			}
 
 			yield return new WaitForSeconds(_secondsUntilEndAfterLastSpawn);

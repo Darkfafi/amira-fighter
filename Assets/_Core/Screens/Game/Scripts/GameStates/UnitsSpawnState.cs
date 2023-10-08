@@ -28,21 +28,21 @@ namespace Screens.Game
 		{
 			base.OnEnter();
 			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
-			
-			for (int i = 0; i < _amountToSpawn; i++)
+
+			for (int i = 0; i < _mendatoryCharacters.Length; i++)
 			{
 				Vector3 spawnPoint = Dependency.Level.GetEnemySpawnPoint(0).GetSpawnPosition();
-				if(Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_charactersPool.GetRandomItem().Character, spawnPoint, UnityEngine.Random.Range(-1f, 1f))
+				if (Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_mendatoryCharacters[i], spawnPoint, UnityEngine.Random.Range(-1f, 1f))
 					.Execute(Dependency.GameSystems.CharacterCoreSystem.Processor, out var result))
 				{
 					_spawnedCharacters.Add(result.CreatedCharacter);
 				}
 			}
 
-			for(int i = 0; i < _mendatoryCharacters.Length; i++)
+			for (int i = 0; i < _amountToSpawn; i++)
 			{
 				Vector3 spawnPoint = Dependency.Level.GetEnemySpawnPoint(0).GetSpawnPosition();
-				if (Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_mendatoryCharacters[i], spawnPoint, UnityEngine.Random.Range(-1f, 1f))
+				if(Dependency.GameSystems.CharacterCoreSystem.SpawnCharacter(_charactersPool.GetRandomItem().Character, spawnPoint, UnityEngine.Random.Range(-1f, 1f))
 					.Execute(Dependency.GameSystems.CharacterCoreSystem.Processor, out var result))
 				{
 					_spawnedCharacters.Add(result.CreatedCharacter);

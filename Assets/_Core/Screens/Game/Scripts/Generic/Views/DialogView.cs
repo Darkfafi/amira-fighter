@@ -71,14 +71,19 @@ namespace Screens.Game
 
 		public void ContinueDialog()
 		{
-			if (_dialogData.IsSkippable)
+			ContinueDialog(force: false);
+		}
+
+		private void ContinueDialog(bool force)
+		{
+			if (_dialogData.IsSkippable || force)
 			{
 				if (_revealTextRoutine != null)
 				{
 					StopCoroutine(_revealTextRoutine);
 					_revealTextRoutine = null;
 					_textLabel.text = FormatDisplayText(1f, out _);
-					_continueArrow.SetActive(true);
+					_continueArrow.SetActive(_dialogData.IsSkippable);
 				}
 				else
 				{
@@ -138,7 +143,7 @@ namespace Screens.Game
 				if (progress >= 1f)
 				{
 					progress = 1f;
-					_continueArrow.SetActive(true);
+					_continueArrow.SetActive(_dialogData.IsSkippable);
 				}
 				_textLabel.text = FormatDisplayText(progress, out int revealedCount);
 
@@ -163,8 +168,9 @@ namespace Screens.Game
 
 		private IEnumerator DurationRoutine(float duration)
 		{
+			yield return new WaitUntil(() => _revealTextRoutine == null);
 			yield return new WaitForSeconds(duration);
-			ContinueDialog();
+			ContinueDialog(force: true);
 			_durationRoutine = null;
 		}
 

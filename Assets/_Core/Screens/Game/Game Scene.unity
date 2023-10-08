@@ -358,24 +358,131 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: What did you expect?..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: That you would win in your own game?..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: How naive..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: PREPARE YOURSELF, SISTER!!
   _dialogView: {fileID: 73329176}
+--- !u!1 &64800855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64800856}
+  - component: {fileID: 64800857}
+  m_Layer: 0
+  m_Name: Stage - 1 - Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &64800856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64800855}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 178203259}
+  - {fileID: 407299098}
+  - {fileID: 230568565}
+  m_Father: {fileID: 262750663}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &64800857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64800855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: HideBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 178203260}
+  - {fileID: 407299099}
+  - {fileID: 230568566}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 64800857}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &73329173 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6301315828258062637, guid: 2c53b31d177153d4683118ce9b474812, type: 3}
@@ -555,6 +662,121 @@ MonoBehaviour:
         m_Calls: []
   _searchHierarchyForDependencies: 1
   <EventIcon>k__BackingField: {fileID: 21300000, guid: 63faaba0a6ab41c891e7471f0f3924d8, type: 3}
+--- !u!1 &178203258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178203259}
+  - component: {fileID: 178203260}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178203259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178203258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1993247558}
+  - {fileID: 2006506974}
+  - {fileID: 759464392}
+  m_Father: {fileID: 64800856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &178203260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178203258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9999
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1993247559}
+  - {fileID: 2006506975}
+  - {fileID: 759464393}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 178203260}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &194572265
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +1040,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &230568564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230568565}
+  - component: {fileID: 230568566}
+  m_Layer: 0
+  m_Name: Fight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230568565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230568564}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1151905765}
+  m_Father: {fileID: 64800856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230568566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230568564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ReturnBossToSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ShowBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1151905766}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 230568566}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &262750662
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +1181,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 688282496}
+  - {fileID: 64800856}
   - {fileID: 1095339105}
+  - {fileID: 1299185211}
+  - {fileID: 1357360863}
   m_Father: {fileID: 1930562379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &262750664
@@ -903,7 +1240,11 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _states:
+  - {fileID: 688282497}
+  - {fileID: 64800857}
   - {fileID: 1095339106}
+  - {fileID: 1299185212}
+  - {fileID: 1357360864}
   _wrapFSM: 0
   _autoFillStates: 1
   _excludeDisabledStates: 1
@@ -916,7 +1257,130 @@ MonoBehaviour:
         m_Calls: []
     LastStateExitEvent:
       m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 262750664}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &275696426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275696427}
+  - component: {fileID: 275696428}
+  m_Layer: 0
+  m_Name: Fight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &275696427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275696426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 388271132}
+  m_Father: {fileID: 1095339105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &275696428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275696426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
         m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ReturnBossToSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ShowBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 388271133}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 275696428}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &283140582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1497,120 @@ Transform:
   - {fileID: 1794403297}
   m_Father: {fileID: 1739844956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &318971594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318971595}
+  - component: {fileID: 318971596}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &318971595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318971594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1221435375}
+  - {fileID: 405231914}
+  - {fileID: 2025111761}
+  m_Father: {fileID: 1299185211}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &318971596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318971594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9999
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 405231915}
+  - {fileID: 2025111762}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 318971596}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &337467340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,22 +1751,26 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 792a7fd8ed32d6f42b23f6974d3b158b, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: We need help, and Fast!!
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Did someboney say.... F...ASS..t?!
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 792a7fd8ed32d6f42b23f6974d3b158b, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Ow no.. not them..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: GOTTA GO FAST
   _dialogView: {fileID: 73329176}
 --- !u!1 &342329184
@@ -1282,6 +1864,132 @@ Transform:
   - {fileID: 484312605}
   m_Father: {fileID: 430323409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &386612645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386612646}
+  - component: {fileID: 386612647}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386612646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386612645}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 508513960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &386612647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386612645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f714db9fcc999804c8f79be38b29bb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _objectToRain: {fileID: 1631841914499861701, guid: f7a7f09c44d4dec4299008e9d03199e5, type: 3}
+  _spawnRadius: 2.5
+  _spawnDelayRangeInSeconds: {x: 0.15, y: 0.45}
+  _spawnAmount: 35
+  _secondsUntilEndAfterLastSpawn: 2
+--- !u!1 &388271131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388271132}
+  - component: {fileID: 388271133}
+  m_Layer: 0
+  m_Name: Await
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &388271132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388271131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 275696427}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &388271133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388271131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a6665abbecc8b438e4a4d0f69a6e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _hpPercentage: 0.6
 --- !u!1 &396496688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +2074,148 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &405231913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405231914}
+  - component: {fileID: 405231915}
+  m_Layer: 0
+  m_Name: Delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405231914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405231913}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 318971595}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &405231915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405231913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f5b9f74095ba48986d66e9896c612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  TimerCompletedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 405231915}
+        m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+        m_MethodName: FSM_GoToNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _duration: 0.5
+--- !u!1 &407299097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407299098}
+  - component: {fileID: 407299099}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407299098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407299097}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 64800856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407299099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407299097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 3
+    DialogText: Useless creatures..
+  _dialogView: {fileID: 73329176}
 --- !u!1 &415545468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +2300,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &429433540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429433541}
+  - component: {fileID: 429433542}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429433541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429433540}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357360863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429433542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429433540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 2
+    DialogText: It's not over yet!
+  _dialogView: {fileID: 73329176}
 --- !u!1 &430323408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,43 +2715,51 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Listen.. I got a plan
   - CharacterIndex: 1
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: ...
   - CharacterIndex: 2
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: I mean, we are here for a reason you know.. you can just start talking..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: YEAH YEAH.. alright..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Okey.. so.. today is Amira's birthday. And she is turning 15 years
       old. This is the perfect time to strike.
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Let's celebrate her birthday.. and then...
   - CharacterIndex: 2
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: WE ATTACK!
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: I wanted to say that...
   _dialogView: {fileID: 73329176}
 --- !u!1 &458158509
@@ -2302,29 +3227,34 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: '*we are calling you back due to the ''help'' request, how can we
       be of service*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: <LITERALLY DEAD>
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: '*we understand that you are in need of protection, we are on our
       way*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: '*please don''t forget to leave a 5 star review on our facebook page*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: <STILL LITERALLY DEAD>
   _dialogView: {fileID: 73329176}
 --- !u!1 &502912547
@@ -2498,6 +3428,121 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a164ff33747d16a4ebacb7a962cdd4ac, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &508513959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508513960}
+  - component: {fileID: 508513961}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &508513960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508513959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1109215907}
+  - {fileID: 1805051454}
+  - {fileID: 386612646}
+  m_Father: {fileID: 1357360863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &508513961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508513959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9999
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1109215908}
+  - {fileID: 1805051455}
+  - {fileID: 386612647}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 508513961}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &513748836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,6 +4252,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &688282495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688282496}
+  - component: {fileID: 688282497}
+  m_Layer: 0
+  m_Name: Fight Start Delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688282496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688282495}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262750663}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688282497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688282495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f5b9f74095ba48986d66e9896c612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  TimerCompletedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 688282497}
+        m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+        m_MethodName: FSM_GoToNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _duration: 2
 --- !u!1 &697633941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,23 +4390,94 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: af1cf89111c1f24468518e49a629e67e, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: We need more bones ;-;
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 792a7fd8ed32d6f42b23f6974d3b158b, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: That is 'MR' More Bones for you
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: af1cf89111c1f24468518e49a629e67e, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: WHAT ARE YOU TALKING ABOUT?! SAVE US!! WHAT IS WRONG WITH YOU?!
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 792a7fd8ed32d6f42b23f6974d3b158b, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: I never get the respect that I deserve..
+  _dialogView: {fileID: 73329176}
+--- !u!1 &702746515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702746516}
+  - component: {fileID: 702746517}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &702746516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702746515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 965169944}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &702746517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702746515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 4.5
+    DialogText: Time to shower you with presents >:)
   _dialogView: {fileID: 73329176}
 --- !u!1 &735755173
 GameObject:
@@ -3365,6 +4556,92 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &759464391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759464392}
+  - component: {fileID: 759464393}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759464392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759464391}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 178203259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &759464393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759464391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289c19c9a14d104dbef411f717c6836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states: []
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  _searchHierarchyForDependencies: 1
+  _mendatoryCharacters:
+  - {fileID: 4686129856981903817, guid: af1cf89111c1f24468518e49a629e67e, type: 3}
+  - {fileID: 4686129856981903817, guid: 792a7fd8ed32d6f42b23f6974d3b158b, type: 3}
+  - {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
+  - {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
+  - {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
+  - {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
+  - {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
+  - {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
+  - {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
+  _charactersPool: []
+  _amountToSpawn: 0
 --- !u!1 &790338748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,12 +4751,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799750404}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1095339105}
+  m_Father: {fileID: 965169944}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &799750406
 MonoBehaviour:
@@ -3598,6 +4875,117 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &831055318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831055319}
+  - component: {fileID: 831055320}
+  m_Layer: 0
+  m_Name: Fight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &831055319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831055318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1037808907}
+  m_Father: {fileID: 1299185211}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831055320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831055318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ReturnBossToSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ShowBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1037808908}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 831055320}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &845714607
 GameObject:
   m_ObjectHideFlags: 0
@@ -4400,6 +5788,121 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &965169943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965169944}
+  - component: {fileID: 965169945}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &965169944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965169943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 702746516}
+  - {fileID: 1005669490}
+  - {fileID: 799750405}
+  m_Father: {fileID: 1095339105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965169945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965169943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9999
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 702746517}
+  - {fileID: 1005669491}
+  - {fileID: 799750406}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 965169945}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &971482974
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,6 +6236,81 @@ MonoBehaviour:
   - <RaItemWeight>k__BackingField: 2
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
   _amountToSpawn: 7
+--- !u!1 &1005669489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1005669490}
+  - component: {fileID: 1005669491}
+  m_Layer: 0
+  m_Name: Delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1005669490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005669489}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 965169944}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1005669491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005669489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f5b9f74095ba48986d66e9896c612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  TimerCompletedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1005669491}
+        m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+        m_MethodName: FSM_GoToNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _duration: 2
 --- !u!1 &1034773993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,6 +6395,67 @@ MonoBehaviour:
   - <RaItemWeight>k__BackingField: 2
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
   _amountToSpawn: 6
+--- !u!1 &1037808906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037808907}
+  - component: {fileID: 1037808908}
+  m_Layer: 0
+  m_Name: Await
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037808907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037808906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 831055319}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037808908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037808906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a6665abbecc8b438e4a4d0f69a6e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _hpPercentage: 0.4
 --- !u!1 &1038725745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4901,6 +6540,91 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1056377577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056377578}
+  - component: {fileID: 1056377579}
+  m_Layer: 0
+  m_Name: HealDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056377578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056377577}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1077232407}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1056377579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056377577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: -1
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: That's not fair!!! I am all tired >:(
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: Fine.. Here.. let me heal you..
+  _dialogView: {fileID: 73329176}
 --- !u!1 &1075385259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4917,7 +6641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1075385260
 Transform:
   m_ObjectHideFlags: 0
@@ -4976,12 +6700,14 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 238951724388629139, guid: db5406d8daf753340ad897e7eab56f2f, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: ....
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 238951724388629139, guid: db5406d8daf753340ad897e7eab56f2f, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Fine.. I'll do it myself..
   _dialogView: {fileID: 73329176}
 --- !u!1 &1077232406
@@ -5017,6 +6743,8 @@ Transform:
   - {fileID: 851683121}
   - {fileID: 871865598}
   - {fileID: 57882278}
+  - {fileID: 1056377578}
+  - {fileID: 1521562578}
   m_Father: {fileID: 1930562379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1077232408
@@ -5121,6 +6849,8 @@ MonoBehaviour:
   _states:
   - {fileID: 871865599}
   - {fileID: 57882279}
+  - {fileID: 1056377579}
+  - {fileID: 1521562579}
   _wrapFSM: 0
   _autoFillStates: 1
   _excludeDisabledStates: 1
@@ -5209,17 +6939,20 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 238951724388629139, guid: db5406d8daf753340ad897e7eab56f2f, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Foolish girl..
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 238951724388629139, guid: db5406d8daf753340ad897e7eab56f2f, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: This is only the beginning..
   - CharacterIndex: -1
     EnableCharacterLookupByIndex: 1
     Character: {fileID: 0}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: Nice.. more gifts for me to slaughter >:)
   _dialogView: {fileID: 73329176}
 --- !u!1 &1094681704
@@ -5317,7 +7050,7 @@ GameObject:
   - component: {fileID: 1095339105}
   - component: {fileID: 1095339106}
   m_Layer: 0
-  m_Name: Stage - 1
+  m_Name: Stage - 2 - Rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5336,7 +7069,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 799750405}
+  - {fileID: 965169944}
+  - {fileID: 1721988742}
+  - {fileID: 275696427}
   m_Father: {fileID: 262750663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1095339106
@@ -5379,7 +7114,9 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _states:
-  - {fileID: 799750406}
+  - {fileID: 965169945}
+  - {fileID: 1721988743}
+  - {fileID: 275696428}
   _wrapFSM: 0
   _autoFillStates: 1
   _excludeDisabledStates: 1
@@ -5392,7 +7129,19 @@ MonoBehaviour:
         m_Calls: []
     LastStateExitEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1095339106}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1098991714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5477,6 +7226,134 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1105703105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105703106}
+  - component: {fileID: 1105703107}
+  m_Layer: 0
+  m_Name: Await
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105703106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105703105}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647928191}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105703107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105703105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a6665abbecc8b438e4a4d0f69a6e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _hpPercentage: 0
+--- !u!1 &1109215906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109215907}
+  - component: {fileID: 1109215908}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1109215907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109215906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 508513960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1109215908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109215906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 4.5
+    DialogText: TIME TO SPOIL YOU!!
+  _dialogView: {fileID: 73329176}
 --- !u!1 &1144194715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5568,6 +7445,67 @@ MonoBehaviour:
   - <RaItemWeight>k__BackingField: 1
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 792a7fd8ed32d6f42b23f6974d3b158b, type: 3}
   _amountToSpawn: 6
+--- !u!1 &1151905764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1151905765}
+  - component: {fileID: 1151905766}
+  m_Layer: 0
+  m_Name: Await
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1151905765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151905764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 230568565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1151905766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151905764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a6665abbecc8b438e4a4d0f69a6e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _hpPercentage: 0.8
 --- !u!1 &1157218334
 GameObject:
   m_ObjectHideFlags: 0
@@ -6003,6 +7941,38 @@ Transform:
   - {fileID: 1419431626}
   m_Father: {fileID: 430323409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1221435374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1221435375}
+  m_Layer: 0
+  m_Name: Talk Sasso
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1221435375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221435374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1861728687}
+  m_Father: {fileID: 318971595}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235513554
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,7 +8204,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 20
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1621856280}
@@ -6406,6 +8376,109 @@ Transform:
   - {fileID: 1621856280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1299185210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1299185211}
+  - component: {fileID: 1299185212}
+  m_Layer: 0
+  m_Name: Stage - 3 - Spawn Sasso
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1299185211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299185210}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 318971595}
+  - {fileID: 1448442762}
+  - {fileID: 831055319}
+  m_Father: {fileID: 262750663}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1299185212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299185210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: HideBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 318971596}
+  - {fileID: 1448442763}
+  - {fileID: 831055320}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1299185212}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1302426940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6469,7 +8542,8 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: af1cf89111c1f24468518e49a629e67e, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: GET HER!
   _dialogView: {fileID: 73329176}
 --- !u!1 &1339732046
@@ -6535,30 +8609,138 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: My F...Ass..t.. Ass.. Ass..Ins... ;-;
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: We need help.. fast!!
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: '*protection request received*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: '*You are 15th in the queue.. please stay on the line, or give us
       your phone number so we can call you at a later time*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
-    NameOverride: 
+    IsUnskippable: 0
+    Duration: 0
     DialogText: AAAAAAAAAAAAAAAAAAAAAAAA!?!?!?!
   _dialogView: {fileID: 73329176}
+--- !u!1 &1357360862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357360863}
+  - component: {fileID: 1357360864}
+  m_Layer: 0
+  m_Name: Stage - 4 - Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357360863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357360862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 508513960}
+  - {fileID: 429433541}
+  - {fileID: 1647928191}
+  m_Father: {fileID: 262750663}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357360864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357360862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: HideBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 508513961}
+  - {fileID: 429433542}
+  - {fileID: 1647928192}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1357360864}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1382942795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6720,6 +8902,85 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1448442761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448442762}
+  - component: {fileID: 1448442763}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448442762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448442761}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1299185211}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448442763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448442761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: SASSO!!!
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 920c9c2446a22a8468b67de5bdcd135e, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: ;-;
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: '>:('
+  _dialogView: {fileID: 73329176}
 --- !u!1 &1462707903
 GameObject:
   m_ObjectHideFlags: 0
@@ -6888,6 +9149,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1521562577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1521562578}
+  - component: {fileID: 1521562579}
+  m_Layer: 0
+  m_Name: StartDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1521562578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521562577}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1077232407}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1521562579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521562577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 2
+    DialogText: Now.. let's begin..
+  _dialogView: {fileID: 73329176}
 --- !u!1 &1522258656
 GameObject:
   m_ObjectHideFlags: 0
@@ -7075,6 +9415,112 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1534503593
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534503594}
+  - component: {fileID: 1534503597}
+  - component: {fileID: 1534503596}
+  - component: {fileID: 1534503595}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1534503594
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534503593}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1758665853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534503595
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534503593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0.5
+  m_FrequencyGain: 0.2
+  mNoiseOffsets: {x: -428.6157, y: -742.3716, z: -465.69052}
+--- !u!114 &1534503596
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534503593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 2, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_TargetMovementOnly: 1
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_CameraDistance: 10
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_DeadZoneDepth: 0
+  m_UnlimitedSoftZone: 0
+  m_SoftZoneWidth: 1.072
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
+  m_GroupFramingMode: 2
+  m_AdjustmentMode: 0
+  m_GroupFramingSize: 0.8
+  m_MaxDollyIn: 5000
+  m_MaxDollyOut: 5000
+  m_MinimumDistance: 1
+  m_MaximumDistance: 5000
+  m_MinimumFOV: 3
+  m_MaximumFOV: 60
+  m_MinimumOrthoSize: 1
+  m_MaximumOrthoSize: 5000
+--- !u!114 &1534503597
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534503593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1593578996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7334,6 +9780,117 @@ MonoBehaviour:
   m_AmplitudeGain: 0.5
   m_FrequencyGain: 0.2
   mNoiseOffsets: {x: -428.6157, y: -742.3716, z: -465.69052}
+--- !u!1 &1647928190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647928191}
+  - component: {fileID: 1647928192}
+  m_Layer: 0
+  m_Name: Fight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1647928191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647928190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1105703106}
+  m_Father: {fileID: 1357360863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1647928192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647928190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ReturnBossToSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ShowBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1105703107}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1647928192}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1679577790
 GameObject:
   m_ObjectHideFlags: 0
@@ -7689,6 +10246,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1721988741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721988742}
+  - component: {fileID: 1721988743}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721988742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721988741}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1095339105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721988743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721988741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 3
+    DialogText: Alright...
+  _dialogView: {fileID: 73329176}
 --- !u!1 &1731350122
 GameObject:
   m_ObjectHideFlags: 0
@@ -7974,6 +10598,96 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1758665852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1758665853}
+  - component: {fileID: 1758665855}
+  - component: {fileID: 1758665854}
+  m_Layer: 0
+  m_Name: '[CM] - Overview Camera'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1758665853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758665852}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 2, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1534503594}
+  m_Father: {fileID: 2036267213}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1758665854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758665852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 0
+  m_BoundingVolume: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1927352320}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
+--- !u!114 &1758665855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758665852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 0
+  m_StandbyUpdate: 2
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 1621856280}
+  m_Lens:
+    FieldOfView: 60
+    OrthographicSize: 8
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    LensShift: {x: 0, y: 0}
+    GateFit: 2
+    FocusDistance: 10
+    m_SensorSize: {x: 1, y: 1}
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+  m_LegacyBlendHint: 0
+  m_ComponentOwner: {fileID: 1534503594}
 --- !u!1 &1760699222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8508,6 +11222,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1805051453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805051454}
+  - component: {fileID: 1805051455}
+  m_Layer: 0
+  m_Name: Delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1805051454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805051453}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 508513960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1805051455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805051453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f5b9f74095ba48986d66e9896c612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  TimerCompletedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1805051455}
+        m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+        m_MethodName: FSM_GoToNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _duration: 2
 --- !u!1 &1805497421
 GameObject:
   m_ObjectHideFlags: 0
@@ -8887,6 +11676,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1861728686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861728687}
+  - component: {fileID: 1861728688}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1861728687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861728686}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1221435375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1861728688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861728686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: ....
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: Sasso... let's teach her a lesson..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 920c9c2446a22a8468b67de5bdcd135e, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: HEHEHE, I GOT YOU >:)
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: <3
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 920c9c2446a22a8468b67de5bdcd135e, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: <3
+  _dialogView: {fileID: 73329176}
 --- !u!1 &1870340669
 GameObject:
   m_ObjectHideFlags: 0
@@ -9660,6 +12540,234 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1993247557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1993247558}
+  - component: {fileID: 1993247559}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1993247558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993247557}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 178203259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1993247559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993247557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 4.5
+    DialogText: Rise.. leaders of the dead..
+  _dialogView: {fileID: 73329176}
+--- !u!1 &2006506973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2006506974}
+  - component: {fileID: 2006506975}
+  m_Layer: 0
+  m_Name: Delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2006506974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006506973}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 178203259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2006506975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006506973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f5b9f74095ba48986d66e9896c612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  TimerCompletedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2006506975}
+        m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+        m_MethodName: FSM_GoToNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _duration: 2
+--- !u!1 &2025111760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025111761}
+  - component: {fileID: 2025111762}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2025111761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025111760}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 318971595}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2025111762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025111760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289c19c9a14d104dbef411f717c6836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states: []
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  _searchHierarchyForDependencies: 1
+  _mendatoryCharacters:
+  - {fileID: 8276405779752313918, guid: 920c9c2446a22a8468b67de5bdcd135e, type: 3}
+  - {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
+  - {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
+  _charactersPool:
+  - <RaItemWeight>k__BackingField: 1
+    <Character>k__BackingField: {fileID: 4686129856981903817, guid: 81abca417d585714cbfdf0467099f7a7, type: 3}
+  - <RaItemWeight>k__BackingField: 1
+    <Character>k__BackingField: {fileID: 4686129856981903817, guid: 7b08edbc850a2e747b1b6744497126a0, type: 3}
+  - <RaItemWeight>k__BackingField: 1
+    <Character>k__BackingField: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
+  _amountToSpawn: 3
 --- !u!1 &2036267212
 GameObject:
   m_ObjectHideFlags: 0
@@ -9691,6 +12799,7 @@ Transform:
   m_Children:
   - {fileID: 595532139}
   - {fileID: 1261529298}
+  - {fileID: 1758665853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061404845

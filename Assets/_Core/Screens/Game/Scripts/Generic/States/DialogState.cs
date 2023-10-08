@@ -79,7 +79,8 @@ namespace Screens.Game
 			[Header("Dialog Options")]
 			public GameCharacterEntity Character;
 
-			public string NameOverride;
+			public bool IsUnskippable;
+			public float Duration;
 
 			[TextArea]
 			public string DialogText;
@@ -95,7 +96,9 @@ namespace Screens.Game
 
 				return DialogView.DialogData.Create(DialogText)
 					.SetPortrait(selectedCharacter.CharacterView)
-					.SetName(string.IsNullOrEmpty(NameOverride) ? selectedCharacter.CharacterName : NameOverride)
+					.SetName(selectedCharacter.CharacterName)
+					.SetDuration(Duration)
+					.SetClickability(!IsUnskippable)
 					.SetContinueCallback(callback);
 			}
 		}

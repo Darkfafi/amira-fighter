@@ -70,6 +70,14 @@ namespace Screens.Game
 			UnlockBoss(flag);
 		}
 
+		public void HealPlayer()
+		{
+			if(PlayerInstance != null)
+			{
+				PlayerInstance.Health.Heal(int.MaxValue);
+			}
+		}
+
 		public void LockBoss(object flag)
 		{
 			if(BossInstance != null)

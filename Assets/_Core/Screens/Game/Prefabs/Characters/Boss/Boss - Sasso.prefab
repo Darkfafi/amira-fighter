@@ -27685,19 +27685,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 385822893193029456, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: m_Name
-      value: Boss - Ramses
+      value: Boss - Sasso
       objectReference: {fileID: 0}
     - target: {fileID: 1469095483966003779, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: <SpeedRange>k__BackingField.x
-      value: 4.5
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1469095483966003779, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: <SpeedRange>k__BackingField.y
-      value: 4.5
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _hp
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _despawnOnDeath
@@ -27705,11 +27705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _cancelAttackOnHit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: <CharacterName>k__BackingField
-      value: Ramses
+      value: Alessandro
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: <CharacterView>k__BackingField
