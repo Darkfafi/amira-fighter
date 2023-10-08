@@ -599,7 +599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &146760767
 Transform:
   m_ObjectHideFlags: 0
@@ -715,34 +715,10 @@ MonoBehaviour:
         m_Calls: []
     EnterStateEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1758665855}
-          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
-          m_MethodName: set_Priority
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 9999
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     ExitStateEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1758665855}
-          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
-          m_MethodName: set_Priority
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     DeinitStateEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -1182,6 +1158,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 688282496}
+  - {fileID: 1559184632}
   - {fileID: 64800856}
   - {fileID: 1095339105}
   - {fileID: 1299185211}
@@ -1241,6 +1218,7 @@ MonoBehaviour:
     CurrentStateSuffix: ' [CURRENT]'
   _states:
   - {fileID: 688282497}
+  - {fileID: 1559184633}
   - {fileID: 64800857}
   - {fileID: 1095339106}
   - {fileID: 1299185212}
@@ -1270,6 +1248,81 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &270421334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270421335}
+  - component: {fileID: 270421336}
+  m_Layer: 0
+  m_Name: Delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270421335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270421334}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357360863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270421336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270421334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f5b9f74095ba48986d66e9896c612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  TimerCompletedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 270421336}
+        m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+        m_MethodName: FSM_GoToNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _duration: 1
 --- !u!1 &275696426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,40 +1603,17 @@ MonoBehaviour:
         m_Calls: []
     EnterStateEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1758665855}
-          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
-          m_MethodName: set_Priority
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 9999
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     ExitStateEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1758665855}
-          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
-          m_MethodName: set_Priority
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     DeinitStateEvent:
       m_PersistentCalls:
         m_Calls: []
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _states:
+  - {fileID: 1221435376}
   - {fileID: 405231915}
   - {fileID: 2025111762}
   _wrapFSM: 0
@@ -1611,6 +1641,71 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &320107175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 320107176}
+  - component: {fileID: 320107177}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &320107176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320107175}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928247735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &320107177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320107175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f714db9fcc999804c8f79be38b29bb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _objectToRain: {fileID: 1631841914499861701, guid: f7a7f09c44d4dec4299008e9d03199e5, type: 3}
+  _spawnRadius: 2.5
+  _spawnDelayRangeInSeconds: {x: 0.15, y: 0.45}
+  _spawnAmount: 35
+  _secondsUntilEndAfterLastSpawn: 3.5
 --- !u!1 &337467340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1924,73 @@ MonoBehaviour:
   <EnemySpawnsRight>k__BackingField:
   - {fileID: 895687153}
   - {fileID: 484312606}
+--- !u!1 &346247416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346247417}
+  - component: {fileID: 346247418}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &346247417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346247416}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1559184632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346247418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346247416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 3
+    DialogText: LET'S GO
+  _dialogView: {fileID: 73329176}
 --- !u!1 &361132166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,9 +2088,9 @@ MonoBehaviour:
   _searchHierarchyForDependencies: 1
   _objectToRain: {fileID: 1631841914499861701, guid: f7a7f09c44d4dec4299008e9d03199e5, type: 3}
   _spawnRadius: 2.5
-  _spawnDelayRangeInSeconds: {x: 0.15, y: 0.45}
-  _spawnAmount: 35
-  _secondsUntilEndAfterLastSpawn: 2
+  _spawnDelayRangeInSeconds: {x: 0.15, y: 0.35}
+  _spawnAmount: 40
+  _secondsUntilEndAfterLastSpawn: 3.5
 --- !u!1 &388271131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,7 +2151,7 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _searchHierarchyForDependencies: 1
-  _hpPercentage: 0.6
+  _hpPercentage: 0.4
 --- !u!1 &396496688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,7 +3721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &513748837
 Transform:
   m_ObjectHideFlags: 0
@@ -3931,6 +4093,133 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &577874849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577874850}
+  - component: {fileID: 577874851}
+  m_Layer: 0
+  m_Name: End - Stage - Speach Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577874850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577874849}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1157218335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577874851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577874849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: T..this can't be...
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: I made the game..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: I.... I see..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: You are the birthday girl..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: My sister..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: The girl I am so proud of..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: You have done well..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: And will continue to do well in life..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: My dear sister..
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: <3
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 821707089124145097, guid: 856e691d6cc22b54a84a7dea3609799b, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: <3..
+  _dialogView: {fileID: 73329176}
 --- !u!1 &595532137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4556,6 +4845,117 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &742679559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742679560}
+  - component: {fileID: 742679561}
+  m_Layer: 0
+  m_Name: Fight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &742679560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742679559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1236603250}
+  m_Father: {fileID: 1559184632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742679561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742679559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ReturnBossToSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: ShowBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1236603251}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 742679561}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &759464391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4790,7 +5190,7 @@ MonoBehaviour:
   _spawnRadius: 2.5
   _spawnDelayRangeInSeconds: {x: 0.25, y: 0.75}
   _spawnAmount: 20
-  _secondsUntilEndAfterLastSpawn: 2
+  _secondsUntilEndAfterLastSpawn: 3.5
 --- !u!1 &799863492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,6 +5743,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _radius: 2.5
   _color: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1 &901038442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 901038443}
+  - component: {fileID: 901038444}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &901038443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901038442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928247735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &901038444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901038442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 4.5
+    DialogText: SASSO LEFT SOME PRESENTS FOR YOU
+  _dialogView: {fileID: 73329176}
 --- !u!1 &904653950
 GameObject:
   m_ObjectHideFlags: 0
@@ -5374,6 +5841,188 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1593578997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &906170674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906170675}
+  - component: {fileID: 906170676}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &906170675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906170674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 950645659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &906170676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906170674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d35c80641aa9a478e78ca28b4d2e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _dialog:
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 1
+    Character: {fileID: 0}
+    IsUnskippable: 1
+    Duration: 4.5
+    DialogText: I got a gift for you <3
+  _dialogView: {fileID: 73329176}
+--- !u!1 &928247734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928247735}
+  - component: {fileID: 928247736}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928247735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928247734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 901038443}
+  - {fileID: 1888008133}
+  - {fileID: 320107176}
+  m_Father: {fileID: 1357360863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928247736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928247734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9999
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 901038444}
+  - {fileID: 1888008134}
+  - {fileID: 320107177}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 928247736}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &938858762
 GameObject:
   m_ObjectHideFlags: 0
@@ -5576,6 +6225,119 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &950645658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950645659}
+  - component: {fileID: 950645660}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &950645659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950645658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 906170675}
+  - {fileID: 1480032939}
+  m_Father: {fileID: 1559184632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &950645660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950645658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 9999
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1758665855}
+          m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
+          m_MethodName: set_Priority
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 906170676}
+  - {fileID: 1480032940}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 950645660}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &954322261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6455,7 +7217,7 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _searchHierarchyForDependencies: 1
-  _hpPercentage: 0.4
+  _hpPercentage: 0.2
 --- !u!1 &1038725745
 GameObject:
   m_ObjectHideFlags: 0
@@ -7352,7 +8114,7 @@ MonoBehaviour:
     Character: {fileID: 0}
     IsUnskippable: 1
     Duration: 4.5
-    DialogText: TIME TO SPOIL YOU!!
+    DialogText: WE ARE NOT DONE YET!!
   _dialogView: {fileID: 73329176}
 --- !u!1 &1144194715
 GameObject:
@@ -7505,7 +8267,7 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _searchHierarchyForDependencies: 1
-  _hpPercentage: 0.8
+  _hpPercentage: 0.6
 --- !u!1 &1157218334
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,6 +8306,7 @@ Transform:
   - {fileID: 1259026683}
   - {fileID: 1075385260}
   - {fileID: 1930562379}
+  - {fileID: 577874850}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1157218336
@@ -7950,6 +8713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1221435375}
+  - component: {fileID: 1221435376}
   m_Layer: 0
   m_Name: Talk Sasso
   m_TagString: Untagged
@@ -7973,6 +8737,60 @@ Transform:
   - {fileID: 1861728687}
   m_Father: {fileID: 318971595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221435376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221435374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 1861728688}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1221435376}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1235513554
 GameObject:
   m_ObjectHideFlags: 0
@@ -8057,6 +8875,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1236603249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236603250}
+  - component: {fileID: 1236603251}
+  m_Layer: 0
+  m_Name: Await
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1236603250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236603249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 742679560}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1236603251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236603249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a6665abbecc8b438e4a4d0f69a6e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _hpPercentage: 0.8
 --- !u!1 &1250530309
 GameObject:
   m_ObjectHideFlags: 0
@@ -8107,7 +8986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1259026683
 Transform:
   m_ObjectHideFlags: 0
@@ -8649,7 +9528,7 @@ GameObject:
   - component: {fileID: 1357360863}
   - component: {fileID: 1357360864}
   m_Layer: 0
-  m_Name: Stage - 4 - Rain
+  m_Name: Stage - 4 - Rain - Final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8668,6 +9547,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 928247735}
+  - {fileID: 270421335}
   - {fileID: 508513960}
   - {fileID: 429433541}
   - {fileID: 1647928191}
@@ -8713,6 +9594,8 @@ MonoBehaviour:
   CoreEditorOptions:
     CurrentStateSuffix: ' [CURRENT]'
   _states:
+  - {fileID: 928247736}
+  - {fileID: 270421336}
   - {fileID: 508513961}
   - {fileID: 429433542}
   - {fileID: 1647928192}
@@ -9065,6 +9948,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1480032938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480032939}
+  - component: {fileID: 1480032940}
+  m_Layer: 0
+  m_Name: Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1480032939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480032938}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 950645659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1480032940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480032938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f714db9fcc999804c8f79be38b29bb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _searchHierarchyForDependencies: 1
+  _objectToRain: {fileID: 1631841914499861701, guid: f7a7f09c44d4dec4299008e9d03199e5, type: 3}
+  _spawnRadius: 2.5
+  _spawnDelayRangeInSeconds: {x: 2, y: 3}
+  _spawnAmount: 2
+  _secondsUntilEndAfterLastSpawn: 3.5
 --- !u!1 &1509185312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,6 +10469,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1559184631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1559184632}
+  - component: {fileID: 1559184633}
+  m_Layer: 0
+  m_Name: Stage - 0 - Intro Rain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1559184632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559184631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 950645659}
+  - {fileID: 346247417}
+  - {fileID: 742679560}
+  m_Father: {fileID: 262750663}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1559184633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559184631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b4c930f7b7eac44b3a6da172a6be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1930562380}
+          m_TargetAssemblyTypeName: Screens.Game.GameBossSceneFSMState, Assembly-CSharp
+          m_MethodName: HideBossWithEffects
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  _states:
+  - {fileID: 950645660}
+  - {fileID: 346247418}
+  - {fileID: 742679561}
+  _wrapFSM: 0
+  _autoFillStates: 1
+  _excludeDisabledStates: 1
+  GoFSMStateEvents:
+    SetStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    SwitchedStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    LastStateExitEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1559184633}
+          m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+          m_MethodName: FSM_GoToNextState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1593578996
 GameObject:
   m_ObjectHideFlags: 0
@@ -10413,7 +11464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1739844956
 Transform:
   m_ObjectHideFlags: 0
@@ -11296,7 +12347,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _duration: 2
+  _duration: 1
 --- !u!1 &1805497421
 GameObject:
   m_ObjectHideFlags: 0
@@ -11935,6 +12986,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1888008132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888008133}
+  - component: {fileID: 1888008134}
+  m_Layer: 0
+  m_Name: Delay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1888008133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888008132}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928247735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888008134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888008132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f5b9f74095ba48986d66e9896c612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreEvents:
+    InitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    EnterStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    ExitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    DeinitStateEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  CoreEditorOptions:
+    CurrentStateSuffix: ' [CURRENT]'
+  TimerCompletedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1888008134}
+        m_TargetAssemblyTypeName: RaFSM.RaGOStateBase, RaFSM
+        m_MethodName: FSM_GoToNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _duration: 2
 --- !u!1 &1897713294
 GameObject:
   m_ObjectHideFlags: 0
@@ -12019,7 +13145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1899943646
 Transform:
   m_ObjectHideFlags: 0
@@ -12103,7 +13229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1920180741
 Transform:
   m_ObjectHideFlags: 0
