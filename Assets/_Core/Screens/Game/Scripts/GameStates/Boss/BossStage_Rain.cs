@@ -54,13 +54,13 @@ namespace Screens.Game
 			int count = 0;
 			while(count < _spawnAmount)
 			{
-				yield return new WaitForSeconds(Random.Range(_spawnDelayRangeInSeconds.x, _spawnDelayRangeInSeconds.y));
 				Vector2 spawnPosition = SpawnPoint.GetSpawnPosition(Dependency.PlayerInstance.transform.position, _spawnRadius);
 				if (NavMesh.SamplePosition(spawnPosition, out _, float.MaxValue, NavMesh.AllAreas))
 				{
 					Instantiate(_objectToRain, spawnPosition, Quaternion.identity);
 					count++;
 				}
+				yield return new WaitForSeconds(Random.Range(_spawnDelayRangeInSeconds.x, _spawnDelayRangeInSeconds.y));
 			}
 
 			yield return new WaitForSeconds(_secondsUntilEndAfterLastSpawn);

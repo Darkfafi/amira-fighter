@@ -44,6 +44,17 @@ namespace Screens.Game
 			}
 		}
 
+		protected void Update()
+		{
+			if(IsBeingShown)
+			{
+				if (Input.GetKeyDown(KeyCode.Space))
+				{
+					ContinueDialog();
+				}
+			}
+		}
+
 		public void ShowDialog(DialogData dialogData)
 		{
 			HideDialog();

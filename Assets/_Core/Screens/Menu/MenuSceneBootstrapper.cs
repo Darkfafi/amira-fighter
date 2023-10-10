@@ -1,5 +1,6 @@
 using RaFSM;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Screens.Menu
@@ -25,6 +26,14 @@ namespace Screens.Menu
 		}
 
 		public RectTransform WorldBottomContainer => _bottomPartRectTransform;
+
+		protected void Update()
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				EditorOnPlayPressed();
+			}
+		}
 
 		public void EditorOnPlayPressed()
 		{

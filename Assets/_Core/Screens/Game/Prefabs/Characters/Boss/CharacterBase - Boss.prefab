@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterBase - Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8762060249457118219, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
