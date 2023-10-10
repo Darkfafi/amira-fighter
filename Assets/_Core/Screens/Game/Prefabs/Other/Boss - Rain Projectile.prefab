@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 7785885036426534761}
   - component: {fileID: 7371228210699737173}
   - component: {fileID: 7169682097219979758}
+  - component: {fileID: 965440188463071301}
   m_Layer: 0
   m_Name: Boss - Rain Projectile
   m_TagString: Untagged
@@ -124,6 +125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4552771726049913368}
+  - {fileID: 6643926302632992542}
   - {fileID: 7529796197147605930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,7 +163,19 @@ MonoBehaviour:
   _delay: 0
   _onSetup:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965440188463071301}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onStart:
     m_PersistentCalls:
       m_Calls: []
@@ -176,7 +190,19 @@ MonoBehaviour:
       m_Calls: []
   _onEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965440188463071301}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onKill:
     m_PersistentCalls:
       m_Calls: []
@@ -580,9 +606,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6220006154672138368}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6220006154672138368}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onKill:
     m_PersistentCalls:
       m_Calls: []
@@ -952,6 +1002,19 @@ MonoBehaviour:
   _agentCanvas: {fileID: 0}
   _particleSystem: {fileID: 0}
   _system: {fileID: -7388211200909750580, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
+--- !u!114 &965440188463071301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631841914499861701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdf7724a25590e41ac54eef931402a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyInSeconds: 5
 --- !u!1 &2629905738260542360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1183,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6220006154672138368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6643926302632992542}
+  - component: {fileID: 3994113111129498419}
+  m_Layer: 0
+  m_Name: Hit Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6643926302632992542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220006154672138368}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4958593290096452647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3994113111129498419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220006154672138368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc08e76f6082a0545b3e9bcbc1e9566c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageRect:
+    serializedVersion: 2
+    x: 0
+    y: -0.6
+    width: 5
+    height: 1
+  _knockbackDuration: 0.15
+  _knockbackStrength: 1.15
+  _hitOnEnable: 1
 --- !u!1 &7273693150409641118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1247,7 @@ GameObject:
   - component: {fileID: 3818593200625299564}
   - component: {fileID: 3326545229862421796}
   m_Layer: 0
-  m_Name: View
+  m_Name: Present
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1215,7 +1331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4552771726049913368}
   m_Layer: 0
-  m_Name: ProjectileRoot
+  m_Name: View - Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
