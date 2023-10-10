@@ -556,6 +556,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7529796197147895690}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 7529796197167005418}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
@@ -938,6 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sortingGroup: {fileID: 7785885036426534761}
   _agentCanvas: {fileID: 0}
+  _particleSystem: {fileID: 0}
   _system: {fileID: -7388211200909750580, guid: a7a764289f9d7b44cadcede5b6b883c3, type: 2}
 --- !u!1 &2629905738260542360
 GameObject:
@@ -1266,6 +1279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rain Projectile Explosion
       objectReference: {fileID: 0}
+    - target: {fileID: 3282388189442475293, guid: 08ab51f84c42a074398e60152b6ff2f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3282388189442971965, guid: 08ab51f84c42a074398e60152b6ff2f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1338,6 +1355,11 @@ PrefabInstance:
 --- !u!4 &7529796197147605930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3282388189442971965, guid: 08ab51f84c42a074398e60152b6ff2f2, type: 3}
+  m_PrefabInstance: {fileID: 5040186684793053847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7529796197147895690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3282388189442475293, guid: 08ab51f84c42a074398e60152b6ff2f2, type: 3}
   m_PrefabInstance: {fileID: 5040186684793053847}
   m_PrefabAsset: {fileID: 0}
 --- !u!198 &7529796197167005418 stripped

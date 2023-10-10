@@ -3391,8 +3391,7 @@ MonoBehaviour:
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
     IsUnskippable: 0
     Duration: 0
-    DialogText: '*we are calling you back due to the ''help'' request, how can we
-      be of service*'
+    DialogText: '*welcome to customer service, how can we help you?*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
@@ -3404,8 +3403,7 @@ MonoBehaviour:
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
     IsUnskippable: 0
     Duration: 0
-    DialogText: '*we understand that you are in need of protection, we are on our
-      way*'
+    DialogText: '*hello?*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
@@ -9421,8 +9419,8 @@ MonoBehaviour:
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: af1cf89111c1f24468518e49a629e67e, type: 3}
-    IsUnskippable: 0
-    Duration: 0
+    IsUnskippable: 1
+    Duration: 3
     DialogText: GET HER!
   _dialogView: {fileID: 73329176}
 --- !u!1 &1339732046
@@ -14846,6 +14844,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1524891682}
     m_Modifications:
+    - target: {fileID: 86685021862107742, guid: a83e335d45b30ea4bbcbac3c0606d292, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 39.299988
+      objectReference: {fileID: 0}
     - target: {fileID: 891873210025247403, guid: a83e335d45b30ea4bbcbac3c0606d292, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
