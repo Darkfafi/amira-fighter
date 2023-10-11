@@ -16,6 +16,9 @@ namespace Screens.Game
 		[SerializeField]
 		private bool _hitOnEnable = true;
 
+		[SerializeField]
+		private ColliderType _colliderType = ColliderType.FeetCollider;
+
 		private Vector2 GetPosition() => new Vector2(transform.position.x, transform.position.y) + _damageRect.position;
 
 		protected void OnEnable()
@@ -34,7 +37,7 @@ namespace Screens.Game
 			{
 				var hit = hits[i];
 
-				if (hit.tag == "MainCollider" &&
+				if (hit.tag == _colliderType.ToString() &&
 					hit.transform.root.TryGetComponent(out GameCharacterEntity entity))
 				{
 					if (entity.Health.Damage(1))

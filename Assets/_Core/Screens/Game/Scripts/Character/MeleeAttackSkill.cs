@@ -37,6 +37,9 @@ namespace Screens.Game
 		[SerializeField]
 		private ParticleSystem[] _hitEffectPrefabs = null;
 
+		[SerializeField]
+		private ColliderType _colliderType = ColliderType.MainCollider;
+
 		[Header("Audio")]
 		[SerializeField]
 		private AudioSource _combatSFXSource = null;
@@ -92,7 +95,7 @@ namespace Screens.Game
 				// And the body is attached to a GameCharacterEntity 
 				// And it is not aligned with us (or us)
 				// Perform Hit
-				if (hit.tag == "MainCollider" &&
+				if (hit.tag == _colliderType.ToString() &&
 					hit.transform.root.TryGetComponent(out GameCharacterEntity entity) &&
 					entity.tag != Character.transform.tag)
 				{

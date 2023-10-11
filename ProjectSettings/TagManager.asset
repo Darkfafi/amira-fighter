@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Blocker
   - Body
+  - FxTemporaire
+  - MainCollider
+  - FeetCollider
   layers:
   - Default
   - TransparentFX
