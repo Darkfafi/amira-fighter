@@ -20299,7 +20299,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6862745, g: 0.6313726, b: 0.5372549, a: 1}
+      key0: {r: 0.9921569, g: 0.7803922, b: 0, a: 1}
       key1: {r: 0, g: 0, b: 0, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -27903,7 +27903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _hp
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _despawnOnDeath
@@ -27911,7 +27911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _cancelAttackOnHit
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: <CharacterName>k__BackingField

@@ -27697,7 +27697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _hp
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2092958865022931371, guid: 15248b6cda116dd45a428a148e87525e, type: 3}
       propertyPath: _despawnOnDeath

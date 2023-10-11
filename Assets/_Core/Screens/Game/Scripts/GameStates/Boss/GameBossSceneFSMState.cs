@@ -74,7 +74,7 @@ namespace Screens.Game
 		{
 			if(PlayerInstance != null)
 			{
-				PlayerInstance.Health.Heal(int.MaxValue);
+				PlayerInstance.Health.Heal(9999);
 			}
 		}
 
