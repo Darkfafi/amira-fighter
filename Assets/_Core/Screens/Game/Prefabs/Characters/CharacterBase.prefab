@@ -87,6 +87,7 @@ MonoBehaviour:
   _knockbackDuration: 0.15
   _knockbackStrength: 1.15
   _hitEffectPrefabs: []
+  _colliderType: 0
   _combatSFXSource: {fileID: 5086445505864176801}
   _swingSounds:
   - <Clip>k__BackingField: {fileID: 8300000, guid: ad9f518e62c2b094eb656a7b12873a31, type: 3}
@@ -439,7 +440,7 @@ GameObject:
   - component: {fileID: 8635487562363267664}
   m_Layer: 0
   m_Name: Character Collider - Feet
-  m_TagString: Untagged
+  m_TagString: FeetCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
