@@ -11,12 +11,6 @@ namespace Screens.Game
 		[SerializeField]
 		private ParticleSystem _hideShowFXPrefab = null;
 
-		[field: SerializeField]
-		public CharacterHUDView BossCharacterHUDView
-		{
-			get; private set;
-		}
-
 		[SerializeField]
 		private Transform _bossSpawnPoint = null;
 
@@ -32,7 +26,6 @@ namespace Screens.Game
 		protected override void OnInit()
 		{
 			base.OnInit();
-			BossCharacterHUDView.SetActive(false);
 		}
 
 		protected override void OnEnter()
@@ -47,8 +40,6 @@ namespace Screens.Game
 				BossInstance = tricksterSpawnResult.CreatedCharacter;
 				BossInstance.AddTag(nameof(GameBossSceneFSMState));
 				BossInstance.AddTag(nameof(BossInstance));
-
-				BossCharacterHUDView.SetData(BossInstance);
 			}
 
 			LockStateElements(setupLockFlag);
