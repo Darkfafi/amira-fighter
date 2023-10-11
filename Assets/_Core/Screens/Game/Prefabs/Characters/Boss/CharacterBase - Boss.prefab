@@ -49,8 +49,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: _hitSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: _deathSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
       propertyPath: <CharacterName>k__BackingField
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: _hitSounds.Array.data[0].<Clip>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: f73f4714fb2ee6247841a17bed2f3023, type: 3}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: _deathSounds.Array.data[0].<Clip>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f39f5db04c9fec44be943cb57bf21a8, type: 3}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: _hitSounds.Array.data[0].<VolumeScaler>k__BackingField
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045897288228535024, guid: 5949244e74505dc4183730aec0e08150, type: 3}
+      propertyPath: _deathSounds.Array.data[0].<VolumeScaler>k__BackingField
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8762060249457118219, guid: 5949244e74505dc4183730aec0e08150, type: 3}
       propertyPath: m_Name

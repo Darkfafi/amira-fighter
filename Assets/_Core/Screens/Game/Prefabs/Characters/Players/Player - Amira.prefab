@@ -7551,7 +7551,7 @@ MonoBehaviour:
   _combatSFXSource: {fileID: 8927800875337822981}
   _dashSounds:
   - <Clip>k__BackingField: {fileID: 8300000, guid: de082fd7d31508244a773fb44ab2ebd2, type: 3}
-    <VolumeScaler>k__BackingField: 0.5
+    <VolumeScaler>k__BackingField: 0.85
 --- !u!1 &2950430358644651706
 GameObject:
   m_ObjectHideFlags: 0
@@ -27723,6 +27723,14 @@ PrefabInstance:
     - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: <CooldownTimeInSeconds>k__BackingField
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _impactSounds.Array.data[0].<Clip>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 04ea7993197440f5ac669b24956abad9, type: 3}
+    - target: {fileID: 4828224171007469179, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _impactSounds.Array.data[0].<VolumeScaler>k__BackingField
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: _hitSounds.Array.size
