@@ -3677,12 +3677,6 @@ MonoBehaviour:
     DialogText: '*hello?*'
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
-    Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
-    IsUnskippable: 0
-    Duration: 0
-    DialogText: '*please don''t forget to leave a 5 star review on our Facebook page*'
-  - CharacterIndex: 0
-    EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
     IsUnskippable: 0
     Duration: 0

@@ -27733,6 +27733,10 @@ PrefabInstance:
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
+      propertyPath: _hp
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336382082595238827, guid: 0bbb9569b606df649ac91401987fe5d0, type: 3}
       propertyPath: _hitSounds.Array.size
       value: 2
       objectReference: {fileID: 0}
