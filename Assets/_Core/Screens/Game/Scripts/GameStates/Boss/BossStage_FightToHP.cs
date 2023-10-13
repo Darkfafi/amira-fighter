@@ -22,7 +22,10 @@ namespace Screens.Game
 
 		protected override void OnExit(bool isSwitch)
 		{
-			Dependency.BossInstance.Health.HealthChangedEvent -= OnHealthChangedEvent;
+			if (Dependency.BossInstance != null)
+			{
+				Dependency.BossInstance.Health.HealthChangedEvent -= OnHealthChangedEvent;
+			}
 		}
 
 		protected override void OnDeinit()
