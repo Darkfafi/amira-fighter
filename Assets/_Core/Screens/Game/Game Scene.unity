@@ -4696,13 +4696,13 @@ MonoBehaviour:
     Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
     IsUnskippable: 0
     Duration: 0
-    DialogText: For I felt your heartbeat, from a heart with a golden shell.
+    DialogText: For I felt your heartbeat, from a heart glazed with a golden shell.
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
     IsUnskippable: 0
     Duration: 0
-    DialogText: I told our mother, and our joy did display,
+    DialogText: Informing our mother, which was quite the display,
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
@@ -4720,7 +4720,7 @@ MonoBehaviour:
     Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
     IsUnskippable: 0
     Duration: 0
-    DialogText: Brighter than ever, my dear sister dear.
+    DialogText: Brighter than ever, my sister dear.
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
@@ -4732,7 +4732,13 @@ MonoBehaviour:
     Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
     IsUnskippable: 0
     Duration: 0
-    DialogText: To the wonder of you, and life's boundless bliss.
+    DialogText: Of Amira, who will always be our little princess.
+  - CharacterIndex: 0
+    EnableCharacterLookupByIndex: 0
+    Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
+    IsUnskippable: 0
+    Duration: 0
+    DialogText: Remember always, through thick and thin,
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 8276405779752313918, guid: 8ed39e06e2169cf488406f9aa9e8a7d2, type: 3}
@@ -10359,7 +10365,7 @@ MonoBehaviour:
     Character: {fileID: 4686129856981903817, guid: b3f0d2886c20e9c49a66134b65a1c180, type: 3}
     IsUnskippable: 0
     Duration: 0
-    DialogText: We need help.. fast!!
+    DialogText: This is a single sided Ass whooping. We need back-up!! ;-;
   - CharacterIndex: 0
     EnableCharacterLookupByIndex: 0
     Character: {fileID: 4686129856981903817, guid: 6ebe48fcb7d9fc14dae752c32793546a, type: 3}
