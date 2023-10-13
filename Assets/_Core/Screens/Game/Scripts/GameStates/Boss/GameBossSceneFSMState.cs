@@ -171,11 +171,7 @@ namespace Screens.Game
 		{			
 			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
 
-			if (BossInstance != null)
-			{
-				Dependency.GameSystems.CharacterCoreSystem.DespawnCharacter(BossInstance).Execute(Dependency.GameSystems.ActionsProcessor);
-				BossInstance = null;
-			}
+			BossInstance = null;
 
 			base.OnExit(isSwitch); 
 		}

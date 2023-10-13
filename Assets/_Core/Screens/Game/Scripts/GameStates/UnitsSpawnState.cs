@@ -63,12 +63,6 @@ namespace Screens.Game
 		protected override void OnExit(bool isSwitch)
 		{
 			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
-
-			_spawnedCharacters.ForEach(character =>
-			{
-				Dependency.GameSystems.CharacterCoreSystem.DespawnCharacter(character).Execute(Dependency.GameSystems.CharacterCoreSystem.Processor);
-			});
-
 			_spawnedCharacters.Clear();
 			base.OnExit(isSwitch);
 		}

@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Screens.Game
 {
-
 	public class GameIntroSceneFSMState : GameEventFSMState, IDialogCharacterContainer
 	{
 		[Header("Spawning")]
@@ -84,18 +83,7 @@ namespace Screens.Game
 		protected override void OnExit(bool isSwitch)
 		{
 			Dependency.GameSystems.CharacterActionsSystem.MainActionEvent.UnregisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnUnitDespawned);
-
-			if(TricksterInstance != null)
-			{
-				Dependency.GameSystems.CharacterCoreSystem.DespawnCharacter(TricksterInstance).Execute(Dependency.GameSystems.ActionsProcessor);
-				TricksterInstance = null;
-			}
-
-			_enemies.ForEach(character =>
-			{
-				Dependency.GameSystems.CharacterCoreSystem.DespawnCharacter(character).Execute(Dependency.GameSystems.ActionsProcessor);
-			});
-
+			TricksterInstance = null;
 			_enemies.Clear();
 			base.OnExit(isSwitch);
 		}
