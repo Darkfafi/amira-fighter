@@ -49,7 +49,7 @@ namespace Screens.Game
 			}))
 			{
 				_combatSFXSource.PlayRandomOneShot(_dashSounds);
-				_dashTrail.sortingOrder = Character.OrthographicAgent.SortingOrder - 25;
+				_dashTrail.sortingOrder = Character.OrthographicAgent.SortingOrder - 100;
 				_dashTrail.emitting = true;
 			}
 		}
