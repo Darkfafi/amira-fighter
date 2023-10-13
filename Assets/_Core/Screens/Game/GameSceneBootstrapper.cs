@@ -1,5 +1,7 @@
 ﻿using Cinemachine;
 using RaFSM;
+using RaProgression;
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -42,6 +44,10 @@ namespace Screens.Game
 		[SerializeField]
 		private AudioSource _musicAudioSource = null;
 
+		[Header("State References")]
+		[SerializeField]
+		private RaGOStateBase _loseState = null;
+
 		public GameStoryProgress StoryProgress
 		{
 			get; private set;
@@ -79,6 +85,7 @@ namespace Screens.Game
 				.Execute(GameSystems.CharacterCoreSystem.Processor, out var result))
 			{
 				PlayerCharacter = result.CreatedCharacter;
+				PlayerCharacter.Health.HealthChangedEvent += OnPlayerHealthChangedEvent;
 				CameraFollowObject.SetParent(PlayerCharacter.CharacterView.transform, worldPositionStays: false);
 				CameraFollowObject.transform.localPosition = Vector3.zero;
 
@@ -86,6 +93,22 @@ namespace Screens.Game
 			}
 
 			StartCoroutine(Setup());
+		}
+
+		public void LockPlayer(object flag)
+		{
+			if (PlayerCharacter != null)
+			{
+				PlayerCharacter.CharacterLockedTracker.Register(flag);
+			}
+		}
+
+		public void UnlockPlayer(object flag)
+		{
+			if (PlayerCharacter != null)
+			{
+				PlayerCharacter.CharacterLockedTracker.Unregister(flag);
+			}
 		}
 
 		public void ResetPlayerToSpawn()
@@ -127,6 +150,14 @@ namespace Screens.Game
 
 			// Setup HUD
 			GameHUDView.Resolve();
+		}
+
+		private void OnPlayerHealthChangedEvent(Health health)
+		{
+			if (!health.IsAlive)
+			{
+				_gameFSM.SwitchState(_loseState);
+			}
 		}
 	}
 }

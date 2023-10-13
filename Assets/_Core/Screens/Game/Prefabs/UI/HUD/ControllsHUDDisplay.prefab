@@ -1429,7 +1429,7 @@ GameObject:
   - component: {fileID: 3355514118108960275}
   - component: {fileID: 8543353790317669056}
   m_Layer: 5
-  m_Name: ControllsView
+  m_Name: ControllsHUDDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

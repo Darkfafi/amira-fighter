@@ -1,6 +1,7 @@
 using RaCollection;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -31,6 +32,8 @@ namespace Screens.Game
 		// Look-ups
 		public GameCharacterEntity TargetEntity => _targetEntity;
 
+		private CancellationTokenSource _cancellationTokenSource = null;
+
 		protected override void OnSetup()
 		{
 			_spawnedEnemies = new RaCollection<EnemyAIController>(OnEnemyAdded, OnEnemyRemoved);
@@ -40,8 +43,6 @@ namespace Screens.Game
 
 			_characterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.SpawnCharacterAction>(OnSpawnedCharacter);
 			_characterActionsSystem.MainActionEvent.RegisterMethod<CharacterCoreSystem.DespawnCharacterAction>(OnDespawnedCharacter);
-
-
 		}
 
 		protected override void OnStart()
@@ -51,6 +52,13 @@ namespace Screens.Game
 
 		protected override void OnEnd()
 		{
+			if(_cancellationTokenSource != null)
+			{
+				_cancellationTokenSource.Cancel();
+				_cancellationTokenSource.Dispose();
+				_cancellationTokenSource = null;
+			}
+
 			if (_spawnedEnemies != null)
 			{
 				_spawnedEnemies.Dispose();
@@ -245,9 +253,26 @@ namespace Screens.Game
 
 		private async void SelectAttackerRoutine()
 		{
+			_cancellationTokenSource = new CancellationTokenSource();
+			CancellationToken token = _cancellationTokenSource.Token;
+
 			while (IsInitialized)
 			{
-				await Task.Delay(Mathf.RoundToInt(Random.Range(_attackDelayRange.x, _attackDelayRange.y) * 1000));
+				if(token.IsCancellationRequested)
+				{
+					Debug.Log("End Leader Attacker Routine");
+					break;
+				}
+
+				try
+				{
+					await Task.Delay(Mathf.RoundToInt(Random.Range(_attackDelayRange.x, _attackDelayRange.y) * 1000), cancellationToken: token);
+				}
+				catch
+				{
+					Debug.Log("End Leader Attacker Routine");
+					break;
+				}
 
 				if (_enemyToFormationPointMap.Count == 0)
 

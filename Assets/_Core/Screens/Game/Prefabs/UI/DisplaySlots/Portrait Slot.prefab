@@ -57646,6 +57646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 6592392768344353936}
+  _initGameCharacter: {fileID: 0}
 --- !u!224 &9047154519576572120 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1694977059830434010, guid: 477986765a4926e46b8e5b1e21224fbf, type: 3}
