@@ -52,9 +52,21 @@ namespace Screens.Game
 			{
 				SetCurrentEvent(newEventState);
 			}
-			else if(previousState is GameEventFSMState)
+			else
 			{
-				SetCurrentEvent(null);
+				TryComplete();
+			}
+		}
+
+		private void TryComplete()
+		{
+			if(CurrentEventIndex >= Events.Length - 1)
+			{
+				if (Progress.State == RaProgressState.InProgress)
+				{
+					Progress.Evaluate(1f);
+					Progress.Complete();
+				}
 			}
 		}
 
@@ -76,24 +88,12 @@ namespace Screens.Game
 				return;
 			}
 
-			if (CurrentEventIndex >= 0)
+			if (Progress.State == RaProgressState.None)
 			{
-				if(Progress.State == RaProgressState.None)
-				{
-					Progress.Start();
-				}
+				Progress.Start();
+			}
 
-				Progress.Evaluate((float)(CurrentEventIndex + 1) / Events.Length, throwIfNotValid: false);
-			}
-			else if(Progress.State == RaProgressState.InProgress)
-			{
-				Progress.Evaluate(1f);
-				Progress.Complete();
-			}
-			else
-			{
-				Progress.Evaluate(0f, throwIfNotValid: false);
-			}
+			Progress.Evaluate((float)(CurrentEventIndex + 1) / Events.Length, throwIfNotValid: false);
 
 			EventChangedEvent?.Invoke(CurrentEventIndex, oldIndex);
 		}

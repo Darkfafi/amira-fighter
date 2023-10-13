@@ -8682,10 +8682,6 @@ MonoBehaviour:
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 7b08edbc850a2e747b1b6744497126a0, type: 3}
   - <RaItemWeight>k__BackingField: 2
     <Character>k__BackingField: {fileID: 4686129856981903817, guid: 382aff573d6610d4882bd83423a726f4, type: 3}
-  - <RaItemWeight>k__BackingField: 1
-    <Character>k__BackingField: {fileID: 4686129856981903817, guid: af1cf89111c1f24468518e49a629e67e, type: 3}
-  - <RaItemWeight>k__BackingField: 1
-    <Character>k__BackingField: {fileID: 4686129856981903817, guid: 792a7fd8ed32d6f42b23f6974d3b158b, type: 3}
   _amountToSpawn: 6
 --- !u!1 &1151905764
 GameObject:
