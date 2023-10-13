@@ -22,7 +22,7 @@ namespace Screens.Game
 			base.OnDeinit();
 		}
 
-		private void OnLastStateExitEvent()
+		protected virtual void OnLastStateExitEvent()
 		{
 			FSM_GoToNextState();
 		}

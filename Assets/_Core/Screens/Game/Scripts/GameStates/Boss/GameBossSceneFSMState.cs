@@ -1,5 +1,4 @@
-﻿using Assets.HeroEditor.Common.Scripts.Common;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Screens.Game
 {
@@ -179,6 +178,11 @@ namespace Screens.Game
 			}
 
 			base.OnExit(isSwitch); 
+		}
+
+		protected override void OnLastStateExitEvent()
+		{
+
 		}
 
 		public GameCharacterEntity GetCharacter(int index)
