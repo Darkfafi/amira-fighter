@@ -180,11 +180,6 @@ namespace Screens.Game
 			base.OnExit(isSwitch); 
 		}
 
-		protected override void OnLastStateExitEvent()
-		{
-
-		}
-
 		public GameCharacterEntity GetCharacter(int index)
 		{
 			if(index < 0)

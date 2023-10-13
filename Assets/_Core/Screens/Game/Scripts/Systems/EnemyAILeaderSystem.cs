@@ -260,7 +260,6 @@ namespace Screens.Game
 			{
 				if(token.IsCancellationRequested)
 				{
-					Debug.Log("End Leader Attacker Routine");
 					break;
 				}
 
@@ -270,7 +269,6 @@ namespace Screens.Game
 				}
 				catch
 				{
-					Debug.Log("End Leader Attacker Routine");
 					break;
 				}
 
